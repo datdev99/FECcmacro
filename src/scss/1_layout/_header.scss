@@ -1,0 +1,123 @@
+/* Header
+------------------------------------------------------------*/
+.c-header {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    background-color: #0f172a;
+    color: #fff;
+    height: 80px;
+  
+    &__inner {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      // @include mq(xxl, max) {
+      //   padding: 29px 100px;
+      // }
+  
+      // @include mq(xl, max) {
+      //   padding: 29px 40px;
+      // }
+  
+      // @include mq(md, max) {
+      //   padding: 15px 20px;
+      // }
+    }
+  
+    // &__logo {
+    //   width: 210px;
+    //   height: 70px;
+  
+    //   img {
+    //     width: 100%;
+    //     height: 100%;
+  
+    //     @include sp {
+    //       width: 80%;
+    //     }
+    //   }
+    // }
+  
+    &.is-scroll {
+      background-color: #FFF;
+      z-index: 999999;
+      top: 0 !important;
+      min-height: 50px;
+      box-shadow: 0 3px 6px 3px rgb(0 0 0 / 6%);
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: fadeInDown;
+      animation-name: fadeInDown;
+      background: #fff !important;
+  
+      .logo {
+        display: none;
+      }
+  
+      .logo1 {
+        display: block;
+      }
+  
+      ul {
+        li {
+          color: #000;
+  
+          &::after {
+            background-color: #000;
+          }
+        }
+      }
+    }
+
+    .menu {
+      display: flex;
+    }
+    
+    .menu ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    .menu li {
+      margin-right: 20px;
+    }
+    
+    .menu a {
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    
+    .menu a:hover {
+      color: #555;
+    }
+    
+    .search {
+      width: 300px;
+    }
+    
+    .search input {
+      width: 80%;
+      height: 40px;
+      border: none;
+      outline: none;
+    }
+    
+    .search button {
+      width: 20%;
+      height: 40px;
+      border: none;
+      outline: none;
+    }
+    
+    .search img {
+      width: 100%;
+    }
+  }

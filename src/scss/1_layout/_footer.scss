@@ -1,0 +1,125 @@
+/*------------------------------------------------------------
+footer
+------------------------------------------------------------*/
+.c-footer {
+
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: #b1b5c3;
+  
+    @include sp {
+      font-size: 1.4rem;
+    }
+  
+    &__inner {
+      border-top: 1px solid #23262f;
+      border-bottom: 1px solid #23262f;
+    }
+  
+    &__info {
+      display: flex;
+  
+      @include sp {
+        flex-direction: column;
+      }
+    }
+  
+    &__left,
+    &__right {
+      width: 31.5%;
+      padding-top: 58px;
+      padding-bottom: 52px;
+  
+      @include mq(xl,max) {
+        width: 35%;
+      }
+      @include mq(md, max) {
+        width: 100%;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    }
+  
+    &__social {
+      display: flex;
+      margin-top: 18px;
+  
+      @include mq(md, max) {
+        justify-content: center;
+      }
+  
+      a {
+        margin-right: 29px;
+  
+        &:nth-child(1) {
+          margin-right: 32px;
+        }
+      }
+    }
+  
+    &__left {
+      padding-right: 10%;
+  
+      @include mq(xl, max) {
+        padding-right: 40px;
+      }
+  
+      @include mq(md, max) {
+        padding-right: 20px;
+        text-align: center;
+      }
+    }
+  
+    &__mid {
+      width: 37%;
+      border-left: 1px solid #23262f;
+      border-right: 1px solid #23262f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      @include mq(xl,max) {
+        width: 30%;
+      }
+      @include mq(md, max) {
+        width: 100%;
+        border-left: unset;
+        border-right: unset;
+      }
+    }
+  
+    &__right {
+  
+      ul {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 7px 7%;
+        padding-left: 10%;
+  
+        @include mq(xl, max) {
+          // grid-gap: 7px 25%;
+          padding-left: 40px;
+        }
+  
+        @include mq(lg, max) {
+          grid-gap: 7px 10%;
+          justify-content: space-between;
+        }
+  
+        @include mq(md, max) {
+          padding-left: 20px;
+          grid-template-columns: auto auto auto;
+          padding-left: 0;
+          max-width: 500px;
+          margin: auto;
+        }
+      }
+    }
+  
+    &__copyright {
+      text-align: center;
+      padding-top: 13px;
+      padding-bottom: 13px;
+      letter-spacing: 0.02em;
+    }
+  }
