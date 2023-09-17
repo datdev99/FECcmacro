@@ -1,14 +1,14 @@
 import React from 'react'
-import Login from './login'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
+import Register from './register'
 
 const page = () => {
   return (
     <>
         <Header />
-        <main className='p-login'>
-          <Login />
+        <main className='p-register'>
+          <Register />
         </main>
         <Footer />
     </>

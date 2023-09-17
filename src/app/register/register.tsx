@@ -3,9 +3,11 @@
 // import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [fullname, setFullname] = useState('');
+  const [phone, setPhone] = useState('');
   const [rememberPassword, setRememberPassword] = useState(false);
   // const router = useRouter();
 
@@ -19,8 +21,8 @@ const Login = () => {
   return (
     <div className="l-container--2">
       <div className='form'>
-        <h1>Đăng nhập</h1>
-        <p className='txt-small'>Vui lòng điền tên người dùng và mật khẩu của bạn.</p>
+        <h1>Đăng ký</h1>
+        {/* <p>Vui lòng điền tên người dùng và mật khẩu của bạn.</p> */}
         <hr />
 
         <form onSubmit={handleSubmit}>
@@ -49,15 +51,34 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div>
+            <label htmlFor="fullname"><b>Họ và tên</b></label>
+            <input
+              type="text"
+              placeholder="Nhập họ và tên"
+              name="fullname"
+              id="fullname"
+              required
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="fullname"><b>Số điện thoại</b></label>
+            <input
+              type="number"
+              placeholder="Nhập số điện thoại"
+              name="phone"
+              id="phone"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
 
-          <button type="submit" className="loginbtn">Đăng nhập</button>
-
-          <label>
-            <input type="checkbox" defaultChecked={true} name="remember" /> Nhớ mật khẩu
-          </label>
-
+          <button type="submit" className="loginbtn">Đăng ký</button>
           <div className="signin">
-            <p>Bạn chưa có tài khoản? <a href="/register">Đăng ký</a>.</p>
+            <p>Bạn đã có tài khoản? <a href="/login">Đăng nhập</a>.</p>
             <p>Quên mật khẩu? <a href="#">Lấy lại</a>.</p>
           </div>
         </form>
@@ -66,4 +87,4 @@ const Login = () => {
   );
 }
 
-export default (Login);
+export default (Register);

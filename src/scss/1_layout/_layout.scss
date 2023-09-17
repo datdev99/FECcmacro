@@ -1,51 +1,60 @@
 /* layout
 ------------------------------------------------------------*/
 body {
-    font-family: $main-fonts;
-    font-size: 1.6rem;
-    background-color: #fff;
-    color: #020617;
-    font-weight: 400;
-  
-    &.is-active {
-      overflow: hidden;
-    }
+  font-family: $main-fonts;
+  font-size: 1.6rem;
+  background-color: #fff;
+  color: #020617;
+  font-weight: 400;
+
+  &.is-active {
+    overflow: hidden;
   }
-  
-  //-------------------------------------------------------
-  main {
-    // padding: 0px 0 100px;
-    padding-top: 95px;
+}
+
+//-------------------------------------------------------
+main {
+  // padding: 0px 0 100px;
+  padding-top: 95px;
+  padding-bottom: 15px;
+}
+
+//-------------------------------------------------------
+.l-container {
+  max-width: 1410px;
+  margin: 0 auto;
+
+  @include mq(xxl, max) {
+    padding: 0 25px;
   }
-  
-  //-------------------------------------------------------
-  .l-container {
-    max-width: 1410px;
-    margin: 0 auto;
-  
+
+  @include mq(md, max) {
+    padding: 0 20px;
+  }
+
+  &--1 {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
     @include mq(xxl, max) {
-      padding: 0 25px;
+      padding-left: 40px;
+      padding-right: 40px;
     }
-  
+
     @include mq(md, max) {
-      padding: 0 20px;
-    }
-  
-  
-  
-    &--1 {
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-  
-      @include mq(xxl, max) {
-        padding-left: 40px;
-        padding-right: 40px;
-      }
-  
-      @include mq(md, max) {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }
+
+  &--2 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.p-login, .p-register {
+  background-color: #f1f5f9;
+}
