@@ -60,14 +60,16 @@ const page = () => {
     <>
         <Header />
         <main className='bg-1'>
-          <Broker data={brokerProps} />
+          <div className='l-container--1'>
+            <Broker data={brokerProps} />
 
-          {data.map((item) => (
-            <>
-              <p>{item.firstName}</p>
-              <p>{item.lastName}</p>
-            </>
-          ))}
+            {/* {data.map((item) => (
+              <>
+                <p>{item.firstName}</p>
+                <p>{item.lastName}</p>
+              </>
+            ))} */}
+          </div>
         </main>
     </>
   )
