@@ -16,7 +16,8 @@ const Header = () => {
                 </div>
                 <nav className="menu">
                     <ul>
-                        <li><a href="https://brokerchooser.com/broker-reviews">Broker Reviews</a></li>
+                        <li><a href="/broker-reviews">Broker Reviews</a></li>
+                        <li><a href="/login">login</a></li>
                         <li><a href="https://brokerchooser.com/compare-brokers">Compare Brokers</a></li>
                         <li><a href="https://brokerchooser.com/how-to-invest">How to Invest</a></li>
                         <li><a href="https://brokerchooser.com/blog">Blog</a></li>
