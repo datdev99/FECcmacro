@@ -1,41 +1,30 @@
 "use client"
 
 import Header from '@/components/Header/Header'
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import Broker from './broker'
-import { apiGetSuperHero } from "@/lib/api-request"
-
-// interface BrokerProps {
-//   term: {
-//     id: number;
-//     logo: string;
-//     company_name: string;
-//     desc: string;
-//     best: string;
-//     alt: string;
-//   }[];
-// }
+// import { apiGetSuperHero } from "@/lib/api-request"
 
 
 const page = () => {
-  const [data, setData] = useState([])
-  async function fetchData() {
-    try {
-      const superHeroData = await apiGetSuperHero();
-      setData(superHeroData)
-      console.log(data,"data");
-      // Do something with superHeroData
-    } catch (error) {
-      // Handle any errors that occurred during the API request
-      console.error('API Error:', error);
-    }
-  }
+  // const [data, setData] = useState([])
+  // async function fetchData() {
+  //   try {
+  //     const superHeroData = await apiGetSuperHero();
+  //     setData(superHeroData)
+  //     console.log(data,"data");
+  //     // Do something with superHeroData
+  //   } catch (error) {
+  //     // Handle any errors that occurred during the API request
+  //     console.error('API Error:', error);
+  //   }
+  // }
   
-  useEffect(() => {
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  // Call the fetchData function
+  // useEffect(() => {
+  //   fetchData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+  // // Call the fetchData function
   
   
   const brokerProps = [
@@ -63,10 +52,12 @@ const page = () => {
           <div className='l-container--1'>
             <Broker data={brokerProps} />
 
-            {/* {data.map((item) => (
+            {/* {data.map((item, index) => (
               <>
-                <p>{item.firstName}</p>
-                <p>{item.lastName}</p>
+                <div key={index}>
+                  <p>{item.firstName}</p>
+                  <p>{item.lastName}</p>
+                </div>
               </>
             ))} */}
           </div>
