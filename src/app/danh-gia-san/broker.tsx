@@ -32,9 +32,9 @@ const Broker = (props: Props) => {
           <table className="rating-table__body">
             <thead>
               <tr className="table-titles ">
-                <th className="level">Position </th>
-                <th className="score">Overall score </th>
-                <th className="broker">Broker </th>
+                <th className="level">Xếp hạng </th>
+                <th className="score">Điểm sàn </th>
+                <th className="broker">Tên sàn </th>
                 <th className="deposit">Min. deposit </th>
                 <th className="vote">Vote</th>
                 <th className="open-account">Review </th>

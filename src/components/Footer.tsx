@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__top">
-        <div className="footer__container">
+        <div className="l-container--1">
           <div className="footer__info info-footer">
             <div className="info-footer__item desc _ibg">
                 <a href="/">
@@ -139,12 +139,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__bottom2" id="footer-bottom2">
-        <div className="footer__container">
+        <div className="l-container--1">
           {/* Bạn có thể sao chép phần HTML của footer ở đây */}
         </div>
       </div>
       <div className="footer__bottom3">
-        <div className="footer__container">
+        <div className="l-container--1">
           {/* Bạn có thể sao chép phần HTML của footer ở đây */}
         </div>
       </div>
