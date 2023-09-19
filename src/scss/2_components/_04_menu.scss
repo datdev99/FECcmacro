@@ -39,14 +39,27 @@
 }
 
 .menu ul li a {
-    display: block;
+    display: flex;
     padding: 20px;
     color: white;
     text-decoration: none;
-}
+    align-items: center;
+    justify-content: space-between;
 
-.menu ul li:hover>a {
-    background-color: #e91e63;
+    svg {
+        width: 15px;
+        margin-left: 5px;
+        margin-top: 2px;
+        transition: .5s ease-in-out;
+    }
+
+    // &:hover {
+    //     background-color: #e91e63;
+
+    //     svg {
+    //         rotate: 180deg;
+    //     }
+    // }
 }
 
 .menu ul li ul {

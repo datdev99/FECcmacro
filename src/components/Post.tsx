@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import img from "../../public/assets/images/livestream-1709.webp"
 
-const New = () => {
+const Post = () => {
     let news = [
         {
             id: 1,
@@ -152,7 +152,7 @@ const New = () => {
   return (
     <>
         {
-            news.slice(0, 6).map((item, index) => (
+            news.map((item, index) => (
                 <div className="box-new">
                     <article className="new">
                         <a href={item.url} title={item.time} className="image">
@@ -182,4 +182,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default Post;

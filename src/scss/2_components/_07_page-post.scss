@@ -1,0 +1,58 @@
+#page-post {
+    .box-new {
+        width: 100%;
+        padding: 0;
+    }
+
+    .title {
+        margin: 2rem 0;
+    }
+
+    .content {
+        display: flex;
+        margin: 0 -1.6rem;
+    }
+
+    .post-list, .sidebar {
+        flex: 0 0 auto;
+    }
+    
+    .post-list {
+        width: calc((100% * 2) / 3);
+        padding: 0 1.6rem;
+    }
+
+    .sidebar {
+        width: calc((100% * 1) / 3);
+        padding: 0 1.6rem;
+
+        // .advertisement {
+
+        // }
+
+        .item {
+            background: #fff;
+            border: none;
+            border-radius: 1.2rem;
+            box-shadow: 0 0.5rem 3rem 0 rgba(0,0,0,.1);
+            display: block;
+            margin-top: 0;
+            margin-right: -16px;
+            margin-left: -16px;
+            padding-top: 1rem;
+            padding-right: 16px;
+            padding-bottom: 1rem;
+            padding-left: 16px;
+
+            &:not(:last-child) {
+                margin-bottom: 30px;
+            }
+
+            img {
+                object-fit: contain;
+                height: auto;
+                border-radius: 1.2rem;
+            }
+        }
+    }
+}

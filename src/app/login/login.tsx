@@ -1,19 +1,44 @@
 "use client";
 
+import axios from 'axios';
 // import { useRouter } from 'next/router';
 import React, { useState } from 'react'
+import {route} from '@/lib/api-request'
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberPassword, setRememberPassword] = useState(false);
-  // const router = useRouter();
+  const router = useRouter();
 
-  const handleSubmit = () => {
-    // e.preventDefault();
-    // Xử lý đăng nhập ở đây, ví dụ kiểm tra tên người dùng và mật khẩu
-    // Nếu đăng nhập thành công, bạn có thể định tuyến đến trang chính
-    // router.push('/');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`https://localhost:7256/api/Auth/login`, { username, password });
+      const  token  = response.data;
+      // Lưu token vào cookie
+      document.cookie = `token=${token}; path=/`;
+
+      if (token) {
+        return router.push("/profile")
+      }
+      
+      if(response.data.status == "401") {
+        alert("11")
+      }
+      
+      // Redirect hoặc thực hiện hành động khác sau khi đăng nhập thành công
+    } catch (error) {
+      // Xử lý lỗi đăng nhập
+      console.error(error.response.status,"e");
+      if(error.response.status == "401") {
+        alert("sai user")
+      }
+      if(error.response.status == "402") {
+        alert("sai mk")
+      }
+    }
   };
 
   return (
