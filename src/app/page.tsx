@@ -3,7 +3,6 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header/Header'
 import New from '@/components/New'
-import RssPage from '@/components/rss'
 import React from 'react'
 
 const page = () => {
@@ -15,7 +14,7 @@ const page = () => {
         <div className='list-news'>
           <New />
         </div>
-        <RssPage />
+        {/* <RssPage /> */}
       </main>
       <Footer />
     </>

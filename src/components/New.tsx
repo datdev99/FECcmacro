@@ -152,8 +152,8 @@ const New = () => {
   return (
     <>
         {
-            news.slice(0, 6).map((item, index) => (
-                <div className="box-new">
+            news.slice(0, 6).map((item:any, index) => (
+                <div className="box-new" key={index}>
                     <article className="new">
                         <a href={item.url} title={item.time} className="image">
                         <span>

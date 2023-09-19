@@ -24,24 +24,24 @@ export default function RssPage({ titles }  : any ) {
   );
 }
 
-export async function getServerSideProps() {
-  // Lấy dữ liệu từ url rss
-  const res = await fetch('https://vnexpress.net/rss/kinh-doanh.rss');
-  const data = await res.text();
+// export async function getServerSideProps() {
+//   // Lấy dữ liệu từ url rss
+//   const res = await fetch('https://vnexpress.net/rss/kinh-doanh.rss');
+//   const data = await res.text();
 
-  // Tạo một đối tượng Feed từ dữ liệu
-  const feed = new Feed(data);
+//   // Tạo một đối tượng Feed từ dữ liệu
+//   const feed = new Feed(data);
 
-  // Lấy tiêu đề của các bài viết
-  const titles = feed.items.map((item) => item.title);
+//   // Lấy tiêu đề của các bài viết
+//   const titles = feed.items.map((item) => item.title);
 
-  // In ra giá trị của titles trên terminal hoặc console của máy chủ
-  console.log(titles,"titles")
+//   // In ra giá trị của titles trên terminal hoặc console của máy chủ
+//   console.log(titles,"titles")
 
-  // Trả về tiêu đề như props
-  return {
-    props: {
-      titles,
-    },
-  };
-}
+//   // Trả về tiêu đề như props
+//   return {
+//     props: {
+//       titles,
+//     },
+//   };
+// }

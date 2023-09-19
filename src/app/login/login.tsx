@@ -1,18 +1,19 @@
 "use client";
 
 import axios from 'axios';
-// import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import {route} from '@/lib/api-request'
 import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberPassword, setRememberPassword] = useState(false);
   const router = useRouter();
+  
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
       const response = await axios.post(`https://localhost:7256/api/Auth/login`, { username, password });
@@ -29,14 +30,20 @@ const Login = () => {
       }
       
       // Redirect hoặc thực hiện hành động khác sau khi đăng nhập thành công
-    } catch (error) {
+    } catch (error:any) {
       // Xử lý lỗi đăng nhập
       console.error(error.response.status,"e");
       if(error.response.status == "401") {
-        alert("sai user")
+        toast.error("Sai tài khoản!", {
+          icon: "😢",
+          position: "top-right",
+        });
       }
       if(error.response.status == "402") {
-        alert("sai mk")
+        toast.error("Sai mật khẩu!", {
+          icon: "😢",
+          position: "top-right",
+        });
       }
     }
   };
@@ -86,6 +93,7 @@ const Login = () => {
             <p>Quên mật khẩu? <a href="#">Lấy lại</a>.</p>
           </div>
         </form>
+        <ToastContainer autoClose={2000} />
       </div>
       </div>
   );
