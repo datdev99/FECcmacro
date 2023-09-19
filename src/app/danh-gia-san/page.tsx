@@ -31,25 +31,29 @@ const page = () => {
       {
         id: 1,
         logo: '/assets/images/broker-img.webp',
-        company_name: 'Company 1',
+        company_name: 'ZFX',
         desc: 'Description 2',
         best: 'Best 1',
         alt: 'Alt 1',
+        score: 9.65,
+        ranking: 1,
       }, 
       {
         id: 2,
         logo: '/assets/images/broker-img.webp',
-        company_name: 'Company 1',
+        company_name: 'FTX',
         desc: 'Description 1',
         best: 'Best 1',
         alt: 'Alt 1',
+        score: 8.35,
+        ranking: 2,
       },
     ]
   return (
     <>
         <Header />
         <main className='bg-1'>
-          <div className='l-container--1'>
+          <div className='l-container--3'>
             <Broker data={brokerProps} />
 
             {/* {data.map((item, index) => (

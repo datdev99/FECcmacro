@@ -469,18 +469,18 @@
     flex-direction: column;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
 }
 
 .rating .rating-table__body .table-row li.open-account .btn-wrapper-column>*,.rating .rating-table__body .table-row td.open-account .btn-wrapper-column>*,.rating .rating-table__body .table-row th.open-account .btn-wrapper-column>* {
-    width: 100%
+    width: 100%;
 }
 
 .rating .rating-table__body .table-row li.open-account .btn-wrapper-column .broker-risk-notify__container,.rating .rating-table__body .table-row td.open-account .btn-wrapper-column .broker-risk-notify__container,.rating .rating-table__body .table-row th.open-account .btn-wrapper-column .broker-risk-notify__container {
     width: 100%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .rating .rating-table__body .table-row li.open-account .btn,.rating .rating-table__body .table-row td.open-account .btn,.rating .rating-table__body .table-row th.open-account .btn {
@@ -495,20 +495,21 @@
     font-size: 14px;
     -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.27);
     box-shadow: 1px 1px 2px rgba(0,0,0,.27);
-    border-radius: 5px
+    border-radius: 5px;
+    line-height: 25px;
 }
 
 .rating .rating-table__body .table-row li.open-account .btn.btn--grey-light,.rating .rating-table__body .table-row td.open-account .btn.btn--grey-light,.rating .rating-table__body .table-row th.open-account .btn.btn--grey-light {
     background-color: #f2f2f2;
-    color: #455a64
+    color: #455a64;
 }
 
 .rating .rating-table__body .table-row li.open-account .btn.btn--grey-light:active,.rating .rating-table__body .table-row li.open-account .btn.btn--grey-light:hover,.rating .rating-table__body .table-row td.open-account .btn.btn--grey-light:active,.rating .rating-table__body .table-row td.open-account .btn.btn--grey-light:hover,.rating .rating-table__body .table-row th.open-account .btn.btn--grey-light:active,.rating .rating-table__body .table-row th.open-account .btn.btn--grey-light:hover {
-    background-color: #e5e5e5
+    background-color: #e5e5e5;
 }
 
 .rating .rating-table__body .table-row li.open-account .broker-risk-notify,.rating .rating-table__body .table-row td.open-account .broker-risk-notify,.rating .rating-table__body .table-row th.open-account .broker-risk-notify {
-    max-width: 200px
+    max-width: 200px;
 }
 
 .rating .rating-table__body .table-row li.open-account .broker-risk-notify__container,.rating .rating-table__body .table-row td.open-account .broker-risk-notify__container,.rating .rating-table__body .table-row th.open-account .broker-risk-notify__container {
@@ -518,7 +519,7 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    max-width: 413px
+    max-width: 413px;
 }
 
 .rating .rating-table__body .table-row li.broker-compare,.rating .rating-table__body .table-row td.broker-compare,.rating .rating-table__body .table-row th.broker-compare {

@@ -1,6 +1,7 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import logo from "@/assets/images/broker-img.webp";
+import Login from "../login/login";
 
 //
 interface Props {
@@ -15,9 +16,47 @@ interface IF_Data {
   desc: any;
   best: any;
   alt: any;
+  score: any;
+  ranking: any;
 }
 
 const Broker = (props: Props) => {
+  const [active, setActive] = useState('');
+  function checkTokenInCookies() {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith('token=')) {
+        // Tìm thấy cookies có tên "token"
+        const token = cookie.substring('token='.length);
+        // Kiểm tra token ở đây
+        if (isValidToken(token)) {
+          return true;
+        }
+      }
+    }
+
+    function isValidToken(token:any) {
+      // Thực hiện kiểm tra token ở đây, ví dụ: kiểm tra hết hạn, chữ ký, ...
+      // Nếu token hợp lệ, trả về true, ngược lại, trả về false.
+      // Ví dụ đơn giản:
+      return token && token.length > 0;
+    }
+
+
+    return false;
+  }
+
+  const handleDanhGia = () => {
+    // Sử dụng hàm kiểm tra
+    if (checkTokenInCookies()) {
+      setActive('')
+      console.log('Có token trong cookies.');
+    } else {
+      setActive('is-active')
+      console.log('Không có token trong cookies.');
+    }
+  }
   return (
     <>
       <div className="rating">
@@ -35,82 +74,68 @@ const Broker = (props: Props) => {
                 <th className="level">Xếp hạng </th>
                 <th className="score">Điểm sàn </th>
                 <th className="broker">Tên sàn </th>
-                <th className="deposit">Min. deposit </th>
                 <th className="vote">Vote</th>
                 <th className="open-account">Review </th>
               </tr>
             </thead>
             <tbody>
-              <tr className="table-row">
-                <td className="level">
-                  <div className="icon icon--first">
-                    <i className="icon__rating__cup1-clear"></i>
-                  </div>
-                  <div className="place hide-desktop">Ranking position </div>
-                </td>
-                <td className="score">
-                  <div>
-                    {/* <a href="https://po.trade/smart/9IhmiQxQt9V6Li" target="_blank" rel="nofollow sponsored" className="link-not-filled">
-                    <Image src={logo} width={60} height={25} loading="lazy" alt="Logo Pocket Option">
-                  </a> */}
-                  </div>
-                  <div className="progres-wrap">
-                    <div className="bar-wrap">
-                      <span className="bar-fill" style={{width: '96.5%'}}></span>
+              {props.data.map((broker) => (
+                <tr className="table-row" key={broker.id}>
+                  <td className="level">
+                    {/* <div className="icon icon--first">
+                      <i className="icon__rating__cup1-clear"></i>
                     </div>
-                    <span className="bar-value">9.65</span>
-                  </div>
-                </td>
-                <td className="broker">
-                  {/* <a href="/brokers/binary/view/pocketoption/" className="link-not-filled hide-mobile">Pocket Option</a> */}
-                  <p>Pocket Option</p>
-                  <div className="progres-wrap hide-desktop">
-                    <span>
-                      <span className="mobile-label">Overall score:</span>
-                      <span className="bar-value">9.65</span>/10
-                    </span>
-                    <div className="bar-wrap">
-                      <span className="bar-fill"></span>
+                    <div className="place hide-desktop">Ranking position </div> */}
+                    {broker.ranking}
+                  </td>
+                  <td className="score">
+                    <div className="progres-wrap">
+                      <div className="bar-wrap">
+                        <span className="bar-fill" style={{width: `${broker.score*10}%`}}></span>
+                      </div>
+                      <span className="bar-value">{broker.score}</span>
                     </div>
-                  </div>
-                </td>
-                <td className="deposit">
-                  <span className="mobile-label">Min. deposit:</span>
-                  <p>$5</p>
-                </td>
-                <td className="vote">
-                  <button className="btn btn--grey-light">
-                    Đánh giá
-                  </button>
-                </td>
-                <td className="open-account">
-                  <a className="btn btn--grey-light" href="/brokers/binary/view/pocketoption/">
-                    STUDY REVIEW 
-                  </a>
-                </td>
-              </tr>
+                  </td>
+                  <td className="broker">
+                    <p>{broker.company_name}</p>
+                  </td>
+                  <td className="vote">
+                    <button className="btn btn--grey-light" onClick={handleDanhGia}>
+                      Đánh giá
+                    </button>
+                  </td>
+                  <td className="open-account">
+                    <a className="btn btn--grey-light" href="/brokers/binary/view/pocketoption/">
+                      Xem đánh giá
+                    </a>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
-    </>
-    // <div className='list-broker'>
-    //     {props.data.map(broker => (
-    //       <div className='broker-box'>
-    //         <div>
-    //         <p>{broker.id}</p>
-    //         </div>
-    //         <div className='broker-box__logo'>
-    //             <Image src={broker.logo} width={64} height={64}  alt='a' />
-    //         </div>
-    //         <h3>{broker.company_name}</h3>
-    //         <p>
-    //           {broker.desc}
-    //         </p>
-    //       </div>
-    //     ))}
+      <div className={`popup-login ${active}`}>
+        <Login />
+      </div>
+      {/* <div className='list-broker'>
+          {props.data.map(broker => (
+            <div className='broker-box'>
+              <div>
+              <p>{broker.id}</p>
+              </div>
+              <div className='broker-box__logo'>
+                  <Image src={broker.logo} width={64} height={64}  alt='a' />
+              </div>
+              <h3>{broker.company_name}</h3>
+              <p>
+                {broker.desc}
+              </p>
+            </div>
+          ))}
 
-    // </div>
+      </div> */}
+    </>
   );
 };
 

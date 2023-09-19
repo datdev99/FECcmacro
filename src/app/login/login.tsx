@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {route} from "@/lib/api-request";
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -14,6 +15,7 @@ const Login = () => {
   
 
   const handleSubmit = async (e:any) => {
+    alert(await route)
     e.preventDefault();
     try {
       const response = await axios.post(`https://localhost:7256/api/Auth/login`, { username, password });

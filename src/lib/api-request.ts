@@ -4,9 +4,9 @@ import axios from "axios";
 
 const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "https://localhost:7256";
 
-export function route() {
+export async function route() {
   return SERVER_ENDPOINT;
-}
+} 
 
 async function handleResponse<T>(response: Response): Promise<T> {
   const contentType = response.headers.get("Content-Type") || "";
