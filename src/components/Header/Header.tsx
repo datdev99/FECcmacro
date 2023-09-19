@@ -30,13 +30,13 @@ const Header = () => {
                     <ul>
                         <li><a href="/kien-thuc">Kiến thức cơ bản <FontAwesomeIcon icon={faAngleDown} /></a>
                         <ul>
-                            <li><a href="#">Ngoại hối</a></li>
-                            <li><a href="#">Chứng khoán</a></li>
-                            <li><a href="#">Hàng hóa</a></li>
-                            <li><a href="#">Vàng</a></li>
-                            <li><a href="#">Dầu thô</a></li>
-                            <li><a href="#">Tiền điện tử</a></li>
-                            <li><a href="#">Kinh tế, tài chính</a></li>
+                            <li><a href="/kien-thuc/ngoai-hoi">Ngoại hối</a></li>
+                            <li><a href="/kien-thuc/chung-khoan">Chứng khoán</a></li>
+                            <li><a href="/kien-thuc/hang-hoa">Hàng hóa</a></li>
+                            <li><a href="/kien-thuc/vang">Vàng</a></li>
+                            <li><a href="/kien-thuc/dau-tho">Dầu thô</a></li>
+                            <li><a href="/kien-thuc/tien-dien-tu">Tiền điện tử</a></li>
+                            <li><a href="/kien-thuc/kinh-te-tai-chinh">Kinh tế, tài chính</a></li>
                         </ul>
                         </li>
                         <li><a href="#">Phân tích <FontAwesomeIcon icon={faAngleDown} /></a>
