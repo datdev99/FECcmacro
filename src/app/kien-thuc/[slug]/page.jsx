@@ -48,7 +48,7 @@ const Page = () => {
 
     useEffect(() => {
         if (check.length === 0) {
-          router.push("/404");
+          router.push("/");
         } else {
           setTitle(check[0].name); // Sử dụng check[0].name thay vì check.name
         }
