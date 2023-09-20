@@ -100,6 +100,19 @@
     flex: 0 0 8%
 }
 
+.rating .rating-table__body .icon {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 16%;
+    flex: 0 0 16%
+}
+
+.rating .rating-table__body .icon img {
+    width: 80%;
+    height: 40px;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
 .rating .rating-table__body .broker,.rating .rating-table__body .score {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 16%;
@@ -116,6 +129,22 @@
     -webkit-box-flex: 0;
     -ms-flex: 0 0 11%;
     flex: 0 0 11%
+}
+
+.rating .rating-table__body .open-account button{
+    min-width: 155px;
+    min-height: 25px;
+    max-height: 150px !important;
+    max-width: 140px;
+    height: max-content;
+    padding: 1%;
+    font-size: 14px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.27);
+    border-radius: 5px;
+    line-height: 25px;
+    cursor: pointer;
+    background: #71B219;
+    color: #000;
 }
 
 .rating .rating-table__body .regulation-forex {
@@ -425,14 +454,14 @@
     font-size: .8em
 }
 
-.rating .rating-table__body .table-row li.open-account,.rating .rating-table__body .table-row td.open-account,.rating .rating-table__body .table-row th.open-account {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-pack: distribute;
-    justify-content: space-around
-}
+// .rating .rating-table__body .table-row li.open-account,.rating .rating-table__body .table-row td.open-account,.rating .rating-table__body .table-row th.open-account {
+//     -webkit-box-orient: vertical;
+//     -webkit-box-direction: normal;
+//     -ms-flex-direction: column;
+//     flex-direction: column;
+//     -ms-flex-pack: distribute;
+//     justify-content: space-around
+// }
 
 .rating .rating-table__body .table-row li.open-account .btn-wrapper,.rating .rating-table__body .table-row td.open-account .btn-wrapper,.rating .rating-table__body .table-row th.open-account .btn-wrapper {
     display: -webkit-box;

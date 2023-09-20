@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import logo from "@/assets/images/broker-img.webp";
 import Login from "../login/login";
 
 //
@@ -72,10 +71,10 @@ const Broker = (props: Props) => {
             <thead>
               <tr className="table-titles ">
                 <th className="level">Xếp hạng </th>
-                <th className="score">Điểm sàn </th>
+                <th className="icon">Biểu tượng</th>
                 <th className="broker">Tên sàn </th>
-                <th className="vote">Vote</th>
-                <th className="open-account">Review </th>
+                <th className="score">Điểm sàn </th>
+                <th className="open-account">Hành động </th>
               </tr>
             </thead>
             <tbody>
@@ -88,6 +87,12 @@ const Broker = (props: Props) => {
                     <div className="place hide-desktop">Ranking position </div> */}
                     {broker.ranking}
                   </td>
+                  <td className="icon">
+                    <Image src={broker.logo} alt={broker.company_name} width={40} height={20}></Image>
+                  </td>
+                  <td className="broker">
+                    <p>{broker.company_name}</p>
+                  </td>
                   <td className="score">
                     <div className="progres-wrap">
                       <div className="bar-wrap">
@@ -96,15 +101,10 @@ const Broker = (props: Props) => {
                       <span className="bar-value">{broker.score}</span>
                     </div>
                   </td>
-                  <td className="broker">
-                    <p>{broker.company_name}</p>
-                  </td>
-                  <td className="vote">
+                  <td className="open-account">
                     <button className="btn btn--grey-light" onClick={handleDanhGia}>
                       Đánh giá
                     </button>
-                  </td>
-                  <td className="open-account">
                     <a className="btn btn--grey-light" href="/brokers/binary/view/pocketoption/">
                       Xem đánh giá
                     </a>

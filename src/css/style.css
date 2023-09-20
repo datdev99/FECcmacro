@@ -437,7 +437,7 @@ footer
 
 .footer-block .show-less, .footer-block .show-more {
   float: right;
-  color: hsla(0deg, 0%, 97.6%, 0.85) !important;
+  color: hsla(0, 0%, 97.6%, 0.85) !important;
   margin-right: 15px;
   position: relative;
   cursor: pointer;
@@ -1190,6 +1190,21 @@ main {
   flex: 0 0 8%;
 }
 
+.rating .rating-table__body .icon {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 16%;
+  flex: 0 0 16%;
+}
+
+.rating .rating-table__body .icon img {
+  width: 80%;
+  height: 40px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .rating .rating-table__body .broker, .rating .rating-table__body .score {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 16%;
@@ -1206,6 +1221,25 @@ main {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 11%;
   flex: 0 0 11%;
+}
+
+.rating .rating-table__body .open-account button {
+  min-width: 155px;
+  min-height: 25px;
+  max-height: 150px !important;
+  max-width: 140px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 1%;
+  font-size: 14px;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.27);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.27);
+  border-radius: 5px;
+  line-height: 25px;
+  cursor: pointer;
+  background: #71B219;
+  color: #000;
 }
 
 .rating .rating-table__body .regulation-forex {
@@ -1509,15 +1543,6 @@ main {
   color: #2c64eb;
   font-weight: 600;
   font-size: 0.8em;
-}
-
-.rating .rating-table__body .table-row li.open-account, .rating .rating-table__body .table-row td.open-account, .rating .rating-table__body .table-row th.open-account {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
 }
 
 .rating .rating-table__body .table-row li.open-account .btn-wrapper, .rating .rating-table__body .table-row td.open-account .btn-wrapper, .rating .rating-table__body .table-row th.open-account .btn-wrapper {
