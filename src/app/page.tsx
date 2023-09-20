@@ -6,20 +6,29 @@ import New from '@/components/New'
 import React from 'react'
 import banner from '../../public/assets/images/banner-san.png'
 import Image from 'next/image'
+import Mainvisual from '@/components/Mainvisual'
 
 const page = () => {
   return (
     <>
       <Header />
-      <main className='l-container--1'>
-        {/* <Banner /> */}
-        <div className='banner-san'>
-          <Image src={banner} alt='' unoptimized />
+      <main >
+        <Mainvisual />
+        <div className='l-container--1'>
+          <div className='banner-san'>
+            <Image src={banner} alt='' unoptimized />
+          </div>
+          <div className='c-heading'>
+            <h4>
+              <a href="/bai-viet-moi-nhat">Bài viết mới nhất</a>
+            </h4>
+            <a className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</a>
+          </div>
+          <div className='list-news'>
+            <New />
+          </div>
         </div>
-        <div className='list-news'>
-          <New />
-        </div>
-        {/* <RssPage /> */}
+        
       </main>
       <Footer />
     </>

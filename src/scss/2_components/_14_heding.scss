@@ -1,0 +1,47 @@
+.c-heading {
+    align-items: center;
+    border-bottom: 1px solid #13172b;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-bottom: 1.6rem;
+
+    .xem-them {
+        border: 1px solid #000;
+        border-radius: 120px;
+        color: #13172b;
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        padding: 0.8rem 1.6rem;
+        transition-duration: .2s;
+        &:hover {
+            border-color: #42a537;
+            color: #42a537;
+        }
+    }
+
+    h4 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        padding-left: 2rem;
+        position: relative;
+
+        &:hover {
+            color: #42a537;
+        }
+
+        &::before {
+            background-color: #ff464b;
+            border-radius: 50%;
+            content: "";
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            top: 10px;
+            left: 0;
+            position: absolute;
+        }
+    }
+}
