@@ -25,7 +25,6 @@ const Mainvisual = () => {
             </div>
             <div>
                 <Image src={img3} alt=''  quality={80} unoptimized />
-                {/* <img src="https://via.placeholder.com/1920x1080" alt="Slide 1" /> */}
             </div>
             <div>
                 <Image src={img2} alt='' quality={80} unoptimized />
