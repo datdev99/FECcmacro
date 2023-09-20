@@ -3,6 +3,7 @@
 import Header from '@/components/Header/Header'
 // import React, { useEffect, useState } from 'react'
 import Broker from './broker'
+import Footer from '@/components/Footer'
 // import { apiGetSuperHero } from "@/lib/api-request"
 
 
@@ -118,6 +119,7 @@ const page = () => {
             <Broker data={brokerProps} />
           </div>
         </main>
+        <Footer />
     </>
   )
 }
