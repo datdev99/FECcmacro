@@ -17,6 +17,7 @@ interface IF_Data {
   alt: any;
   score: any;
   ranking: any;
+  slug: any;
 }
 
 const Broker = (props: Props) => {
@@ -62,9 +63,6 @@ const Broker = (props: Props) => {
         <div className="rating-table">
           <div className="rating-table__header">
             <div className="header-actions">
-              {/* <div className="search">
-                <input type="text" value="" placeholder="Find a Broker" className="search-input" data-url="/ratings/get-brokers-rating/?showCompareIcon=0&amp;type=binary" fdprocessedid="ujxfw9">
-              </div> */}
             </div>
           </div>
           <table className="rating-table__body">
@@ -81,14 +79,10 @@ const Broker = (props: Props) => {
               {props.data.map((broker) => (
                 <tr className="table-row" key={broker.id}>
                   <td className="level">
-                    {/* <div className="icon icon--first">
-                      <i className="icon__rating__cup1-clear"></i>
-                    </div>
-                    <div className="place hide-desktop">Ranking position </div> */}
                     {broker.ranking}
                   </td>
                   <td className="icon">
-                    <Image src={broker.logo} alt={broker.company_name} width={40} height={20}></Image>
+                    <Image src={broker.logo} alt={broker.company_name} width={40} height={20} quality={80} unoptimized></Image>
                   </td>
                   <td className="broker">
                     <p>{broker.company_name}</p>
@@ -102,10 +96,10 @@ const Broker = (props: Props) => {
                     </div>
                   </td>
                   <td className="open-account">
-                    <button className="btn btn--grey-light" onClick={handleDanhGia}>
+                    {/* <button className="btn btn--grey-light" onClick={handleDanhGia}>
                       Đánh giá
-                    </button>
-                    <a className="btn btn--grey-light" href="/brokers/binary/view/pocketoption/">
+                    </button> */}
+                    <a className="btn btn--grey-light" href={`/danh-gia-san/${broker.slug}`}>
                       Xem đánh giá
                     </a>
                   </td>

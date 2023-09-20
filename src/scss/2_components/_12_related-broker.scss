@@ -1,0 +1,78 @@
+.list-related-broker {
+    margin-bottom: 4.5rem;
+}
+
+.related-broker {
+    // background: rgba(240, 239, 239, 0.22);
+    border: 0.3px solid rgba(147, 146, 146, 0.11);
+    border-radius: 5px;
+    padding: 20px;
+    height: 100px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    box-shadow: 1px 1px 4px 1px rgba(202, 202, 202, 0.11);
+
+    .box {
+        display: flex;
+        margin: 0 -1.2rem;
+    }
+
+    img {
+        width: 60px !important;
+        height: 60px;
+        border: 1px solid #F0EFEF;
+        border-radius: 444px;
+        object-fit: contain;
+    }
+
+    .h2-related a, .h2-related {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        color: #0A0071;
+        text-decoration: none;
+    }
+
+    p {
+        font-style: italic;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        .related-broker p span {
+            font-style: italic;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 21px;
+            color: #DAAA51;
+            margin-left: 10px;
+        }
+    }
+
+    .col-3 {
+        flex: 0 0 auto;
+        padding: 0 1.6rem;
+        width: 30%;
+    }
+
+    .col-9 {
+        flex: 0 0 auto;
+        padding: 0 1.2rem;
+        width: 70%;
+    }
+}
+
+.list-san {
+   
+    .related-broker {
+        border-left: 5px solid rgba(218, 170, 81, 0.55);
+    }
+}
+
+.sidebar-broker-link {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
