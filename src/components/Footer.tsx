@@ -1,6 +1,8 @@
 import React from "react";
 import logo from '../../public/assets/images/logo.svg';
 import Image from "next/image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube, faFacebook, faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
@@ -18,7 +20,7 @@ const Footer = () => {
                 <ul className="inline-menu__list">
                   <li>
                     <a href="/about-us/" className="inline-menu__link">
-                      Our team
+                      Về chúng tôi
                     </a>
                   </li>
                   <li>
@@ -26,27 +28,27 @@ const Footer = () => {
                       href="/methodology-for-evaluation-of-brokers/"
                       className="inline-menu__link"
                     >
-                      Our methodology
+                      Liên hệ
                     </a>
                   </li>
                   <li>
                     <a href="/overall-score/" className="inline-menu__link">
-                      TU Overall Score
+                      Tầm nhìn - Sứ mệnh
                     </a>
                   </li>
                   <li>
                     <a href="/news/" className="inline-menu__link">
-                      TU News
+                      Đánh giá sàn
                     </a>
                   </li>
                   <li>
                     <a href="/support/" className="inline-menu__link">
-                      Contacts
+                      Tin tức
                     </a>
                   </li>
                   <li>
                     <a href="/vacancies/" className="inline-menu__link">
-                      Vacancies
+                      Phân tích
                     </a>
                   </li>
                 </ul>
@@ -58,7 +60,7 @@ const Footer = () => {
                       href="/best-forex-brokers/"
                       className="inline-menu__link"
                     >
-                      Best Forex Brokers
+                      Ngoại hối
                     </a>
                   </li>
                   <li>
@@ -66,7 +68,7 @@ const Footer = () => {
                       href="/ratings/prop/common/"
                       className="inline-menu__link"
                     >
-                      Best Prop Trading Firms
+                      Chứng khoán
                     </a>
                   </li>
                   <li>
@@ -74,12 +76,12 @@ const Footer = () => {
                       href="/ratings/crypto/common/"
                       className="inline-menu__link"
                     >
-                      Best Crypto Exchanges
+                      Hàng hóa
                     </a>
                   </li>
                   <li>
                     <a href="/currencies/" className="inline-menu__link">
-                      Live Quotes and Charts
+                      Vàng
                     </a>
                   </li>
                   <li>
@@ -87,7 +89,20 @@ const Footer = () => {
                       href="/interesting-articles/"
                       className="inline-menu__link"
                     >
-                      Interesting Articles
+                      Dầu thô
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/currencies/" className="inline-menu__link">
+                      Tiền điện tử
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/interesting-articles/"
+                      className="inline-menu__link"
+                    >
+                      Kinh tế - Tài chính
                     </a>
                   </li>
                 </ul>
@@ -95,7 +110,7 @@ const Footer = () => {
             </div>
             <div className="info-footer__item in-social">
               <div className="info-footer__title">
-                <span>We are in Social Media</span>
+                <span>Kết nối với chúng tôi</span>
               </div>
               <div className="info-footer__desc info-footer__desc--tunews">
                 <div className="social">
@@ -105,7 +120,8 @@ const Footer = () => {
                     rel="nofollow"
                     title="Youtube"
                   >
-                    <i className="icon__footer__youtube"></i>
+                    {/* <i className="icon__footer__youtube"></i> */}
+                    <FontAwesomeIcon icon={faYoutube} />
                   </a>
                   <a
                     href="https://www.facebook.com/tradersunioncom/"
@@ -113,26 +129,18 @@ const Footer = () => {
                     rel="nofollow"
                     title="Facebook"
                   >
-                    <i className="icon__footer__facebook"></i>
-                  </a>
-                  <a
-                    href="https://twitter.com/tradersunion_tu"
-                    className="social__item social__item--footer social__item--green _ibg"
-                    rel="nofollow"
-                    title="Twitter"
-                  >
-                    <i className="icon__footer__twitter"></i>
+                     <FontAwesomeIcon icon={faFacebook} />
                   </a>
                   <a
                     href="https://www.instagram.com/tradersunioncom/"
                     className="social__item social__item--footer social__item--green _ibg"
                     rel="nofollow"
-                    title="Instagram"
+                    title="TikTok"
                   >
-                    <i className="icon__footer__instagram"></i>
+                    <FontAwesomeIcon icon={faTiktok} />
                   </a>
                 </div>
-                <p className="copy">© IAFT Ltd., 2010-2023</p>
+                {/* <p className="copy">© IAFT Ltd., 2010-2023</p> */}
               </div>
             </div>
           </div>
