@@ -7,6 +7,7 @@ import React from 'react'
 import banner from '../../public/assets/images/banner-san.png'
 import Image from 'next/image'
 import Mainvisual from '@/components/Mainvisual'
+import Tabs from '@/components/Tabs'
 
 const page = () => {
   return (
@@ -18,6 +19,7 @@ const page = () => {
           {/* <div className='banner-san'>
             <Image src={banner} alt='' unoptimized />
           </div> */}
+          <Tabs />
           <div className='c-heading'>
             <h4>
               <a href="/bai-viet-moi-nhat">Bài viết mới nhất</a>
