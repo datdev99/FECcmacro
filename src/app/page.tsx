@@ -15,9 +15,9 @@ const page = () => {
       <main >
         <Mainvisual />
         <div className='l-container--1'>
-          <div className='banner-san'>
+          {/* <div className='banner-san'>
             <Image src={banner} alt='' unoptimized />
-          </div>
+          </div> */}
           <div className='c-heading'>
             <h4>
               <a href="/bai-viet-moi-nhat">Bài viết mới nhất</a>
