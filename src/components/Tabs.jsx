@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Tabs = () => {
-  const [activeTab, setActiveTab] = useState('London');
+  const [activeTab, setActiveTab] = useState('tin-nhanh');
 
   const openCity = (cityName) => {
     setActiveTab(cityName);
@@ -49,49 +49,35 @@ const Tabs = () => {
     <div className='multi-tab'>
       <div className="tab">
         <button
-          className={`tablinks ${activeTab === 'London' ? 'active' : ''}`}
-          onClick={() => openCity('London')}
+          className={`tablinks ${activeTab === 'tin-nhanh' ? 'active' : ''}`}
+          onClick={() => openCity('tin-nhanh')}
         >
-          Tin mới nhất
+          Tin nhanh
         </button>
         <button
-          className={`tablinks ${activeTab === 'Paris' ? 'active' : ''}`}
-          onClick={() => openCity('Paris')}
+          className={`tablinks ${activeTab === 'phan-tich' ? 'active' : ''}`}
+          onClick={() => openCity('phan-tich')}
         >
           Phân tích
         </button>
-        <button
-          className={`tablinks ${activeTab === 'Tokyo' ? 'active' : ''}`}
-          onClick={() => openCity('Tokyo')}
-        >
-          Lịch kinh tế
-        </button>
       </div>
 
-      <div id="London" className={`tabcontent ${activeTab === 'London' ? 'active' : ''}`}>
-        {data.map(item => (
-          <>
-            <div className='item'>
-              <span>{item.time}</span>
-              <p>{item.title}</p>
-            </div>
-          </>
+      <div id="tin-nhanh" className={`tabcontent ${activeTab === 'tin-nhanh' ? 'active' : ''}`}>
+        {data.map((item,index) => (
+          <div className='item' key={index}>
+            <span>{item.time}</span>
+            <a href='#'>{item.title}</a>
+          </div>
         ))}
-        
-        {/* <div className='item'>
-          <span>1 phút trước</span>
-          <p>Riksbank: Bảo hiểm rủi ro tiền tệ sẽ bắt đầu vào ngày 25 tháng 9 năm 2023 và sẽ hoàn thành đầy đủ trong vòng 4 đến 6 tháng.</p>
-        </div> */}
       </div>
 
-      <div id="Paris" className={`tabcontent ${activeTab === 'Paris' ? 'active' : ''}`}>
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
-      </div>
-
-      <div id="Tokyo" className={`tabcontent ${activeTab === 'Tokyo' ? 'active' : ''}`}>
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+      <div id="phan-tich" className={`tabcontent ${activeTab === 'phan-tich' ? 'active' : ''}`}>
+        {data.map((item, index) => (
+          <div className='item' key={index}>
+            <span>{item.time}</span>
+            <a href='#'>{item.title}</a>
+          </div>
+        ))}
       </div>
     </div>
   )

@@ -93,7 +93,7 @@ const Related_broker = () => {
         },
       ]
   return (
-    <div>
+    <div className='list-brokers'>
         {brokerList.map(broker => (
             <>
                 <div className="related-broker" key={broker.id}>

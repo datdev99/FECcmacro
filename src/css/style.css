@@ -2617,9 +2617,9 @@ mainvisual
 
 /* Style the tab */
 .multi-tab {
-  max-width: 500px;
   -webkit-box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1.2rem;
 }
 
 .tab {
@@ -2649,7 +2649,7 @@ mainvisual
   display: none;
   padding: 6px 12px;
   border-top: none;
-  max-height: 450px;
+  max-height: 535px;
   overflow-y: scroll;
   /* Track */
   /* Handle */
@@ -2684,6 +2684,34 @@ mainvisual
   margin-bottom: 5px;
   display: inline-block;
   font-size: 1.2rem;
+}
+.tabcontent .item a {
+  display: block;
+  font-weight: 500;
+}
+
+.tin-nhanh {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.tin-nhanh .multi-tab {
+  width: 70%;
+}
+.tin-nhanh .san-uy-tin {
+  width: 30%;
+  margin-left: 20px;
+}
+.tin-nhanh .san-uy-tin .heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #0a0071;
+}
+.tin-nhanh .san-uy-tin .related-broker:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5)) {
+  display: none;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

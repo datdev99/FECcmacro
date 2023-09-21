@@ -1,7 +1,8 @@
 /* Style the tab */
 .multi-tab {
-    max-width: 500px;
+    // max-width: 500px;
     box-shadow: 0 0.5rem 3rem 0 rgba(0,0,0,.1);
+    border-radius: 1.2rem;
 }
 
 .tab {
@@ -36,7 +37,7 @@
     padding: 6px 12px;
     // border: 1px solid #ccc;
     border-top: none;
-    max-height: 450px;
+    max-height: 535px;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -74,6 +75,11 @@
             margin-bottom: 5px;
             display: inline-block;
             font-size: 1.2rem;
+        }
+
+        a {
+            display: block;
+            font-weight: 500;
         }
 
         margin-bottom: 15px;
