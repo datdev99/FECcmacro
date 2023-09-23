@@ -4,8 +4,8 @@ import img2 from '../../public/assets/images/mainvisual/img2.webp'
 import img3 from '../../public/assets/images/mainvisual/img3.webp'
 import Image from 'next/image'
 import Slider from "react-slick";
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
+import New from './New'
 
 const Mainvisual = () => {
     const settings = {
@@ -18,19 +18,21 @@ const Mainvisual = () => {
         autoplaySpeed: 3000
       };
   return (
-    <div className='c-mainvisual'>
-        <Slider {...settings}>
-            <div>
-                <Image src={img1} alt='' quality={80} unoptimized />
-            </div>
-            <div>
-                <Image src={img3} alt=''  quality={80} unoptimized />
-            </div>
-            <div>
-                <Image src={img2} alt='' quality={80} unoptimized />
-            </div>
-        </Slider>
-    </div>
+    <>
+        <div className='c-mainvisual'>
+            <Slider {...settings}>
+                <div>
+                    <Image src={img1} alt='' quality={80} unoptimized />
+                </div>
+                <div>
+                    <Image src={img3} alt=''  quality={80} unoptimized />
+                </div>
+                <div>
+                    <Image src={img2} alt='' quality={80} unoptimized />
+                </div>
+            </Slider>
+        </div>
+    </>
   )
 }
 

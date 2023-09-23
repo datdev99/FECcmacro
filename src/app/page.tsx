@@ -7,6 +7,9 @@ import React from 'react'
 import Mainvisual from '@/components/Mainvisual'
 import Tabs from '@/components/Tabs'
 import Related_broker from '@/components/related-broker'
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slide from '@/components/Slide'
 
 const page = () => {
   return (
@@ -15,10 +18,17 @@ const page = () => {
       <main >
         <Mainvisual />
         <div className='l-container--1'>
-          <div className='tin-nhanh'>
-            <Tabs />
+          <div className='layout'>
+            <div className='d-flex'>
+              <div className='slide'>
+                <Slide /> 
+              </div>
+              <div className='tin-nhanh'>
+                <Tabs />
+              </div>
+            </div>
             <div className='san-uy-tin'>
-              <p className='heading'>Các sàn uy tín</p>
+              <p className='heading'>Top 3 sàn uy tín</p>
               <Related_broker />
             </div>
           </div>

@@ -3,6 +3,12 @@
   background-color: #f4f8fe;
 }
 
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 /*------------------------------------------------------------
     Reset
 ------------------------------------------------------------*/
@@ -2616,12 +2622,6 @@ mainvisual
 }
 
 /* Style the tab */
-.multi-tab {
-  -webkit-box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
-  border-radius: 1.2rem;
-}
-
 .tab {
   overflow: hidden;
   margin-bottom: 15px;
@@ -2649,7 +2649,7 @@ mainvisual
   display: none;
   padding: 6px 12px;
   border-top: none;
-  max-height: 535px;
+  max-height: 415px;
   overflow-y: scroll;
   /* Track */
   /* Handle */
@@ -2690,27 +2690,42 @@ mainvisual
   font-weight: 500;
 }
 
-.tin-nhanh {
+.layout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.tin-nhanh .multi-tab {
-  width: 70%;
+.layout .slide {
+  width: 50%;
 }
-.tin-nhanh .san-uy-tin {
+.layout .slide .new {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.layout .slide .new .image {
+  width: 100%;
+}
+.layout .d-flex {
+  width: 70%;
+  -webkit-box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 1.2rem;
+}
+.layout .san-uy-tin {
   width: 30%;
   margin-left: 20px;
 }
-.tin-nhanh .san-uy-tin .heading {
+.layout .san-uy-tin .heading {
   font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 10px;
   color: #0a0071;
 }
-.tin-nhanh .san-uy-tin .related-broker:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4), :nth-child(5)) {
+.layout .san-uy-tin .related-broker:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4)) {
   display: none;
 }
 
