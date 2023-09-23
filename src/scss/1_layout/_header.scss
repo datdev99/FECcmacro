@@ -121,9 +121,13 @@
   }
   
   .login {
-    width: 10%;
+    // width: 10%;
     height: 100%;
     float: right;
+
+    @include mq(tab, max) {
+      display: none;
+    }
   }
   
   .login a {

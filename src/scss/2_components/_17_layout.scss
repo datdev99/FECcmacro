@@ -7,11 +7,23 @@
     .slide {
         width: 50%;
 
+        .slick-dots {
+            button {
+                &::before {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+
         .new {
             flex-direction: column;
 
             .image {
                 width: 100%;
+            }
+
+            .info {
+                margin-top: 10px;
             }
         }
     }

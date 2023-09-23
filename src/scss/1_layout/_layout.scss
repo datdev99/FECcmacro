@@ -10,6 +10,10 @@ body {
   &.is-active {
     overflow: hidden;
   }
+
+  @include mq(xxl, max) {
+    font-size: 1.5rem;
+  }
 }
 
 // body {

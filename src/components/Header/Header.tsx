@@ -84,13 +84,13 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className="login">
-                    {/* <form method="get" action="https://brokerchooser.com/search">
-                        <input type="text" name="q" placeholder="Search for brokers..." />
-                        <button type="submit">
-                        <img src="search-icon.png" alt="Search" />
-                        </button>
-                    </form> */}
                     <a href="/login">Đăng nhập</a>
+                </div>
+                <div className='burger'>
+                    <div className='burger__menu'>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p>MENU</p>
                 </div>
             </div>
             

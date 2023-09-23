@@ -158,7 +158,7 @@ const Slide = () => {
     return formattedDate;
   }
   const settings = {
-    // dots: true,
+    dots: true,
     infinite: true,
     speed: 1000,
     slidesToShow: 1,
