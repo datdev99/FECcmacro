@@ -94,9 +94,9 @@ const Related_broker = () => {
       ]
   return (
     <div className='list-brokers'>
-        {brokerList.map(broker => (
+        {brokerList.map((broker, index) => (
             <>
-                <div className="related-broker" key={broker.id}>
+                <div className="related-broker" key={index}>
                     <div className="box">
                         <div className="col-3">
                         <Image src={broker.logo} alt={broker.alt} width={40} height={20} quality={80} unoptimized />

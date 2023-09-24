@@ -39,16 +39,16 @@ const Header = () => {
                             <li><a href="/kien-thuc/kinh-te-tai-chinh">Kinh tế, tài chính</a></li>
                         </ul>
                         </li>
-                        <li><a href="#">Phân tích <FontAwesomeIcon icon={faAngleDown} /></a>
+                        <li><a href="/phan-tich">Phân tích <FontAwesomeIcon icon={faAngleDown} /></a>
                             <ul>
-                                <li><a href="#">Phân tích kỹ thuật <FontAwesomeIcon icon={faAngleDown} /></a>
+                                <li><a href="/phan-tich/phan-tich-ky-thuat">Phân tích kỹ thuật <FontAwesomeIcon icon={faAngleDown} /></a>
                                     <ul>
-                                    <li><a href="#">Các mẫu biểu đồ</a></li>
+                                    <li><a href="/phan-tich/cac-mau-bieu-do">Các mẫu biểu đồ</a></li>
                                     <li><a href="#">Chỉ báo kỹ thuật</a></li>
                                     <li><a href="#">Khác</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Phân tích thị trường <FontAwesomeIcon icon={faAngleDown} /></a>
+                                <li><a href="/phan-tich/phan-tich-thi-truong">Phân tích thị trường <FontAwesomeIcon icon={faAngleDown} /></a>
                                     <ul>
                                         <li><a href="#">Chứng khoán</a></li>
                                         <li><a href="#">Ngoại hối</a></li>

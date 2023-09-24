@@ -894,6 +894,7 @@ footer
     margin-right: 0;
     margin-top: 0;
     text-align: center;
+    width: 100%;
   }
   .footer__row {
     margin-top: 30px;
@@ -1078,6 +1079,10 @@ main {
 
 .p-login, .p-register {
   background-color: #f1f5f9;
+}
+
+section {
+  margin-bottom: 30px;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
@@ -2032,6 +2037,29 @@ main {
   margin-right: calc(var(--bs-gutter-x) * -0.5);
   margin-left: calc(var(--bs-gutter-x) * -0.5);
 }
+@media screen and (max-width: 1023px) {
+  .list-news .new {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .list-news .new .image {
+    width: 100%;
+  }
+  .list-news .new .info {
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  .list-news .box-new {
+    padding: 0 1.2rem;
+  }
+}
+@media screen and (max-width: 575px) {
+  .list-news .box-new {
+    width: 100%;
+  }
+}
 
 .new {
   display: -webkit-box;
@@ -2090,6 +2118,11 @@ main {
   margin-top: 0;
   overflow: hidden;
 }
+@media screen and (max-width: 1023px) {
+  .new .info h5 {
+    font-size: 1.5rem;
+  }
+}
 .new .info a {
   color: inherit;
   -webkit-transition: color 0.2s ease-in-out;
@@ -2104,6 +2137,11 @@ main {
   font-weight: 400;
   margin-bottom: 0;
   margin-top: 0.8rem;
+}
+@media screen and (max-width: 1023px) {
+  .new .info .desc {
+    font-size: 1.3rem;
+  }
 }
 .new .time {
   font-size: 1.2rem;
@@ -2653,6 +2691,16 @@ mainvisual
      object-fit: cover;
   width: 100%;
 }
+@media screen and (max-width: 1023px) {
+  .c-mainvisual .slick-list img {
+    height: calc(75vh - 60px);
+  }
+}
+@media screen and (max-width: 575px) {
+  .c-mainvisual .slick-list img {
+    height: calc(50vh - 60px);
+  }
+}
 
 .c-heading {
   -webkit-box-align: center;
@@ -2706,9 +2754,20 @@ mainvisual
 }
 
 /* Style the tab */
+@media screen and (max-width: 767px) {
+  .multi-tab {
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
 .tab {
   overflow: hidden;
   margin-bottom: 15px;
+}
+@media screen and (max-width: 767px) {
+  .tab {
+    margin-top: 15px;
+  }
 }
 .tab button {
   background-color: inherit;
@@ -2738,6 +2797,11 @@ mainvisual
   /* Track */
   /* Handle */
   /* Handle on hover */
+}
+@media screen and (max-width: 1023px) {
+  .tabcontent {
+    max-height: 370px;
+  }
 }
 .tabcontent::-webkit-scrollbar {
   width: 10px;
@@ -2774,15 +2838,35 @@ mainvisual
   font-weight: 500;
 }
 
+@media screen and (max-width: 767px) {
+  .tin-nhanh {
+    margin-top: 45px;
+    padding: 0 1.2rem;
+  }
+}
+
 .layout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 30px;
-  margin-bottom: 30px;
+}
+@media screen and (max-width: 1023px) {
+  .layout {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 .layout .slide {
   width: 50%;
+  overflow: hidden;
+}
+@media screen and (max-width: 767px) {
+  .layout .slide {
+    width: 100%;
+  }
 }
 .layout .slide .slick-dots button::before {
   font-size: 1.6rem;
@@ -2805,9 +2889,39 @@ mainvisual
           box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
   border-radius: 1.2rem;
 }
+@media screen and (max-width: 1023px) {
+  .layout .d-flex {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .layout .d-flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
 .layout .san-uy-tin {
   width: 30%;
   margin-left: 20px;
+}
+@media screen and (max-width: 1023px) {
+  .layout .san-uy-tin {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 30px;
+  }
+  .layout .san-uy-tin .list-brokers {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 .layout .san-uy-tin .heading {
   font-size: 2.4rem;
@@ -2817,6 +2931,16 @@ mainvisual
 }
 .layout .san-uy-tin .related-broker:not(:nth-child(1), :nth-child(2), :nth-child(3), :nth-child(4)) {
   display: none;
+}
+@media screen and (max-width: 1023px) {
+  .layout .san-uy-tin .related-broker {
+    width: 48.5%;
+  }
+}
+@media screen and (max-width: 575px) {
+  .layout .san-uy-tin .related-broker {
+    width: 100%;
+  }
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

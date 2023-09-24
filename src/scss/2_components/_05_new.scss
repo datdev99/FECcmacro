@@ -13,6 +13,31 @@
     margin-top: calc(var(--bs-gutter-y)*-1);
     margin-right: calc(var(--bs-gutter-x)*-0.5);
     margin-left: calc(var(--bs-gutter-x)*-0.5);
+
+    @include mq(tab, max) {
+        .new {
+            flex-direction: column;
+
+            .image {
+                width: 100%;
+            }
+
+            .info {
+                padding-left: 0;
+                margin-top: 10px;
+            }
+        }
+
+        .box-new {
+            padding: 0 1.2rem;
+        }
+    }
+
+    @include mq(sm, max) {
+        .box-new {
+            width: 100%;
+        }
+    }
 }
 
 .new {
@@ -66,6 +91,10 @@
             margin-bottom: 0;
             margin-top: 0;
             overflow: hidden;
+
+            @include mq(tab, max) {
+                font-size: 1.5rem;
+            }
         }
 
         a {
@@ -83,6 +112,10 @@
             font-weight: 400;
             margin-bottom: 0;
             margin-top: 0.8rem;
+
+            @include mq(tab, max) {
+                font-size: 1.3rem;
+            }
         }
     }
     .time {

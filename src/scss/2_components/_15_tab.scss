@@ -1,9 +1,19 @@
 /* Style the tab */
 
+.multi-tab {
+    @include mq(md, max) {
+        border-top: 1px solid #e8e8e8;
+    }
+}
+
 .tab {
     overflow: hidden;
     margin-bottom: 15px;
     // border: 1px solid #ccc;
+
+    @include mq(md, max) {
+        margin-top: 15px;
+    }
 
     button {
         background-color: inherit;
@@ -34,6 +44,10 @@
     border-top: none;
     max-height: 415px;
     overflow-y: scroll;
+
+    @include mq(tab, max) {
+        max-height: 370px;
+    }
 
     &::-webkit-scrollbar {
         width: 10px;

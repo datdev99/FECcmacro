@@ -20,38 +20,44 @@ const page = () => {
       <main >
         <Mainvisual />
         <div className='l-container--1'>
-          <div className='layout'>
-            <div className='d-flex'>
-              <div className='slide'>
-                <Slide /> 
+          <section>
+            <div className='layout'>
+              <div className='d-flex'>
+                <div className='slide'>
+                  <Slide /> 
+                </div>
+                <div className='tin-nhanh'>
+                  <Tabs />
+                </div>
               </div>
-              <div className='tin-nhanh'>
-                <Tabs />
+              <div className='san-uy-tin'>
+                <p className='heading'> <Image src={icon} alt='' width={30} height={30} quality={80} unoptimized /> Top sàn uy tín</p>
+                <Related_broker />
               </div>
             </div>
-            <div className='san-uy-tin'>
-              <p className='heading'> <Image src={icon} alt='' width={30} height={30} quality={80} unoptimized /> Top sàn uy tín</p>
-              <Related_broker />
+          </section>
+          <section>
+            <div className='c-heading'>
+              <h4>
+                <a href="/bai-viet-moi-nhat">Bài viết mới nhất</a>
+              </h4>
+              <a className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</a>
             </div>
-          </div>
-          <div className='c-heading'>
-            <h4>
-              <a href="/bai-viet-moi-nhat">Bài viết mới nhất</a>
-            </h4>
-            <a className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</a>
-          </div>
-          <div className='list-news'>
-            <New />
-          </div>
-          <div className='c-heading'>
-            <h4>
-              <a href="/kien-thuc">Kiến thức cơ bản</a>
-            </h4>
-            <a className='xem-them' href="/kien-thuc">Xem thêm</a>
-          </div>
-          <div className='list-news'>
-            <New />
-          </div>
+            <div className='list-news'>
+              <New />
+            </div>
+          </section>
+          <section>
+            <div className='c-heading'>
+              <h4>
+                <a href="/kien-thuc">Kiến thức cơ bản</a>
+              </h4>
+              <a className='xem-them' href="/kien-thuc">Xem thêm</a>
+            </div>
+            <div className='list-news'>
+              <New />
+            </div>
+          </section>
         </div>
         
       </main>
