@@ -8,7 +8,6 @@ import Post from "@/components/Post";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import Related_broker from "@/components/related-broker";
-import Image from "next/image";
 
 const Page = () => {
   const [title, setTitle] = useState("");
@@ -34,7 +33,7 @@ const Page = () => {
         <div className="review-page">
           <div className="review-content">
             <h1 dir="ltr">
-              <Image
+              <img
                 src="https://lh4.googleusercontent.com/SK_uV8ZR1tB1154BwYMKQ8syYCSqMh6Uq5u9I2oKZtlxfr-UVN9aV15p3J4A8SH0kd0v51rZNTUgzAAV0Rrzg0jxSyJoSWplxMCkoB6k7Hj5h0ETozbodtlSK6hC2aF0HbdeglOh9NNPERzB"
                 width={624}
                 height={293}
@@ -55,7 +54,7 @@ const Page = () => {
               <strong>&nbsp;</strong>
             </h1>
             <p dir="ltr">
-              <Image
+              <img
                 src="https://lh6.googleusercontent.com/BS8PAlIG0ih90lucv37Ozi95ZuTFzRJ0_D7RBhbSYGX7chZTPWvGv2UKCkSFtdxGIQaoZ_cVaL9rFHH36w1TPAyKRcfjU_a1it30olVyjbm2FlQPJT3YTz9WrFKt3VoNDRg_Aq67xV4S6cTT"
                 width={360}
                 height={335}
@@ -178,7 +177,7 @@ const Page = () => {
               trang web của họ.
             </p>
             <p dir="ltr">
-              <Image
+              <img
                 src="https://lh4.googleusercontent.com/hQ1_zkmifdxA21HcPYu9PytJdrVv7BLSaV6Le0xRA3ZXx3TQ1fBLJNghkQjdE5Z5RGfrp2ubWPkEwPZW0QcxFIWXc0tBqP4wz0DryFnHBtyI_ThuEsIaUek_RAUU57JeKebPFxI_fAls_Qg_"
                 width={624}
                 height={353}
@@ -277,7 +276,7 @@ const Page = () => {
               </li>
             </ul>
             <p dir="ltr">
-              <Image
+              <img
                 src="https://lh6.googleusercontent.com/a9t3pwoOWErdtn75o3gS-Hbe_AFXYKGXdeCI-QVIgzEUd1YZL0g3-AEJuR6bbFq3yGl8fGY9WGyapDAPEG_Z8vazFIY_I9gdOZHzMt0lRp0BBzFtlHuwyDBl_y61uMOw_xpyi-YUUE0xRm67"
                 width={624}
                 height={352}
@@ -710,7 +709,7 @@ const Page = () => {
               Hàn Quốc.
             </p>
             <p dir="ltr">
-              <Image
+              <img
                 src="https://lh3.googleusercontent.com/tW65Rn8KmxNAAffH47mSXj-0Hb7VDJiPOEXeV2an48BQ3FUUBPvlL04qdC857JEUfXDbta6BI54-H2kLVZo6IWYWOsrE7FTMOZiqOzA7XuP8Mbrd3bT2nIhiRuPbB_x1NLC-b7s0-zA6FpVS"
                 width={624}
                 height={207}
