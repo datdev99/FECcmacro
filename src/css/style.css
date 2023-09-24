@@ -2859,13 +2859,17 @@ mainvisual
             flex-direction: column;
   }
 }
+@media screen and (max-width: 767px) {
+  .layout {
+    overflow: hidden;
+  }
+}
 .layout .slide {
   width: 50%;
 }
 @media screen and (max-width: 767px) {
   .layout .slide {
     width: 100%;
-    overflow: hidden;
   }
 }
 .layout .slide .slick-dots button::before {

@@ -6,6 +6,10 @@
         flex-direction: column;
     }
 
+    @include mq(md, max) {
+        overflow: hidden;
+    }
+
 
     .slide {
         width: 50%;
@@ -13,7 +17,6 @@
 
         @include mq(md, max) {
             width: 100%;
-            overflow: hidden;
         }
 
         .slick-dots {
