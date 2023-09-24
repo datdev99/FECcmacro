@@ -2532,6 +2532,13 @@ section {
 .review-page .list-san {
   width: calc(20% + 100px);
   padding: 0 1.6rem;
+  position: sticky;
+  max-height: calc(100vh - 105px);
+  top: 75px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  overflow-y: auto;
 }
 .review-page .list-san .heading {
   font-size: 2rem;
