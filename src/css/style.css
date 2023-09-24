@@ -2861,11 +2861,11 @@ mainvisual
 }
 .layout .slide {
   width: 50%;
-  overflow: hidden;
 }
 @media screen and (max-width: 767px) {
   .layout .slide {
     width: 100%;
+    overflow: hidden;
   }
 }
 .layout .slide .slick-dots button::before {

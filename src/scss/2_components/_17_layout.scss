@@ -9,10 +9,11 @@
 
     .slide {
         width: 50%;
-        overflow: hidden;
+        
 
         @include mq(md, max) {
             width: 100%;
+            overflow: hidden;
         }
 
         .slick-dots {
