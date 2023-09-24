@@ -2698,7 +2698,7 @@ mainvisual
 }
 @media screen and (max-width: 575px) {
   .c-mainvisual .slick-list img {
-    height: calc(50vh - 60px);
+    height: calc(35vh - 60px);
   }
 }
 
