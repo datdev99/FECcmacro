@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {route} from "@/lib/api-request";
+import Link from 'next/link';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -91,8 +92,8 @@ const Login = () => {
           </label>
 
           <div className="signin">
-            <p>Bạn chưa có tài khoản? <a href="/register">Đăng ký</a>.</p>
-            <p>Quên mật khẩu? <a href="#">Lấy lại</a>.</p>
+            <p>Bạn chưa có tài khoản? <Link href="/register">Đăng ký</Link>.</p>
+            <p>Quên mật khẩu? <Link href="#">Lấy lại</Link>.</p>
           </div>
         </form>
         <ToastContainer autoClose={2000} />

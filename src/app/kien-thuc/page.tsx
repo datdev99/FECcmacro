@@ -4,6 +4,7 @@ import New from '@/components/New'
 import React from 'react'
 import img from '../../../public/assets/images/san/prospero.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const page = () => {
   return (
@@ -13,10 +14,10 @@ const page = () => {
       <div className='breadcrumbs'>
         <ul>
           <li>
-            <a href="/">Trang chủ</a>
+            <Link href="/">Trang chủ</Link>
           </li>
           <li>
-            <a href="/kien-thuc">Kiến thức</a>
+            <Link href="/kien-thuc">Kiến thức</Link>
           </li>
         </ul>
       </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import img from "../../public/assets/images/livestream-1709.webp"
+import Link from "next/link";
 
 const Post = () => {
     let news = [
@@ -155,16 +156,16 @@ const Post = () => {
             news.map((item:any, index) => (
                 <div className="box-new" key={index}>
                     <article className="new">
-                        <a href={item.url} title={item.time} className="image">
+                        <Link href={item.url} title={item.time} className="image">
                         <span>
                             <Image width="320" height="200" src={item.image} alt="" />
                         </span>
-                        </a>
+                        </Link>
                         <div className="info">
                         <h5>
-                            <a href={item.url}>
+                            <Link href={item.url}>
                                 {item.title}
-                            </a>
+                            </Link>
                         </h5>
                         <div className="time">
                             <span></span>

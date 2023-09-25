@@ -3,6 +3,7 @@ import logo from '../../../public/assets/images/logo.svg';
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -13,7 +14,7 @@ const Header = () => {
                 Tin tức thị trường
             </div>
             <div className="login">
-            <a href="/login">Đăng nhập</a>
+            <Link href="/login">Đăng nhập</Link>
             </div>
 
         </div>
@@ -22,69 +23,69 @@ const Header = () => {
         <div className="l-container">
             <div className='c-header__inner'>
                 <div className="c-header__logo">
-                    <a href="/">
+                    <Link href="/">
                         <Image src={logo} width={160}  height={60} alt='' />
-                    </a>
+                    </Link>
                 </div>
                 <nav className="menu">
                     <ul>
-                        <li><a href="/kien-thuc">Kiến thức cơ bản <FontAwesomeIcon icon={faAngleDown} /></a>
+                        <li><Link href="/kien-thuc">Kiến thức cơ bản <FontAwesomeIcon icon={faAngleDown} /></Link>
                         <ul>
-                            <li><a href="/kien-thuc/ngoai-hoi">Ngoại hối</a></li>
-                            <li><a href="/kien-thuc/chung-khoan">Chứng khoán</a></li>
-                            <li><a href="/kien-thuc/hang-hoa">Hàng hóa</a></li>
-                            <li><a href="/kien-thuc/vang">Vàng</a></li>
-                            <li><a href="/kien-thuc/dau-tho">Dầu thô</a></li>
-                            <li><a href="/kien-thuc/tien-dien-tu">Tiền điện tử</a></li>
-                            <li><a href="/kien-thuc/kinh-te-tai-chinh">Kinh tế, tài chính</a></li>
+                            <li><Link href="/kien-thuc/ngoai-hoi">Ngoại hối</Link></li>
+                            <li><Link href="/kien-thuc/chung-khoan">Chứng khoán</Link></li>
+                            <li><Link href="/kien-thuc/hang-hoa">Hàng hóa</Link></li>
+                            <li><Link href="/kien-thuc/vang">Vàng</Link></li>
+                            <li><Link href="/kien-thuc/dau-tho">Dầu thô</Link></li>
+                            <li><Link href="/kien-thuc/tien-dien-tu">Tiền điện tử</Link></li>
+                            <li><Link href="/kien-thuc/kinh-te-tai-chinh">Kinh tế, tài chính</Link></li>
                         </ul>
                         </li>
-                        <li><a href="/phan-tich">Phân tích <FontAwesomeIcon icon={faAngleDown} /></a>
+                        <li><Link href="/phan-tich">Phân tích <FontAwesomeIcon icon={faAngleDown} /></Link>
                             <ul>
-                                <li><a href="/phan-tich/phan-tich-ky-thuat">Phân tích kỹ thuật <FontAwesomeIcon icon={faAngleDown} /></a>
+                                <li><Link href="/phan-tich/phan-tich-ky-thuat">Phân tích kỹ thuật <FontAwesomeIcon icon={faAngleDown} /></Link>
                                     <ul>
-                                    <li><a href="/phan-tich/cac-mau-bieu-do">Các mẫu biểu đồ</a></li>
-                                    <li><a href="#">Chỉ báo kỹ thuật</a></li>
-                                    <li><a href="#">Khác</a></li>
+                                    <li><Link href="/phan-tich/cac-mau-bieu-do">Các mẫu biểu đồ</Link></li>
+                                    <li><Link href="#">Chỉ báo kỹ thuật</Link></li>
+                                    <li><Link href="#">Khác</Link></li>
                                     </ul>
                                 </li>
-                                <li><a href="/phan-tich/phan-tich-thi-truong">Phân tích thị trường <FontAwesomeIcon icon={faAngleDown} /></a>
+                                <li><Link href="/phan-tich/phan-tich-thi-truong">Phân tích thị trường <FontAwesomeIcon icon={faAngleDown} /></Link>
                                     <ul>
-                                        <li><a href="#">Chứng khoán</a></li>
-                                        <li><a href="#">Ngoại hối</a></li>
-                                        <li><a href="#">Hàng hóa</a></li>
-                                        <li><a href="#">Vàng</a></li>
-                                        <li><a href="#">Dầu thô</a></li>
-                                        <li><a href="#">Hàng hóa khác</a></li>
+                                        <li><Link href="#">Chứng khoán</Link></li>
+                                        <li><Link href="#">Ngoại hối</Link></li>
+                                        <li><Link href="#">Hàng hóa</Link></li>
+                                        <li><Link href="#">Vàng</Link></li>
+                                        <li><Link href="#">Dầu thô</Link></li>
+                                        <li><Link href="#">Hàng hóa khác</Link></li>
                                     </ul>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="/tin-tuc">Tin tức <FontAwesomeIcon icon={faAngleDown} /></a>
+                        <li><Link href="/tin-tuc">Tin tức <FontAwesomeIcon icon={faAngleDown} /></Link>
                             <ul>
-                                <li><a href="#">Chứng khoán</a></li>
-                                <li><a href="#">Ngoại hối</a></li>
-                                <li><a href="#">Hàng hóa</a></li>
-                                <li><a href="#">Vàng</a></li>
-                                <li><a href="#">Dầu thô</a></li>
-                                <li><a href="#">Hàng hóa khác</a></li>
-                                <li><a href="#">Kinh tế, tài chính</a></li>
+                                <li><Link href="#">Chứng khoán</Link></li>
+                                <li><Link href="#">Ngoại hối</Link></li>
+                                <li><Link href="#">Hàng hóa</Link></li>
+                                <li><Link href="#">Vàng</Link></li>
+                                <li><Link href="#">Dầu thô</Link></li>
+                                <li><Link href="#">Hàng hóa khác</Link></li>
+                                <li><Link href="#">Kinh tế, tài chính</Link></li>
                             </ul>
                         </li>
-                        <li><a href="/danh-gia-san">Đánh giá sàn</a>
+                        <li><Link href="/danh-gia-san">Đánh giá sàn</Link>
                         </li>
-                        <li><a href="#">Giới thiệu <FontAwesomeIcon icon={faAngleDown} /></a>
+                        <li><Link href="#">Giới thiệu <FontAwesomeIcon icon={faAngleDown} /></Link>
                             <ul>
-                                <li><a href="#">Về chúng tôi</a></li>
-                                <li><a href="#">Lịch sử hình thành</a></li>
-                                <li><a href="#">Tầm nhìn - Sứ mệnh</a></li>
+                                <li><Link href="#">Về chúng tôi</Link></li>
+                                <li><Link href="#">Lịch sử hình thành</Link></li>
+                                <li><Link href="#">Tầm nhìn - Sứ mệnh</Link></li>
                             </ul>
                         </li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><Link href="#">Liên hệ</Link></li>
                     </ul>
                 </nav>
                 <div className="login">
-                    <a href="/login">Đăng nhập</a>
+                    <Link href="/login">Đăng nhập</Link>
                 </div>
                 <div className='burger'>
                     <div className='burger__menu'>

@@ -3,6 +3,7 @@ import logo from '../../public/assets/images/logo.svg';
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faFacebook, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,99 +12,99 @@ const Footer = () => {
         <div className="l-container--1">
           <div className="footer__info info-footer">
             <div className="info-footer__item desc _ibg">
-                <a href="/">
+                <Link href="/">
                     <Image src={logo} width={200}  height={70} alt='' />
-                </a>
+                </Link>
             </div>
             <div className="footer__row inline-menu">
               <div className="inline-menu__body">
                 <ul className="inline-menu__list">
                   <li>
-                    <a href="/about-us/" className="inline-menu__link">
+                    <Link href="/about-us/" className="inline-menu__link">
                       Về chúng tôi
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/methodology-for-evaluation-of-brokers/"
                       className="inline-menu__link"
                     >
                       Liên hệ
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/overall-score/" className="inline-menu__link">
+                    <Link href="/overall-score/" className="inline-menu__link">
                       Tầm nhìn - Sứ mệnh
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/news/" className="inline-menu__link">
+                    <Link href="/news/" className="inline-menu__link">
                       Đánh giá sàn
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/support/" className="inline-menu__link">
+                    <Link href="/support/" className="inline-menu__link">
                       Tin tức
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/vacancies/" className="inline-menu__link">
+                    <Link href="/vacancies/" className="inline-menu__link">
                       Phân tích
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div className="inline-menu__body">
                 <ul className="inline-menu__list">
                   <li>
-                    <a
+                    <Link
                       href="/best-forex-brokers/"
                       className="inline-menu__link"
                     >
                       Ngoại hối
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/ratings/prop/common/"
                       className="inline-menu__link"
                     >
                       Chứng khoán
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/ratings/crypto/common/"
                       className="inline-menu__link"
                     >
                       Hàng hóa
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/currencies/" className="inline-menu__link">
+                    <Link href="/currencies/" className="inline-menu__link">
                       Vàng
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/interesting-articles/"
                       className="inline-menu__link"
                     >
                       Dầu thô
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/currencies/" className="inline-menu__link">
+                    <Link href="/currencies/" className="inline-menu__link">
                       Tiền điện tử
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
                       href="/interesting-articles/"
                       className="inline-menu__link"
                     >
                       Kinh tế - Tài chính
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -114,7 +115,7 @@ const Footer = () => {
               </div>
               <div className="info-footer__desc info-footer__desc--tunews">
                 <div className="social">
-                  <a
+                  <Link
                     href="https://www.youtube.com/channel/UC9HTMHvbSEE8knP6jXIk1FA?guided_help_flow=3"
                     className="social__item social__item--footer social__item--green _ibg"
                     rel="nofollow"
@@ -122,23 +123,23 @@ const Footer = () => {
                   >
                     {/* <i className="icon__footer__youtube"></i> */}
                     <FontAwesomeIcon icon={faYoutube} />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="https://www.facebook.com/tradersunioncom/"
                     className="social__item social__item--footer social__item--green _ibg"
                     rel="nofollow"
                     title="Facebook"
                   >
                      <FontAwesomeIcon icon={faFacebook} />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="https://www.instagram.com/tradersunioncom/"
                     className="social__item social__item--footer social__item--green _ibg"
                     rel="nofollow"
                     title="TikTok"
                   >
                     <FontAwesomeIcon icon={faTiktok} />
-                  </a>
+                  </Link>
                 </div>
                 {/* <p className="copy">© IAFT Ltd., 2010-2023</p> */}
               </div>

@@ -8,6 +8,7 @@ import Post from "@/components/Post";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import Related_broker from "@/components/related-broker";
+import Link from "next/link";
 
 const Page = () => {
   const [title, setTitle] = useState("");
@@ -22,10 +23,10 @@ const Page = () => {
         <div className="breadcrumbs">
           <ul>
             <li>
-              <a href="/">Trang chủ</a>
+              <Link href="/">Trang chủ</Link>
             </li>
             <li>
-              <a href="/kien-thuc">Đánh giá sàn</a>
+              <Link href="/kien-thuc">Đánh giá sàn</Link>
             </li>
             <li>{title}</li>
           </ul>

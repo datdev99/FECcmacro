@@ -14,6 +14,7 @@ import icon from '../../public/assets/images/icon/icon-chat-luong.png'
 import Image from 'next/image'
 import { FEEDS, getFeed } from "../lib/rss-news";
 import '../css/style.css'
+import Link from 'next/link'
   
 export async function getStaticProps() {
     const feed = FEEDS.find((feed) => feed.slug === "");
@@ -59,9 +60,9 @@ const page = ({ items }:any) => {
           <section>
             <div className='c-heading'>
               <h4>
-                <a href="/bai-viet-moi-nhat">Bài viết mới nhất</a>
+                <Link href="/bai-viet-moi-nhat">Bài viết mới nhất</Link>
               </h4>
-              <a className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</a>
+              <Link className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</Link>
             </div>
             <div className='list-news'>
               <New />
@@ -70,9 +71,9 @@ const page = ({ items }:any) => {
           <section>
             <div className='c-heading'>
               <h4>
-                <a href="/kien-thuc">Kiến thức cơ bản</a>
+                <Link href="/kien-thuc">Kiến thức cơ bản</Link>
               </h4>
-              <a className='xem-them' href="/kien-thuc">Xem thêm</a>
+              <Link className='xem-them' href="/kien-thuc">Xem thêm</Link>
             </div>
             <div className='list-news'>
               <New />

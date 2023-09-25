@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 // import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
@@ -78,8 +79,8 @@ const Register = () => {
 
           <button type="submit" className="loginbtn">Đăng ký</button>
           <div className="signin">
-            <p>Bạn đã có tài khoản? <a href="/login">Đăng nhập</a>.</p>
-            <p>Quên mật khẩu? <a href="#">Lấy lại</a>.</p>
+            <p>Bạn đã có tài khoản? <Link href="/login">Đăng nhập</Link>.</p>
+            <p>Quên mật khẩu? <Link href="#">Lấy lại</Link>.</p>
           </div>
         </form>
       </div>

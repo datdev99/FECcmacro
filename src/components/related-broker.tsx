@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const Related_broker = () => {
@@ -103,14 +104,14 @@ const Related_broker = () => {
                         </div>
                         <div className="col-9" style={{ position: "relative" }}>
                         <span className="h2-related">
-                            <a href={`/danh-gia-san/${broker.slug}`} data-wpel-link="internal">
+                            <Link href={`/danh-gia-san/${broker.slug}`} data-wpel-link="internal">
                              {broker.company_name}
-                            </a>
+                            </Link>
                         </span>
                         <p>
                             Đánh giá: <span>{broker.score}/10</span>
                         </p>
-                        <a
+                        <Link
                             className="sidebar-broker-link"
                             href={`/danh-gia-san/${broker.slug}`}
                             data-wpel-link="internal"
@@ -132,7 +133,7 @@ const Related_broker = () => {
                                 d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"
                             />
                             </svg>
-                        </a>
+                        </Link>
                         </div>
                     </div>
                     </div>

@@ -8,6 +8,7 @@ import img from '../../../../public/assets/images/san/prospero.png'
 import Footer from '@/components/Footer'
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from "react";
+import Link from 'next/link'
 
 const Page = () => {
     const [title, setTitle] = useState("")
@@ -50,10 +51,10 @@ const Page = () => {
             <div className='breadcrumbs'>
                 <ul>
                     <li>
-                        <a href="/">Trang chủ</a>
+                        <Link href="/">Trang chủ</Link>
                     </li>
                     <li>
-                        <a href="/phan-tich">Phân tích</a>
+                        <Link href="/phan-tich">Phân tích</Link>
                     </li>
                     <li>
                         {title}

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import New from "./New";
 import img from "../../public/assets/images/livestream-1709.webp";
 import Image from "next/image";
+import Link from "next/link";
 
 const Slide = () => {
   let news = [
@@ -172,14 +173,14 @@ const Slide = () => {
         {news.slice(0, 6).map((item: any, index) => (
           <div className="box-new" key={index}>
             <article className="new">
-              <a href={item.url} title={item.time} className="image">
+              <Link href={item.url} title={item.time} className="image">
                 <span>
                   <Image width="320" height="200" src={item.image} alt="" />
                 </span>
-              </a>
+              </Link>
               <div className="info">
                 <h5>
-                  <a href={item.url}>{item.title}</a>
+                  <Link href={item.url}>{item.title}</Link>
                 </h5>
                 <p className="desc">{item.desc}</p>
               </div>
