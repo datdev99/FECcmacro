@@ -15,7 +15,7 @@ const Page = () => {
   let { slug } = useParams();
   useEffect(() => {
     setTitle(slug);
-  }, []);
+  }, [slug]);
   return (
     <div>
       <Header />

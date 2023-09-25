@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Login from "../login/login";
+import Link from "next/link";
 
 //
 interface Props {
@@ -99,9 +100,9 @@ const Broker = (props: Props) => {
                     {/* <button className="btn btn--grey-light" onClick={handleDanhGia}>
                       Đánh giá
                     </button> */}
-                    <a className="btn btn--grey-light" href={`/danh-gia-san/${broker.slug}`}>
+                    <Link className="btn btn--grey-light" href={`/danh-gia-san/${broker.slug}`}>
                       Xem đánh giá
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               ))}
