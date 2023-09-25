@@ -73,6 +73,7 @@ const Tabs = ({rssNew}) => {
   useEffect(() => { 
     SapXep(rssNew)
     setData(rssNew);
+    console.log(rssNew,"rssNew")
   }, [rssNew]);
 
   return (
@@ -96,6 +97,7 @@ const Tabs = ({rssNew}) => {
         <div id="tin-nhanh" className={`tabcontent ${activeTab === 'tin-nhanh' ? 'active' : ''}`}>
           {data.map((item,index) => (
             <div className='item' key={index}>
+              
               <span>{convertTime(item.isoDate)}</span>
               <p onClick={handleShowModal(item.contentSnippet, item.title)}>{item.title}</p>
             </div>

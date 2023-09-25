@@ -15,7 +15,7 @@ export const FEEDS: Feed[] = [
   {
     slug: "",
     title: "NRK Topp Saker",
-    url: "https://vnexpress.net/rss/kinh-doanh.rss",
+    url: "https://vnexpress.net/rss/tin-moi-nhat.rss",
   }
 ];
 
