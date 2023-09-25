@@ -20,15 +20,20 @@ const Page = () => {
         {
             slug: "phan-tich-thi-truong",
             name: "Phân tích thị trường"
+        },
+        {
+            slug: "cac-mau-bieu-do",
+            name: "Cac mau bieu do"
         }
     ]
     let { slug }   = useParams();
+    console.log(slug)
     
     let check = route.filter(item => item.slug == slug)
 
     useEffect(() => {
         if (check.length === 0) {
-          router.push("/");
+        //   router.push("/");
         } else {
           setTitle(check[0].name); // Sử dụng check[0].name thay vì check.name
         }
@@ -48,7 +53,7 @@ const Page = () => {
                         <a href="/">Trang chủ</a>
                     </li>
                     <li>
-                        <a href="/kien-thuc">Kiến thức</a>
+                        <a href="/phan-tich">Phân tích</a>
                     </li>
                     <li>
                         {title}

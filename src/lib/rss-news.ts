@@ -1,22 +1,30 @@
-// Trong /lib/rss.ts
-import { Feed } from 'feed';
-import axios from 'axios';
+import Parser from "rss-parser";
 
-// Hàm để lấy dữ liệu từ rss và chuyển đổi nó thành JSON
-export async function getRssData(url: string) {
-  // Lấy dữ liệu từ url rss
-  const res = await axios.get(url);
-  const data = res.data;
-
-  // Tạo một đối tượng Feed từ dữ liệu
-  const feed = new Feed(data);
-
-  // Lấy tiêu đề của các bài viết
-  const titles = feed.items.map((item) => item.title);
-
-  // Trả về tiêu đề như một mảng
-  return titles;
+type Feed = {
+  slug: string;
+  title: string;
+  url: string;
 }
 
-// Hàm khác để xử lý dữ liệu nếu cần
-// export function ...
+export const FEEDS: Feed[] = [
+  {
+    slug: "vg",
+    title: "VG",
+    url: "https://www.vg.no/rss/feed",
+  },
+  {
+    slug: "",
+    title: "NRK Topp Saker",
+    url: "https://vnexpress.net/rss/kinh-doanh.rss",
+  }
+];
+
+
+
+export async function getFeed(feedUrl: string) {
+  const parser = new Parser();
+
+  const feed = await parser.parseURL(feedUrl);
+
+  return feed;
+}

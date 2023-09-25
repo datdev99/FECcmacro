@@ -12,8 +12,28 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slide from '@/components/Slide'
 import icon from '../../public/assets/images/icon/icon-chat-luong.png'
 import Image from 'next/image'
+import { FEEDS, getFeed } from "../lib/rss-news";
+import '../css/style.css'
+  
+export async function getStaticProps() {
+    const feed = FEEDS.find((feed) => feed.slug === "");
+    console.log(feed,"feed")
+    if (!feed) return;
 
-const page = () => {
+    const detailedFeed = await getFeed(feed.url);
+
+    return {
+      props: {
+        feed,
+        items: detailedFeed.items,
+      },
+      revalidate: 1,
+    };
+}
+
+
+
+const page = ({ items }:any) => {
   return (
     <>
       <Header />
@@ -27,7 +47,7 @@ const page = () => {
                   <Slide /> 
                 </div>
                 <div className='tin-nhanh'>
-                  <Tabs />
+                  <Tabs rssNew={items} />
                 </div>
               </div>
               <div className='san-uy-tin'>

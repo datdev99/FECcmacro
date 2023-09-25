@@ -2894,6 +2894,9 @@ mainvisual
 .layout .slide .new .info {
   margin-top: 10px;
 }
+.layout .slide .slick-slider > button {
+  display: none !important;
+}
 .layout .d-flex {
   width: 70%;
   -webkit-box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);

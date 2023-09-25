@@ -38,6 +38,14 @@
                 margin-top: 10px;
             }
         }
+
+        .slick-slider {
+
+            >button {
+                display: none !important;
+            }
+        }
+
     }
 
     .d-flex {
