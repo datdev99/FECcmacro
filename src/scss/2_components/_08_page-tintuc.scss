@@ -9,15 +9,40 @@
                     width: 500px;
                     background: #F7F7F7;
                     border-radius: 0;
+
+                    @include mq(tab, max) {
+                        width: 100%;
+                    }
                 }
 
                 .info {
                     background: #F7F7F7;
                     padding: 3rem 2rem;
+
+                    @include mq(xl, max) {
+                        padding: 2rem 1rem;
+
+                        h5 {
+                            font-size: 1.6rem;
+                        }
+
+                        .desc {
+                            font-size: 1.4rem;
+                        }
+                    }
+
+                    @include mq(tab, max) {
+                        background: unset;
+                        padding: unset;
+                    }
                 }
 
                 .new {
                     padding: 0 0 1.6rem 0;
+
+                    @include mq(tab, max) {
+                        flex-direction: column;
+                    }
                 }
             }
 
@@ -30,6 +55,21 @@
             &:not(:last-child) {
                 border-bottom: 1px solid #e5e5e5;
             }
+
+            @include mq(sm, max) {
+                .new {
+                    flex-direction: column;
+
+                    .image {
+                        width: 100%;
+                    }
+
+                    .info {
+                        padding-left: 0;
+                        margin-top: 10px;
+                    }
+                }
+            }
         }
     }
 
@@ -40,6 +80,10 @@
     .content {
         display: flex;
         margin: 0 -1.6rem;
+        
+        @include mq(lg, max) {
+            flex-direction: column;
+        }
     }
 
     .tintuc-list,
@@ -51,11 +95,28 @@
         width: calc(((100% * 4) / 5) - 100px);
         padding: 0 1.6rem;
         border-right: 1px solid #e5e5e5;
+
+        @include mq(lg, max) {
+            padding: 0;
+            border-right: none;
+        }
+
+        @include mq(lg, max) {
+            width: 100%;
+        }
     }
 
     .sidebar {
         width: calc(((100% * 1) / 5) + 100px);
         padding: 0 1.6rem;
+
+        @include mq(lg, max) {
+            padding: 0;
+        }
+
+        @include mq(lg, max) {
+            width: 100%;
+        }
 
         .all-news {
             border: 1px solid #e5e5e5;
@@ -94,13 +155,27 @@
             .new {
                 flex-direction: row-reverse;
 
+                @include mq(lg, max) {
+                    flex-direction: row;
+                }
+
                 .image {
                     width: 100px;
+
+                    @include mq(lg, max) {
+                        width: 35%;
+                    }
                 }
 
                 .info {
                     padding-right: 10px;
                     padding-left: 0;
+
+                    @include mq(lg, max) {
+                        padding-right: 0;
+                        padding-left: 10px;
+                    }
+
                     h5 {
                         font-weight: 500;
                         font-size: 1.3rem;

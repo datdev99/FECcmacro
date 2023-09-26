@@ -4,10 +4,6 @@ mainvisual
 ------------------------------------------------------------*/
 /*
 ------------------------------------------------------------*/
-.c-mainvisual {
-
-}
-
 .c-mainvisual .slick-arrow {
   display: none !important;
 }
@@ -24,19 +20,3 @@ mainvisual
     height: calc(35vh - 60px);
   }
 }
-// @media only screen and (max-width: 1200px) {
-//   .c-mainvisual .slick-list img {
-//     height: calc(67vh - 5px);
-//   }
-// }
-// @media only screen and (max-width: 900px) {
-//   .c-mainvisual .slick-list img {
-//     height: 50vh;
-//   }
-// }
-// @media only screen and (max-width: 767px) {
-//   .c-mainvisual .slick-list img {
-//     height: 44vh;
-//     min-height: 374px;
-//   }
-// }

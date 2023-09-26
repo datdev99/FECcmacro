@@ -2,15 +2,43 @@
     .box-new {
         width: 100%;
         padding: 0;
+
+        @include mq(lg ,max) {
+            .new {
+                flex-direction: column;
+
+                .image {
+                    width: 100%;
+                }
+
+                .info {
+                    padding-left: 0;
+                    margin-top: 10px;
+                }
+            }
+        }
     }
 
     .title {
         margin: 2rem 0;
+
+        @include mq(lg ,max) {
+            margin: 1.6rem 0;
+        }
+
+        @include mq(sm ,max) {
+            margin: 1.2rem 0;
+            font-size: 2.4rem;
+        }
     }
 
     .content {
         display: flex;
         margin: 0 -1.6rem;
+        
+        @include mq(sm ,max) {
+            flex-direction: column;
+        }
     }
 
     .post-list, .sidebar {
@@ -20,15 +48,19 @@
     .post-list {
         width: calc((100% * 2) / 3);
         padding: 0 1.6rem;
+
+        @include mq(sm ,max) {
+            width: 100%;
+        }
     }
 
     .sidebar {
         width: calc((100% * 1) / 3);
         padding: 0 1.6rem;
 
-        // .advertisement {
-
-        // }
+        @include mq(sm ,max) {
+            width: 100%;
+        }
 
         .item {
             background: #fff;

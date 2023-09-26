@@ -1,5 +1,11 @@
 .rating {
-    margin-bottom: 76px
+    margin-bottom: 76px;
+
+    @include mq(lg, max) {
+        overflow-x: scroll;
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
 }
 
 .rating .hide-desktop,.rating .hide-mobile {
@@ -27,7 +33,12 @@
     box-shadow: 8px 8px 15px rgba(0,0,0,.23);
     border-radius: 5px;
     margin-top: 15px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    min-width: 700px;
+
+    @include mq(lg, max) {
+        box-shadow: 0 0 15px rgba(0,0,0,.23);
+    }
 }
 
 .rating .rating-table__header {
