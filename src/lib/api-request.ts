@@ -2,11 +2,14 @@
 import { FilteredUser, UserLoginResponse, UserResponse } from "./types";
 import axios from "axios";
 
-const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "https://localhost:7256";
+const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "https://localhost:7190";
 
-export async function route() {
-  return SERVER_ENDPOINT;
-} 
+export const API_URL = "https://localhost:7190/api";
+export const URL_SERVER = "https://localhost:7190/";
+
+// export async function api() {
+//   return SERVER_ENDPOINT;
+// } 
 
 async function handleResponse<T>(response: Response): Promise<T> {
   const contentType = response.headers.get("Content-Type") || "";

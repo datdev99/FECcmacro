@@ -47,7 +47,7 @@ const Broker = (props: Props) => {
 
     return false;
   }
-
+  console.log(props, "kienthuc")
   const handleDanhGia = () => {
     // Sử dụng hàm kiểm tra
     if (checkTokenInCookies()) {

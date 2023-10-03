@@ -9,9 +9,14 @@ import Footer from '@/components/Footer'
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from "react";
 import Link from 'next/link'
+import axios from 'axios'
+import {API_URL} from '@/lib/api-request'
 
 const Page = () => {
     const [title, setTitle] = useState("")
+    const [post, setPost] = useState([])
+    const [category, setCategory] = useState([])
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
     const router = useRouter();
     let route = [
         {
@@ -55,6 +60,49 @@ const Page = () => {
         }
     }, [check, router]);
 
+    useEffect(() => {
+        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+        const apiUrlCategory = `${API_URL}/Category/GetHierarchyCategory?action=Get&para1=A`;
+    
+        // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
+        axios.get(apiUrlCategory)
+            .then(response => {
+                // Xử lý dữ liệu nhận được từ API
+                setCategory(response.data);
+            })
+            .catch(error => {
+                // Xử lý lỗi (nếu có)
+                console.error('Error fetching data: ', error);
+            });
+      }, []);
+    
+      useEffect(() => {
+        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+        let apiUrl = ""
+        let a = category.filter(item => item.slug == slug)
+        if (a.length > 0) {
+          let b = category.filter(item => item.parentCategoryId == a[0].id);
+          b.push(a[0]);
+          let idCategory = b.map(item => item.id);
+          console.log(idCategory.join(","));
+          apiUrl = `${API_URL}/Post/Get?action=Get&categoryid=${idCategory.join(",")}`;
+          axios.get(apiUrl)
+            .then(response => {
+                // Xử lý dữ liệu nhận được từ API
+                setPost(response.data);
+                setIsDataLoaded(true);
+                console.log(API_URL,"API_URL")
+            })
+            .catch(error => {
+                // Xử lý lỗi (nếu có)
+                console.error('Error fetching data: ', error);
+            });
+    
+        } else {
+            console.log("Không tìm thấy category với slug là 'kien-thuc'");
+        }
+      }, [category]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+
     if(!title) {
         return <div>1</div>
     }
@@ -80,9 +128,9 @@ const Page = () => {
                 <h1 className='title'>{title}</h1>
             </div>
 
-            <div className='content'>
+            <div className='content'>                
                 <div className='post-list'>
-                    <New />
+                    {isDataLoaded && <New data={post} />}
                 </div>
                 <div className='sidebar'>
                     <div className='advertisement'>
