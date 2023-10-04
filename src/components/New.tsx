@@ -2,9 +2,12 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import {URL_SERVER} from '@/lib/api-request'
+import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface Props {
     data: IF_Data[];
+    slug: string;
 }
 
 interface IF_Data {
@@ -17,7 +20,8 @@ interface IF_Data {
     title: any;
 }
 
-const New = (props: Props) => {
+const New = (props: Props) => {// Lấy giá trị của slug từ URL
+    
     function formatdate(datetime : Date) : string {
         datetime = new Date(datetime);
         let day = String(datetime.getDate()).padStart(2, '0');
@@ -41,14 +45,14 @@ const New = (props: Props) => {
             props.data.slice(0, 6).map((item:any, index) => (
                 <div className="box-new" key={index}>
                     <article className="new">
-                        <Link href={item.slug} title={item.time} className="image">
+                        <Link href={`${props.slug}/${item.slug}`} title={item.time} className="image">
                         <span>
                             <img src={UrlImage(item.image)} alt={item.description} />
                         </span>
                         </Link>
                         <div className="info">
                         <h5>
-                            <Link href={item.slug}>
+                            <Link href={`${props.slug}/${item.slug}`}>
                                 {item.title}
                             </Link>
                         </h5>

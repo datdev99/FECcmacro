@@ -130,7 +130,7 @@ const Page = () => {
 
             <div className='content'>                
                 <div className='post-list'>
-                    {isDataLoaded && <New data={post} />}
+                    {isDataLoaded && <New data={post} slug={slug} />}
                 </div>
                 <div className='sidebar'>
                     <div className='advertisement'>
