@@ -21,9 +21,9 @@ const Page = () => {
 
   const router = useRouter();
   const { slug, subslug } = router.query;
-  useEffect(() => {
-    setTitle(slug);
-  }, [slug]);
+  // useEffect(() => {
+  //   setTitle(slug);
+  // }, [slug]);
 
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
