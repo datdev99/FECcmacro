@@ -65,7 +65,7 @@ const page = ({ items }:any) => {
               <Link className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</Link>
             </div>
             <div className='list-news'>
-              <New />
+              <New data={[]} slug={""}/>
             </div>
           </section>
           <section>
@@ -76,7 +76,7 @@ const page = ({ items }:any) => {
               <Link className='xem-them' href="/kien-thuc">Xem thêm</Link>
             </div>
             <div className='list-news'>
-              <New />
+              <New data={[]} slug={""}/>
             </div>
           </section>
         </div>

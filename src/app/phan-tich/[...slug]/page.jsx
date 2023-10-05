@@ -67,7 +67,7 @@ const Page = () => {
 
             <div className='content'>
                 <div className='post-list'>
-                    <New />
+                    <New data={[]} slug={""}/>
                 </div>
                 <div className='sidebar'>
                     <div className='advertisement'>
