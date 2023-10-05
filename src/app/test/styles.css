@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.menu {
+    /* width: 200px; */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: red;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 10px;
+    position: relative; /* Để đặt vị trí cho nút mũi tên */
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+
+/* Thêm nút mũi tên khi có submenu */
+.menu li:after {
+    content: '\u25BC'; /* Mã Unicode cho mũi tên xuống */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Ẩn nút mũi tên khi không có submenu */
+.menu li:not(:has(> ul)):after {
+    display: none;
+}
