@@ -91,7 +91,7 @@ const page = () => {
       </div>
       <div className='content'>
         <div className='post-list'>
-        {isDataLoaded && <New data={post} />}
+        {isDataLoaded && <New data={post} slug={''} />}
         </div>
         <div className='sidebar'>
           <div className='advertisement'>
