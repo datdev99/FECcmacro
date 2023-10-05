@@ -25,7 +25,7 @@ interface Post {
   title: any;
 }
 
-const page = () => {
+const Page = () => {
   const [post, setPost] = useState<Post[]>([])
   const [category, setCategory] = useState<Category[]>([])
   const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -115,4 +115,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
