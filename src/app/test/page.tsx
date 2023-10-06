@@ -39,7 +39,7 @@ const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
   );
 };
 
-const page = () => {
+const Page = () => {
     const [menuData, setMenuData] = useState([])
 
     useEffect(() => {
@@ -64,4 +64,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
