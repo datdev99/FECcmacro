@@ -1,25 +1,68 @@
-import React from 'react'
-import logo from '../../../public/assets/images/logo.svg';
-import Image from 'next/image'
+"use client"
+
+import React from "react";
+// import "../../css/style.css"; // Import file CSS nếu bạn muốn tùy chỉnh giao diện
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
+import { useState, useEffect } from "react";
+import {API_URL} from '../../lib/api-request'
+import axios from "axios";
+import Link from "next/link";
+import Image from "next/image";
+import logo from '../../../public/assets/images/logo 1.png';
 
-const Header = () => {
+  interface MenuItem {
+    text: string;
+    children: MenuItem[];
+    id: number;
+    slug: string;
+    // Thêm các trường dữ liệu khác nếu cần thiết
+  }
+  
+  interface Props {
+    item: MenuItem;
+    parentPath?: string;
+  }
+  
+const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
+    
+
+  const itemPath = `${parentPath}/${item.slug}`;
+  return (
+    <li>
+      <a href={itemPath}>{item.text}{item.children.length > 0 && <FontAwesomeIcon icon={faAngleDown} />}</a>
+      {item.children.length > 0 && (
+        <ul>
+          {item.children.map(child => (
+            <MenuItem key={child.id} item={child} parentPath={itemPath} />
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+};
+
+const Page = () => {
+    const [menuData, setMenuData] = useState([])
+
+    useEffect(() => {
+        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+        const apiUrlCategory = `${API_URL}/Category/GetTreeCategory?action=get&para1=a`;
+    
+        // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
+        axios.get(apiUrlCategory)
+            .then(response => {
+                // Xử lý dữ liệu nhận được từ API
+                setMenuData(response.data);
+            })
+            .catch(error => {
+                // Xử lý lỗi (nếu có)
+                console.error('Error fetching data: ', error);
+            });
+      }, []);
   return (
     <>
-    {/* <div className="topbar">
-        <div className="l-container">
-            <div className="title">
-                Tin tức thị trường
-            </div>
-            <div className="login">
-            <Link href="/login">Đăng nhập</Link>
-            </div>
-
-        </div>
-    </div> */}
-    <header className='c-header'>
+      <header className='c-header'>
         <div className="l-container">
             <div className='c-header__inner'>
                 <div className="c-header__logo">
@@ -28,61 +71,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <nav className="menu">
-                    <ul>
-                        <li><Link href="/kien-thuc">Kiến thức cơ bản <FontAwesomeIcon icon={faAngleDown} /></Link>
-                        <ul>
-                            <li><Link href="/kien-thuc/ngoai-hoi">Ngoại hối</Link></li>
-                            <li><Link href="/kien-thuc/chung-khoan">Chứng khoán</Link></li>
-                            <li><Link href="/kien-thuc/hang-hoa">Hàng hóa</Link></li>
-                            <li><Link href="/kien-thuc/vang">Vàng</Link></li>
-                            <li><Link href="/kien-thuc/dau-tho">Dầu thô</Link></li>
-                            <li><Link href="/kien-thuc/tien-dien-tu">Tiền điện tử</Link></li>
-                            <li><Link href="/kien-thuc/kinh-te-tai-chinh">Kinh tế, tài chính</Link></li>
-                        </ul>
-                        </li>
-                        <li><Link href="/phan-tich">Phân tích <FontAwesomeIcon icon={faAngleDown} /></Link>
-                            <ul>
-                                <li><Link href="/phan-tich/phan-tich-ky-thuat">Phân tích kỹ thuật <FontAwesomeIcon icon={faAngleDown} /></Link>
-                                    <ul>
-                                    <li><Link href="/phan-tich/cac-mau-bieu-do">Các mẫu biểu đồ</Link></li>
-                                    <li><Link href="#">Chỉ báo kỹ thuật</Link></li>
-                                    <li><Link href="#">Khác</Link></li>
-                                    </ul>
-                                </li>
-                                <li><Link href="/phan-tich/phan-tich-thi-truong">Phân tích thị trường <FontAwesomeIcon icon={faAngleDown} /></Link>
-                                    <ul>
-                                        <li><Link href="#">Chứng khoán</Link></li>
-                                        <li><Link href="#">Ngoại hối</Link></li>
-                                        <li><Link href="#">Hàng hóa</Link></li>
-                                        <li><Link href="#">Vàng</Link></li>
-                                        <li><Link href="#">Dầu thô</Link></li>
-                                        <li><Link href="#">Hàng hóa khác</Link></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><Link href="/tin-tuc">Tin tức <FontAwesomeIcon icon={faAngleDown} /></Link>
-                            <ul>
-                                <li><Link href="#">Chứng khoán</Link></li>
-                                <li><Link href="#">Ngoại hối</Link></li>
-                                <li><Link href="#">Hàng hóa</Link></li>
-                                <li><Link href="#">Vàng</Link></li>
-                                <li><Link href="#">Dầu thô</Link></li>
-                                <li><Link href="#">Hàng hóa khác</Link></li>
-                                <li><Link href="#">Kinh tế, tài chính</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link href="/danh-gia-san">Đánh giá sàn</Link>
-                        </li>
-                        <li><Link href="#">Giới thiệu <FontAwesomeIcon icon={faAngleDown} /></Link>
-                            <ul>
-                                <li><Link href="#">Về chúng tôi</Link></li>
-                                <li><Link href="#">Lịch sử hình thành</Link></li>
-                                <li><Link href="#">Tầm nhìn - Sứ mệnh</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link href="#">Liên hệ</Link></li>
-                    </ul>
+                  <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
                 </nav>
                 <div className="login">
                     <Link href="/login">Đăng nhập</Link>
@@ -98,7 +87,7 @@ const Header = () => {
         </div>
     </header>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Page;

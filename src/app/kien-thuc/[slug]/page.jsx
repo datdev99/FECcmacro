@@ -1,7 +1,6 @@
 "use client"
 
 import Header from '@/components/Header/Header'
-import New from '@/components/New'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import img from '../../../../public/assets/images/san/prospero.png'
@@ -11,11 +10,11 @@ import { useState } from "react";
 import Link from 'next/link'
 import axios from 'axios'
 import {API_URL} from '../../../lib/api-request'
+import Post from '@/components/Post'
 
 const Page = () => {
     const [title, setTitle] = useState("")
     const [post, setPost] = useState([])
-    const [category, setCategory] = useState([])
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const router = useRouter();
     let route = [
@@ -59,33 +58,9 @@ const Page = () => {
           setTitle(check[0].name); // Sử dụng check[0].name thay vì check.name
         }
     }, [check, router]);
-
-    useEffect(() => {
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        const apiUrlCategory = `${API_URL}/Category/GetHierarchyCategory?action=Get&para1=A`;
-    
-        // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
-        axios.get(apiUrlCategory)
-            .then(response => {
-                // Xử lý dữ liệu nhận được từ API
-                setCategory(response.data);
-            })
-            .catch(error => {
-                // Xử lý lỗi (nếu có)
-                console.error('Error fetching data: ', error);
-            });
-      }, []);
-    
+   
       useEffect(() => {
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        let apiUrl = ""
-        let a = category.filter(item => item.slug == slug)
-        if (a.length > 0) {
-          let b = category.filter(item => item.parentCategoryId == a[0].id);
-          b.push(a[0]);
-          let idCategory = b.map(item => item.id);
-          console.log(idCategory.join(","));
-          apiUrl = `${API_URL}/Post/Get?action=Get&categoryid=${idCategory.join(",")}`;
+          const apiUrl = `${API_URL}/Post/Get?action=Get&categoryid=${slug}`;
           axios.get(apiUrl)
             .then(response => {
                 // Xử lý dữ liệu nhận được từ API
@@ -97,11 +72,7 @@ const Page = () => {
                 // Xử lý lỗi (nếu có)
                 console.error('Error fetching data: ', error);
             });
-    
-        } else {
-            console.log("Không tìm thấy category với slug là 'kien-thuc'");
-        }
-      }, [category]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+      }, [slug]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
 
     if(!title) {
         return <div>1</div>
@@ -130,7 +101,7 @@ const Page = () => {
 
             <div className='content'>                
                 <div className='post-list'>
-                    {isDataLoaded && <New data={post} slug={slug} />}
+                    {isDataLoaded && <Post data={post} slug={slug} />}
                 </div>
                 <div className='sidebar'>
                     <div className='advertisement'>

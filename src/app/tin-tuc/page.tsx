@@ -10,11 +10,11 @@ const page = () => {
         <main className='l-container--1' id='page-tintuc'>
             <div className='content'>
                 <div className='tintuc-list'>
-                    <Post />
+                    <Post data={[]} slug={''} />
                 </div>
                 <div className='sidebar'>
                     <div className='all-news'>
-                        <Post />
+                        <Post data={[]} slug={''} />
                     </div>
                 </div>
             </div>

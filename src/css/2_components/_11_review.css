@@ -1,0 +1,101 @@
+.review-content ul {
+  margin-left: 35px;
+}
+.review-content ul li {
+  list-style: initial;
+}
+.review-content img {
+  width: 100%;
+  height: auto;
+}
+
+.review-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -1.6rem;
+  margin-top: 30px;
+}
+.review-page .review-content {
+  width: calc(80% - 100px);
+  padding: 0 1.6rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.review-page .list-san {
+  width: calc(20% + 100px);
+  padding: 0 1.6rem;
+  position: sticky;
+  max-height: calc(100vh - 105px);
+  top: 75px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  overflow-y: auto;
+}
+.review-page .list-san .heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0a0071;
+  margin-bottom: 10px;
+  display: block;
+}
+.review-page .list-san .heading svg {
+  font-size: 2.5rem;
+  color: #DAAA51 !important;
+  margin-right: 10px;
+}
+.review-page .list-san .all-news {
+  border: 1px solid #e5e5e5;
+  max-height: 525px;
+  overflow-y: scroll;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.review-page .list-san .all-news::-webkit-scrollbar {
+  width: 10px;
+}
+.review-page .list-san .all-news::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px #fff;
+          box-shadow: inset 0 0 5px #fff;
+  border-radius: 10px;
+}
+.review-page .list-san .all-news::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 10px;
+}
+.review-page .list-san .all-news::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
+  cursor: pointer;
+}
+.review-page .list-san .box-new {
+  /* width */
+  width: 100%;
+}
+.review-page .list-san .box-new .new {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.review-page .list-san .box-new .new .image {
+  width: 100px;
+}
+.review-page .list-san .box-new .new .info {
+  padding-right: 10px;
+  padding-left: 0;
+}
+.review-page .list-san .box-new .new .info h5 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+}
+.review-page .list-san .box-new:not(:last-child) .new {
+  border-bottom: 1px solid #e5e5e5;
+}
+.review-page .list-san .box-new .time,
+.review-page .list-san .box-new .desc {
+  display: none;
+}

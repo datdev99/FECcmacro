@@ -46,7 +46,7 @@ function SapXep(rss) {
   });
 }
 
-const Tabs = ({rssNew}) => {
+const Tabs = ({rssNew, phantich}) => {
   const [activeTab, setActiveTab] = useState('tin-nhanh');
   const [data, setData] = useState([]);
   const [title, setTitle] = useState("");
@@ -105,7 +105,7 @@ const Tabs = ({rssNew}) => {
         </div>
 
         <div id="phan-tich" className={`tabcontent ${activeTab === 'phan-tich' ? 'active' : ''}`}>
-          {data.map((item,index) => (
+          {phantich.map((item,index) => (
             <div className='item' key={index}>
               <span>{convertTime(item.isoDate)}</span>
               <p data-content={item.title} onClick={handleShowModal}>{item.title}</p>

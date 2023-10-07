@@ -17,12 +17,19 @@
     display: flex;
     margin: 0 -1.6rem;
     margin-top: 30px;
-    
 
+    @include mq(tab, max) {
+        flex-direction: column;
+    }
+    
     .review-content {
         width: calc(80% - 100px);
         padding: 0 1.6rem;
         flex: 0 0 auto;
+
+        @include mq(tab, max) {
+            width: 100%;
+        }
     }
 
     .list-san {
@@ -33,6 +40,11 @@
         top: 75px;
         height: max-content;
         overflow-y: auto;
+
+        @include mq(tab, max) {
+            width: 100%;
+            max-height: none;
+        }
 
         .heading {
             font-size: 2rem;
@@ -86,13 +98,28 @@
             .new {
                 flex-direction: row-reverse;
 
+                @include mq(tab, max) {
+                    flex-direction: row;
+                }
+
                 .image {
                     width: 100px;
+
+                    @include mq(tab, max) {
+                        width: 250px;
+                    }
+
+                    @include mq(md, max) {
+                        width: 160px;
+                    }
                 }
 
                 .info {
                     padding-right: 10px;
                     padding-left: 0;
+                    @include mq(tab, max) {
+                        padding-left: 10px;
+                    }
                     h5 {
                         font-weight: 500;
                         font-size: 1.3rem;

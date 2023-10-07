@@ -38,7 +38,7 @@ const Page = () => {
     axios.get(apiUrlCategory)
         .then(response => {
             // Xử lý dữ liệu nhận được từ API
-            setCategory(response.data);
+            setCategory(response.data.data);
         })
         .catch(error => {
             // Xử lý lỗi (nếu có)
@@ -53,7 +53,7 @@ const Page = () => {
     if (a.length > 0) {
       let b = category.filter(item => item.parentCategoryId == a[0].id);
       b.push(a[0]);
-      let idCategory = b.map(item => item.id);
+      let idCategory = b.map(item => item.slug);
       console.log(idCategory.join(","));
       apiUrl = `https://localhost:7190/api/Post/Get?action=Get&categoryid=${idCategory.join(",")}`;
       axios.get<Post[]>(apiUrl)

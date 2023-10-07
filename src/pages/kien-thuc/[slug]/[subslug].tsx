@@ -72,7 +72,7 @@ const Page = () => {
             </div>
             <span className="heading"><FontAwesomeIcon icon={faBook} />Bài viết mới nhất</span>
             <div className='all-news'>
-                <Post />
+                <Post data={[]} slug={''}/>
             </div>
           </div>
         </div>

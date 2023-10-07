@@ -7,6 +7,9 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from "react";
 import {API_URL} from '../../lib/api-request'
 import axios from "axios";
+import Link from "next/link";
+import Image from "next/image";
+import logo from '../../../public/assets/images/logo.svg';
 
   interface MenuItem {
     text: string;
@@ -27,7 +30,7 @@ const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
   const itemPath = `${parentPath}/${item.slug}`;
   return (
     <li>
-      <a href={itemPath}>{item.text}</a>
+      <a href={itemPath}>{item.text}{item.children.length > 0 && <FontAwesomeIcon icon={faAngleDown} />}</a>
       {item.children.length > 0 && (
         <ul>
           {item.children.map(child => (
@@ -58,9 +61,35 @@ const Page = () => {
             });
       }, []);
   return (
-    <div className="menu">
-      <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
-    </div>
+    <>
+      <header className='c-header'>
+        <div className="l-container">
+            <div className='c-header__inner'>
+                <div className="c-header__logo">
+                    <Link href="/">
+                        <Image src={logo} width={160}  height={60} alt='' />
+                    </Link>
+                </div>
+                <nav className="menu">
+                  <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
+                </nav>
+                <div className="login">
+                    <Link href="/login">Đăng nhập</Link>
+                </div>
+                <div className='burger'>
+                    <div className='burger__menu'>
+                        <span></span><span></span><span></span>
+                    </div>
+                    <p>MENU</p>
+                </div>
+            </div>
+            
+        </div>
+    </header>
+    </>
+    // <div className="menu">
+    //   <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
+    // </div>
   );
 };
 

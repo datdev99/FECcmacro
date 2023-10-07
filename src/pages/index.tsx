@@ -3,7 +3,7 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header/Header'
 import New from '@/components/New'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Mainvisual from '@/components/Mainvisual'
 import Tabs from '@/components/Tabs'
 import Related_broker from '@/components/related-broker'
@@ -15,6 +15,7 @@ import Image from 'next/image'
 import { FEEDS, getFeed } from "../lib/rss-news";
 import '../css/style.css'
 import Link from 'next/link'
+import axios from 'axios'
   
 export async function getStaticProps() {
     const feed = FEEDS.find((feed) => feed.slug === "");
@@ -34,7 +35,27 @@ export async function getStaticProps() {
 
 
 
-const page = ({ items }:any) => {
+const Page = ({ items }:any) => {
+  const [postTinTuc, setPostTinTuc] = useState([])
+  const [postKienThuc, setPostKienThuc] = useState([])
+  const [postPhanTich, setPostPhanTich] = useState([])
+  useEffect(() => {
+    // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+    const apiUrlCategory = 'https://localhost:7190/api/Post/Get?action=get&categoryid=ngoai-hoi%2Ctin-tuc';
+
+    // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
+    axios.get(apiUrlCategory)
+        .then(response => {
+            // Xử lý dữ liệu nhận được từ API
+            setPostTinTuc(response.data.filter((item:any) => item.tenDanhMuc == 'tin-tuc'));
+            setPostKienThuc(response.data.filter((item:any) => item.parentCategoryId === 1));
+        })
+        .catch(error => {
+            // Xử lý lỗi (nếu có)
+            console.error('Error fetching data: ', error);
+        });
+  }, []);
+
   return (
     <>
       <Header />
@@ -48,7 +69,7 @@ const page = ({ items }:any) => {
                   <Slide /> 
                 </div>
                 <div className='tin-nhanh'>
-                  <Tabs rssNew={items} />
+                  <Tabs rssNew={items} phantich={postPhanTich} />
                 </div>
               </div>
               <div className='san-uy-tin'>
@@ -65,7 +86,7 @@ const page = ({ items }:any) => {
               <Link className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</Link>
             </div>
             <div className='list-news'>
-              <New data={[]} slug={""}/>
+              <New data={postTinTuc} slug={""}/>
             </div>
           </section>
           <section>
@@ -76,7 +97,7 @@ const page = ({ items }:any) => {
               <Link className='xem-them' href="/kien-thuc">Xem thêm</Link>
             </div>
             <div className='list-news'>
-              <New data={[]} slug={""}/>
+              <New data={postKienThuc} slug={""}/>
             </div>
           </section>
         </div>
@@ -87,4 +108,4 @@ const page = ({ items }:any) => {
   )
 }
 
-export default page
+export default Page

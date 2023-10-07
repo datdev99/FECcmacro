@@ -1,7 +1,6 @@
 "use client"
 
 import Header from '@/components/Header/Header'
-import New from '@/components/New'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import img from '../../../../public/assets/images/san/prospero.png'
@@ -9,41 +8,31 @@ import Footer from '@/components/Footer'
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from "react";
 import Link from 'next/link'
+import axios from 'axios'
+import {API_URL} from '../../../lib/api-request'
+import Post from '@/components/Post'
 
 const Page = () => {
     const [title, setTitle] = useState("")
-    const router = useRouter();
-    let route = [
-        {
-            slug: "phan-tich-ky-thuat",
-            name: "Phân tích kỹ thuật"
-        },
-        {
-            slug: "phan-tich-thi-truong",
-            name: "Phân tích thị trường"
-        },
-        {
-            slug: "cac-mau-bieu-do",
-            name: "Cac mau bieu do"
-        }
-    ]
+    const [post, setPost] = useState([])
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
     let { slug }   = useParams();
-    console.log(slug)
     
-    let check = route.filter(item => item.slug == slug)
+      useEffect(() => {
+          const apiUrl = `${API_URL}/Post/Get?action=Get&categoryid=${slug}`;
+          axios.get(apiUrl)
+            .then(response => {
+                // Xử lý dữ liệu nhận được từ API
+                setPost(response.data);
+                setIsDataLoaded(true);
+                console.log(API_URL,"API_URL")
+            })
+            .catch(error => {
+                // Xử lý lỗi (nếu có)
+                console.error('Error fetching data: ', error);
+            });
+      }, [slug]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
 
-    useEffect(() => {
-        if (check.length === 0) {
-        //   router.push("/");
-        } else {
-          setTitle(check[0].name); // Sử dụng check[0].name thay vì check.name
-        }
-    }, [check, router]);
-
-    if(!title) {
-        return <div>1</div>
-    }
-    
   return (
     <>
         <Header />
@@ -65,9 +54,9 @@ const Page = () => {
                 <h1 className='title'>{title}</h1>
             </div>
 
-            <div className='content'>
+            <div className='content'>                
                 <div className='post-list'>
-                    <New data={[]} slug={""}/>
+                    {isDataLoaded && <Post data={post} slug={slug} />}
                 </div>
                 <div className='sidebar'>
                     <div className='advertisement'>
