@@ -15,7 +15,7 @@ export const FEEDS: Feed[] = [
   {
     slug: "",
     title: "NRK Topp Saker",
-    url: "https://vn.investing.com/rss/news.rss",
+    url: "https://vneconomy.vn/tai-chinh.rss"//"https://vn.investing.com/rss/news.rss",
   }
 ];
 

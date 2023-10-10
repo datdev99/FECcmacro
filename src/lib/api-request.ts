@@ -4,8 +4,8 @@ import axios from "axios";
 
 const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "https://localhost:7190";
 
-export const API_URL = "https://localhost:7190/api";
-export const URL_SERVER = "https://localhost:7190/";
+export const API_URL = "https://api.ccmacro.com/api";
+export const URL_SERVER = "https://api.ccmacro.com/";
 
 // export async function api() {
 //   return SERVER_ENDPOINT;

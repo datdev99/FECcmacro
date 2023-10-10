@@ -16,6 +16,7 @@ import { FEEDS, getFeed } from "../lib/rss-news";
 import '../css/style.css'
 import Link from 'next/link'
 import axios from 'axios'
+import {API_URL} from '../lib/api-request'
   
 export async function getStaticProps() {
     const feed = FEEDS.find((feed) => feed.slug === "");
@@ -41,19 +42,34 @@ const Page = ({ items }:any) => {
   const [postPhanTich, setPostPhanTich] = useState([])
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    const apiUrlCategory = 'https://localhost:7190/api/Post/Get?action=get&categoryid=ngoai-hoi%2Ctin-tuc';
-
+    const apiUrlCategory = `${API_URL}/Post/Get?action=get&slug=tin-tuc`;
+    const apiUrlKienThuc = `${API_URL}/Post/Get?action=get&slug=kien-thuc`;
+    const apiUrlPhanTich = `${API_URL}/Post/Get?action=get&slug=phan-tich`;
     // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
     axios.get(apiUrlCategory)
         .then(response => {
-            // Xử lý dữ liệu nhận được từ API
-            setPostTinTuc(response.data.filter((item:any) => item.tenDanhMuc == 'tin-tuc'));
-            setPostKienThuc(response.data.filter((item:any) => item.parentCategoryId === 1));
+            setPostTinTuc(response.data);
         })
         .catch(error => {
             // Xử lý lỗi (nếu có)
             console.error('Error fetching data: ', error);
         });
+    axios.get(apiUrlKienThuc)
+    .then(response => {
+      setPostKienThuc(response.data);
+    })
+    .catch(error => {
+        // Xử lý lỗi (nếu có)
+        console.error('Error fetching data: ', error);
+    });
+    axios.get(apiUrlPhanTich)
+    .then(response => {
+      setPostPhanTich(response.data);
+    })
+    .catch(error => {
+        // Xử lý lỗi (nếu có)
+        console.error('Error fetching data: ', error);
+    });
   }, []);
 
   return (
@@ -66,7 +82,7 @@ const Page = ({ items }:any) => {
             <div className='layout'>
               <div className='d-flex'>
                 <div className='slide'>
-                  <Slide /> 
+                  <Slide news={postPhanTich} /> 
                 </div>
                 <div className='tin-nhanh'>
                   <Tabs rssNew={items} phantich={postPhanTich} />

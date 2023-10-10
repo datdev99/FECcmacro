@@ -86,12 +86,12 @@ const Tabs = ({rssNew, phantich}) => {
           >
             Tin nhanh
           </button>
-          <button
+          {/* <button
             className={`tablinks ${activeTab === 'phan-tich' ? 'active' : ''}`}
             onClick={() => openCity('phan-tich')}
           >
             Phân tích
-          </button>
+          </button> */}
         </div>
 
         <div id="tin-nhanh" className={`tabcontent ${activeTab === 'tin-nhanh' ? 'active' : ''}`}>
@@ -99,7 +99,7 @@ const Tabs = ({rssNew, phantich}) => {
             <div className='item' key={index}>
               
               <span>{convertTime(item.isoDate)}</span>
-              <p onClick={handleShowModal(item.contentSnippet, item.title)}>{item.title}</p>
+              <p onClick={handleShowModal(item["content:encodedSnippet"], item.title)}>{item.title}</p>
             </div>
           ))}
         </div>

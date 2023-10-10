@@ -60,7 +60,7 @@ const Page = () => {
     }, [check, router]);
    
       useEffect(() => {
-          const apiUrl = `${API_URL}/Post/Get?action=Get&categoryid=${slug}`;
+          const apiUrl = `${API_URL}/Post/Get?action=Get&slug=${slug}`;
           axios.get(apiUrl)
             .then(response => {
                 // Xử lý dữ liệu nhận được từ API
