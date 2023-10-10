@@ -24,7 +24,7 @@ const Page = () => {
 
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&categoryid=1&postid=${slug}`;
+    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&slug=danh-gia-san&categoryId=${slug}`;
 
     // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
     axios.get(apiUrl)
@@ -37,7 +37,7 @@ const Page = () => {
             console.error('Error fetching data: ', error);
         });
   }, [slug]);
-
+ 
   return (
     <div>
       <Header />
