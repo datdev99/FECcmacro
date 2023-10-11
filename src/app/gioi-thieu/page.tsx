@@ -7,7 +7,7 @@ import {API_URL} from '../../lib/api-request'
 import axios from 'axios'
 
 
-const page = () => {
+const Page = () => {
     const [content, setContent] = useState([])
     const [isDataLoaded, setIsDataLoaded] = useState(false);
 
@@ -41,4 +41,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
