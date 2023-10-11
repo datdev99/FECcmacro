@@ -27,7 +27,7 @@ const Page = () => {
 
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&categoryid=1&postid=${subslug}`;
+    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&slug=${subslug}`;
 
     // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
     axios.get(apiUrl)
@@ -39,7 +39,7 @@ const Page = () => {
             // Xử lý lỗi (nếu có)
             console.error('Error fetching data: ', error);
         });
-  }, [slug]);
+  }, [subslug]);
  
   return (
     <div>
@@ -51,12 +51,11 @@ const Page = () => {
               <Link href="/">Trang chủ</Link>
             </li>
             <li>
-              <Link href="/kien-thuc">Đánh giá sàn</Link>
+              <Link href="/kien-thuc">Kiến thức</Link>
             </li>
             <li>
-              <Link href={`/kien-thuc/${title}`}>{title}</Link>
+              <Link href={`/kien-thuc/${slug}`}>aaa</Link>
             </li>
-            <li>{subslug}</li>
           </ul>
         </div>
         <div className="review-page">

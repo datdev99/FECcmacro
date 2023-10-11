@@ -45,7 +45,7 @@ const New = (props: Props) => {// Lấy giá trị của slug từ URL
             props.data.slice(0, 6).map((item:any, index) => (
                 <div className="box-new" key={index}>
                     <article className="new">
-                        <Link href={`${props.slug}/${item.slug}`} title={item.time} className="image">
+                        <Link href={`${item.tenDanhMuc}/${item.slug}`} title={item.time} className="image">
                         <span>
                             <img src={UrlImage(item.image)} alt={item.description} />
                         </span>

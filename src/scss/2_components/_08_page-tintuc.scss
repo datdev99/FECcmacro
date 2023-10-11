@@ -18,6 +18,7 @@
                 .info {
                     background: #F7F7F7;
                     padding: 3rem 2rem;
+                    width: 100%;
 
                     @include mq(xl, max) {
                         padding: 2rem 1rem;

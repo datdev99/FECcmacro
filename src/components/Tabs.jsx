@@ -113,7 +113,7 @@ const Tabs = ({rssNew, phantich}) => {
           ))}
         </div>
       </div>
-      <Modal show={showModal} onHide={handleCloseModal}>
+      <Modal show={showModal} onHide={handleCloseModal} id="model_new">
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
@@ -122,7 +122,7 @@ const Tabs = ({rssNew, phantich}) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>
-            Close
+            Đóng
           </Button>
         </Modal.Footer>
       </Modal>

@@ -43,14 +43,14 @@ const Post = (props: Props) => {// Lấy giá trị của slug từ URL
             props.data.map((item:any, index) => (
                 <div className="box-new" key={index}>
                     <article className="new">
-                        <Link href={`${props.slug}/${item.slug}`} title={item.time} className="image">
+                        <Link href={`${item.slug}`} title={item.time} className="image">
                         <span>
                             <img src={UrlImage(item.image)} alt={item.description} />
                         </span>
                         </Link>
                         <div className="info">
                         <h5>
-                            <Link href={`${props.slug}/${item.slug}`}>
+                            <Link href={`${item.slug}`}>
                                 {item.title}
                             </Link>
                         </h5>

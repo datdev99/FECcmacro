@@ -1085,6 +1085,46 @@ section {
   margin-bottom: 30px;
 }
 
+#model_new {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+@media screen and (min-width: 1200px) {
+  #model_new {
+    max-width: 75vw;
+    max-height: 95vh;
+    overflow-y: scroll;
+  }
+}
+#model_new .modal-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+#model_new .modal-header .modal-title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #0F6177;
+}
+#model_new::-webkit-scrollbar {
+  width: 10px;
+}
+#model_new::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px #fff;
+          box-shadow: inset 0 0 5px #fff;
+  border-radius: 10px;
+}
+#model_new::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 10px;
+}
+#model_new::-webkit-scrollbar-thumb:hover {
+  background: #e5e5e5;
+  cursor: pointer;
+}
+
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Component .c-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
@@ -2314,6 +2354,7 @@ section {
 #page-tintuc .tintuc-list .box-new:first-child .info {
   background: #F7F7F7;
   padding: 3rem 2rem;
+  width: 100%;
 }
 @media screen and (max-width: 1199px) {
   #page-tintuc .tintuc-list .box-new:first-child .info {
