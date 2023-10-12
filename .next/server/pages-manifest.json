@@ -1,9 +1,7 @@
 {
-  "/_error": "pages/_error.js",
   "/_app": "pages/_app.js",
-  "/phan-tich/[slug]/[subslug]": "pages/phan-tich/[slug]/[subslug].html",
-  "/kien-thuc/[slug]/[subslug]": "pages/kien-thuc/[slug]/[subslug].html",
-  "/": "pages/index.js",
+  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/kien-thuc/[slug]/[subslug]": "pages/kien-thuc/[slug]/[subslug].js"
 }
