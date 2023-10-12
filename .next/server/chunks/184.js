@@ -4358,7 +4358,7 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
-/***/ 9429:
+/***/ 5670:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -19287,7 +19287,7 @@ function buildFullPath(baseURL, requestedURL) {
 }
 
 // EXTERNAL MODULE: ./node_modules/proxy-from-env/index.js
-var proxy_from_env = __webpack_require__(9429);
+var proxy_from_env = __webpack_require__(5670);
 // EXTERNAL MODULE: external "http"
 var external_http_ = __webpack_require__(3685);
 // EXTERNAL MODULE: external "https"

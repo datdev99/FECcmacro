@@ -1,17 +1,18 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/gioi-thieu/page": "app/gioi-thieu/page.js",
   "/admin/page": "app/admin/page.js",
   "/danh-gia-san/page": "app/danh-gia-san/page.js",
-  "/huong-dan/page": "app/huong-dan/page.js",
   "/kien-thuc/page": "app/kien-thuc/page.js",
-  "/lien-he/page": "app/lien-he/page.js",
-  "/login/page": "app/login/page.js",
+  "/huong-dan/page": "app/huong-dan/page.js",
   "/phan-tich/page": "app/phan-tich/page.js",
-  "/profile/page": "app/profile/page.js",
+  "/login/page": "app/login/page.js",
+  "/lien-he/page": "app/lien-he/page.js",
   "/register/page": "app/register/page.js",
-  "/test/page": "app/test/page.js",
+  "/profile/page": "app/profile/page.js",
   "/tin-tuc/page": "app/tin-tuc/page.js",
+  "/test/page": "app/test/page.js",
+  "/kien-thuc/[slug]/page": "app/kien-thuc/[slug]/page.js",
   "/danh-gia-san/[slug]/page": "app/danh-gia-san/[slug]/page.js",
-  "/phan-tich/[...slug]/page": "app/phan-tich/[...slug]/page.js",
-  "/kien-thuc/[slug]/page": "app/kien-thuc/[slug]/page.js"
+  "/phan-tich/[...slug]/page": "app/phan-tich/[...slug]/page.js"
 }

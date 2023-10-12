@@ -324,7 +324,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 5143:
+/***/ 7971:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -361,7 +361,7 @@ const tree = {
         'phan-tich',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7091)), "D:\\Dat\\NEXTJS\\FECcmacro\\src\\app\\phan-tich\\page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 8962)), "D:\\Dat\\NEXTJS\\FECcmacro\\src\\app\\phan-tich\\page.jsx"],
           
         }]
       },
@@ -390,7 +390,7 @@ const tree = {
       }
       ]
       }.children;
-const pages = ["D:\\Dat\\NEXTJS\\FECcmacro\\src\\app\\phan-tich\\page.tsx"];
+const pages = ["D:\\Dat\\NEXTJS\\FECcmacro\\src\\app\\phan-tich\\page.jsx"];
 
 // @ts-expect-error - replaced by webpack/turbopack loader
 
@@ -422,14 +422,14 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 1428:
+/***/ 6414:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2013))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 9953))
 
 /***/ }),
 
-/***/ 2013:
+/***/ 9953:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -439,17 +439,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8188);
-/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3718);
-/* harmony import */ var _components_New__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6845);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(176);
-/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2451);
-/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3718);
+/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2451);
+/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8038);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(176);
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8188);
+/* harmony import */ var next_navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7114);
+/* harmony import */ var next_navigation__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_navigation__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1440);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(3258);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(3258);
+/* harmony import */ var _lib_api_request__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(416);
+/* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(7411);
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -459,49 +462,73 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 const Page = ()=>{
-    const [post, setPost] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
-    const [category, setCategory] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
-    const [isDataLoaded, setIsDataLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(false);
-    (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(()=>{
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        const apiUrlCategory = "https://localhost:7190/api/Category/GetHierarchyCategory?action=Get&para1=A";
-        // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
-        axios__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z.get(apiUrlCategory).then((response)=>{
+    const [title, setTitle] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)("");
+    const [post, setPost] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]);
+    const [isDataLoaded, setIsDataLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false);
+    const router = (0,next_navigation__WEBPACK_IMPORTED_MODULE_6__.useRouter)();
+    // let route = [
+    //     {
+    //         slug: "ngoai-hoi",
+    //         name: "Ngoại hối"
+    //     },
+    //     {
+    //         slug: "chung-khoan",
+    //         name: "Chứng khoán"
+    //     },
+    //     {
+    //         slug: "hang-hoa",
+    //         name: "Hàng hóa"
+    //     },
+    //     {
+    //         slug: "vang",
+    //         name: "Vàng"
+    //     },
+    //     {
+    //         slug: "dau-tho",
+    //         name: "Dầu thô"
+    //     },
+    //     {
+    //         slug: "tien-dien-tu",
+    //         name: "Tiền điện tử"
+    //     },
+    //     {
+    //         slug: "kinh-te-tai-chinh",
+    //         name: "Kinh tế tài chính"
+    //     }
+    // ]
+    let { slug } = (0,next_navigation__WEBPACK_IMPORTED_MODULE_6__.useParams)();
+    // let check = route.filter(item => item.slug == slug)
+    // useEffect(() => {
+    //     if (check.length === 0) {
+    //       router.push("/");
+    //     } else {
+    //       setTitle(check[0].name); // Sử dụng check[0].name thay vì check.name
+    //     }
+    // }, [check, router]);
+    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
+        const apiUrl = `${_lib_api_request__WEBPACK_IMPORTED_MODULE_8__/* .API_URL */ .T5}/Post/Get?action=Get&slug=phan-tich`;
+        axios__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z.get(apiUrl).then((response)=>{
             // Xử lý dữ liệu nhận được từ API
-            setCategory(response.data.data);
+            setPost(response.data);
+            setIsDataLoaded(true);
+            console.log(_lib_api_request__WEBPACK_IMPORTED_MODULE_8__/* .API_URL */ .T5, "API_URL");
         }).catch((error)=>{
             // Xử lý lỗi (nếu có)
             console.error("Error fetching data: ", error);
         });
-    }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(()=>{
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        let apiUrl = "";
-        let a = category.filter((item)=>item.slug == "phan-tich");
-        if (a.length > 0) {
-            let b = category.filter((item)=>item.parentCategoryId == a[0].id);
-            b.push(a[0]);
-            let idCategory = b.map((item)=>item.slug);
-            console.log(idCategory.join(","));
-            apiUrl = `https://localhost:7190/api/Post/Get?action=Get&categoryid=${idCategory.join(",")}`;
-            axios__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z.get(apiUrl).then((response)=>{
-                // Xử lý dữ liệu nhận được từ API
-                setPost(response.data);
-                setIsDataLoaded(true);
-            }).catch((error)=>{
-                // Xử lý lỗi (nếu có)
-                console.error("Error fetching data: ", error);
-            });
-        } else {
-            console.log("Kh\xf4ng t\xecm thấy category với slug l\xe0 'kien-thuc'");
-        }
     }, [
-        category
+        slug
     ]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+    // if(!title) {
+    //     return <div>1</div>
+    // }
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {}),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("main", {
                 className: "l-container--1",
                 id: "page-post",
@@ -518,17 +545,20 @@ const Page = ()=>{
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_7___default()), {
-                                        href: "/kien-thuc",
-                                        children: "Ph\xe2n t\xedch"
+                                        href: "/phan-tich",
+                                        children: "ph\xe2n t\xedch"
                                     })
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                    children: title
                                 })
                             ]
                         })
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
                             className: "title",
-                            children: "Ph\xe2n t\xedch"
+                            children: title
                         })
                     }),
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -536,9 +566,9 @@ const Page = ()=>{
                         children: [
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                 className: "post-list",
-                                children: isDataLoaded && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_New__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                                children: isDataLoaded && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Post__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
                                     data: post,
-                                    slug: ""
+                                    slug: slug
                                 })
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -548,15 +578,15 @@ const Page = ()=>{
                                     children: [
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                             className: "item",
-                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_6___default()), {
-                                                src: _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z,
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_2___default()), {
+                                                src: _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z,
                                                 alt: "prospero"
                                             })
                                         }),
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                             className: "item",
-                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_6___default()), {
-                                                src: _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z,
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_2___default()), {
+                                                src: _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z,
                                                 alt: "prospero"
                                             })
                                         })
@@ -567,7 +597,7 @@ const Page = ()=>{
                     })
                 ]
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Footer__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {})
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Footer__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {})
         ]
     });
 };
@@ -576,7 +606,7 @@ const Page = ()=>{
 
 /***/ }),
 
-/***/ 7091:
+/***/ 8962:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -588,7 +618,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1363);
 
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`D:\Dat\NEXTJS\FECcmacro\src\app\phan-tich\page.tsx`)
+const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`D:\Dat\NEXTJS\FECcmacro\src\app\phan-tich\page.jsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -600,6 +630,25 @@ const __default__ = proxy.default;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
 
+/***/ }),
+
+/***/ 176:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/prospero.6110688c.png","height":942,"width":942,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA9klEQVR42i2OPUvDUBSG7w9SEMFJxELrV0lSm6Y3yY3WFpMWHCq6iAVxUBfBQrVRjJhBShEnEcRVcHLXv3MfL8HlcOC853kf4coQGQSUNxXzGxH7SZN4R1JthHh+gDBHSjXF2UGdl8tVTvsub8Myhz2PqhsiLJPsdSQ/0zleryqMjp0iPDxyikdhsNydWHxli4jZdrFPLtbptHwczxBsM3ZN5+90hqfzNT6uS3znCyzZqnATTd9nxQgO+orP+2XeRxW2WtvU5b9krSEZpym32SM3DxPS/Jk8GzPYs7G8COEFSrfjRAdRpLvdRMdJrAOltMFrV4b6D5EcjSLRXji3AAAAAElFTkSuQmCC","blurWidth":8,"blurHeight":8});
+
+/***/ }),
+
+/***/ 7114:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(696)
+
+
 /***/ })
 
 };
@@ -609,7 +658,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,969,380,184,900,199,202,718,188,638], () => (__webpack_exec__(5143)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,969,380,184,900,891,202,718,188,411], () => (__webpack_exec__(7971)));
 module.exports = __webpack_exports__;
 
 })();

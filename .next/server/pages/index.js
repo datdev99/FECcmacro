@@ -101,7 +101,7 @@ const New = (props)=>{
                             children: [
                                 /*#__PURE__*/ jsx_runtime.jsx("h5", {
                                     children: /*#__PURE__*/ jsx_runtime.jsx((link_default()), {
-                                        href: `${props.slug}/${item.slug}`,
+                                        href: `${item.tenDanhMuc}/${item.slug}`,
                                         children: item.title
                                     })
                                 }),
@@ -283,7 +283,7 @@ const Tabs = ({ rssNew, phantich })=>{
                         children: /*#__PURE__*/ jsx_runtime.jsx("button", {
                             className: `tablinks ${activeTab === "tin-nhanh" ? "active" : ""}`,
                             onClick: ()=>openCity("tin-nhanh"),
-                            children: "Tin nhanh"
+                            children: "Tin nhanh 1"
                         })
                     }),
                     /*#__PURE__*/ jsx_runtime.jsx("div", {

@@ -1,4 +1,4 @@
-// File: D:\Dat\NEXTJS\FECcmacro\src\app\phan-tich\page.tsx
+// File: D:\Dat\NEXTJS\FECcmacro\src\app\phan-tich\page.jsx
 import * as entry from '../../../../src/app/phan-tich/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

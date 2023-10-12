@@ -425,32 +425,111 @@ const routeModule = new AppPageRouteModule({
 /***/ 4446:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1176))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 6157))
 
 /***/ }),
 
-/***/ 1176:
+/***/ 6157:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6786);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8188);
-/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3718);
-/* harmony import */ var _components_New__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6845);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(176);
-/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2451);
-/* harmony import */ var next_image__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_image__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1440);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(3258);
-/* harmony import */ var _lib_api_request__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(416);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ page)
+});
+
+// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(6786);
+// EXTERNAL MODULE: ./src/components/Footer.tsx
+var Footer = __webpack_require__(8188);
+// EXTERNAL MODULE: ./src/components/Header/Header.tsx + 1 modules
+var Header = __webpack_require__(3718);
+// EXTERNAL MODULE: external "next/dist/compiled/react"
+var react_ = __webpack_require__(8038);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1440);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./src/lib/api-request.ts
+var api_request = __webpack_require__(416);
+;// CONCATENATED MODULE: ./src/components/New.tsx
+
+
+
+
+const New = (props)=>{
+    function formatdate(datetime) {
+        datetime = new Date(datetime);
+        let day = String(datetime.getDate()).padStart(2, "0");
+        let month = String(datetime.getMonth() + 1).padStart(2, "0"); // Month is zero-based
+        let year = datetime.getFullYear();
+        let formattedDate = `${day}/${month}/${year}`;
+        return formattedDate;
+    }
+    function UrlImage(direc) {
+        return api_request/* URL_SERVER */.$s + direc;
+    }
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: JSON.stringify(props) === "{}" ? /*#__PURE__*/ jsx_runtime_.jsx("p", {
+            children: "Chưa c\xf3 b\xe0i viết n\xe0o"
+        }) : props.data.slice(0, 6).map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: "box-new",
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("article", {
+                    className: "new",
+                    children: [
+                        /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                            href: `${item.tenDanhMuc}/${item.slug}`,
+                            title: item.time,
+                            className: "image",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                                    src: UrlImage(item.image),
+                                    alt: item.description
+                                })
+                            })
+                        }),
+                        /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                            className: "info",
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx("h5", {
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                                        href: `${item.tenDanhMuc}/${item.slug}`,
+                                        children: item.title
+                                    })
+                                }),
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                                    className: "time",
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx("span", {}),
+                                        /*#__PURE__*/ jsx_runtime_.jsx("time", {
+                                            dateTime: item.time,
+                                            children: formatdate(item.dateCreated)
+                                        })
+                                    ]
+                                }),
+                                /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                    className: "desc",
+                                    children: item.description
+                                })
+                            ]
+                        })
+                    ]
+                })
+            }, index))
+    });
+};
+/* harmony default export */ const components_New = (New);
+
+// EXTERNAL MODULE: ./public/assets/images/san/prospero.png
+var prospero = __webpack_require__(176);
+// EXTERNAL MODULE: ./node_modules/next/image.js
+var next_image = __webpack_require__(2451);
+var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
+// EXTERNAL MODULE: ./node_modules/axios/lib/axios.js + 46 modules
+var axios = __webpack_require__(3258);
+;// CONCATENATED MODULE: ./src/app/kien-thuc/page.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -462,14 +541,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const Page = ()=>{
-    const [post, setPost] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
-    const [category, setCategory] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)([]);
-    const [isDataLoaded, setIsDataLoaded] = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(false);
-    (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(()=>{
+    const [post, setPost] = (0,react_.useState)([]);
+    const [category, setCategory] = (0,react_.useState)([]);
+    const [isDataLoaded, setIsDataLoaded] = (0,react_.useState)(false);
+    (0,react_.useEffect)(()=>{
         // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
         let apiUrl = "";
-        apiUrl = `${_lib_api_request__WEBPACK_IMPORTED_MODULE_8__/* .API_URL */ .T5}/Post/Get?action=Get&slug=kien-thuc`;
-        axios__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z.get(apiUrl).then((response)=>{
+        apiUrl = `${api_request/* API_URL */.T5}/Post/Get?action=Get&slug=kien-thuc`;
+        axios/* default */.Z.get(apiUrl).then((response)=>{
             // Xử lý dữ liệu nhận được từ API
             setPost(response.data);
             setIsDataLoaded(true);
@@ -480,25 +559,25 @@ const Page = ()=>{
     }, [
         category
     ]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
-    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Header_Header__WEBPACK_IMPORTED_MODULE_2__["default"], {}),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("main", {
+            /*#__PURE__*/ jsx_runtime_.jsx(Header["default"], {}),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("main", {
                 className: "l-container--1",
                 id: "page-post",
                 children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
                         className: "breadcrumbs",
-                        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("ul", {
                             children: [
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_7___default()), {
+                                /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                                         href: "/",
                                         children: "Trang chủ"
                                     })
                                 }),
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
-                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_7___default()), {
+                                /*#__PURE__*/ jsx_runtime_.jsx("li", {
+                                    children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                                         href: "/kien-thuc",
                                         children: "Kiến thức"
                                     })
@@ -506,38 +585,38 @@ const Page = ()=>{
                             ]
                         })
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                    /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                             className: "title",
                             children: "Kiến thức"
                         })
                     }),
-                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: "content",
                         children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                 className: "post-list",
-                                children: isDataLoaded && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_New__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                                children: isDataLoaded && /*#__PURE__*/ jsx_runtime_.jsx(components_New, {
                                     data: post,
                                     slug: ""
                                 })
                             }),
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                            /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                 className: "sidebar",
-                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     className: "advertisement",
                                     children: [
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                             className: "item",
-                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_6___default()), {
-                                                src: _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                                                src: prospero/* default */.Z,
                                                 alt: "prospero"
                                             })
                                         }),
-                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                             className: "item",
-                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_6___default()), {
-                                                src: _public_assets_images_san_prospero_png__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                                                src: prospero/* default */.Z,
                                                 alt: "prospero"
                                             })
                                         })
@@ -548,11 +627,11 @@ const Page = ()=>{
                     })
                 ]
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Footer__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {})
+            /*#__PURE__*/ jsx_runtime_.jsx(Footer/* default */.Z, {})
         ]
     });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Page);
+/* harmony default export */ const page = (Page);
 
 
 /***/ }),
@@ -581,6 +660,17 @@ const __default__ = proxy.default;
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
 
+/***/ }),
+
+/***/ 176:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Z: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/prospero.6110688c.png","height":942,"width":942,"blurDataURL":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAA9klEQVR42i2OPUvDUBSG7w9SEMFJxELrV0lSm6Y3yY3WFpMWHCq6iAVxUBfBQrVRjJhBShEnEcRVcHLXv3MfL8HlcOC853kf4coQGQSUNxXzGxH7SZN4R1JthHh+gDBHSjXF2UGdl8tVTvsub8Myhz2PqhsiLJPsdSQ/0zleryqMjp0iPDxyikdhsNydWHxli4jZdrFPLtbptHwczxBsM3ZN5+90hqfzNT6uS3znCyzZqnATTd9nxQgO+orP+2XeRxW2WtvU5b9krSEZpym32SM3DxPS/Jk8GzPYs7G8COEFSrfjRAdRpLvdRMdJrAOltMFrV4b6D5EcjSLRXji3AAAAAElFTkSuQmCC","blurWidth":8,"blurHeight":8});
+
 /***/ })
 
 };
@@ -590,7 +680,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,969,380,184,900,199,202,718,188,638], () => (__webpack_exec__(1575)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,969,380,184,900,891,202,718,188], () => (__webpack_exec__(1575)));
 module.exports = __webpack_exports__;
 
 })();
