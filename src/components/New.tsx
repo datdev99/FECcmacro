@@ -4,7 +4,7 @@ import Link from "next/link";
 import {URL_SERVER} from '@/lib/api-request'
 import { useParams } from "next/navigation";
 import { useRouter } from "next/router";
-
+  
 interface Props {
     data: IF_Data[];
     slug: string;
@@ -52,7 +52,7 @@ const New = (props: Props) => {// Lấy giá trị của slug từ URL
                         </Link>
                         <div className="info">
                         <h5>
-                            <Link href={`${props.slug}/${item.slug}`}>
+                            <Link href={`${item.tenDanhMuc}/${item.slug}`}>
                                 {item.title}
                             </Link>
                         </h5>
