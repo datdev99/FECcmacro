@@ -1,0 +1,17 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/admin/page": "/admin",
+  "/danh-gia-san/page": "/danh-gia-san",
+  "/huong-dan/page": "/huong-dan",
+  "/kien-thuc/page": "/kien-thuc",
+  "/lien-he/page": "/lien-he",
+  "/login/page": "/login",
+  "/phan-tich/page": "/phan-tich",
+  "/profile/page": "/profile",
+  "/register/page": "/register",
+  "/test/page": "/test",
+  "/tin-tuc/page": "/tin-tuc",
+  "/danh-gia-san/[slug]/page": "/danh-gia-san/[slug]",
+  "/phan-tich/[...slug]/page": "/phan-tich/[...slug]",
+  "/kien-thuc/[slug]/page": "/kien-thuc/[slug]"
+}
