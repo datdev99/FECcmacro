@@ -1,7 +1,0 @@
-{
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/phan-tich/page": "app/phan-tich/page.js",
-  "/kien-thuc/page": "app/kien-thuc/page.js",
-  "/kien-thuc/[slug]/page": "app/kien-thuc/[slug]/page.js",
-  "/phan-tich/[...slug]/page": "app/phan-tich/[...slug]/page.js"
-}

@@ -24,7 +24,7 @@ const Page = () => {
 
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&slug=danh-gia-san&categoryId=${slug}`;
+    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&slug=${slug}`;
 
     // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
     axios.get(apiUrl)
