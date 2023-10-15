@@ -87,9 +87,6 @@ const Page = () => {
         </div>
     </header>
     </>
-    // <div className="menu">
-    //   <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
-    // </div>
   );
 };
 
