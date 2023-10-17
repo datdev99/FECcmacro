@@ -62,17 +62,8 @@ const Content = (props: Props) => {
             </li>
             {crumb.map((item, index) => (
                 <li key={index}>
-                {index < crumb.length - 1 ? (
-                  <Link href={`/${crumb.slice(0, index + 1).join('/')}`}>
-                    <a>{item.title}</a>
-                  </Link>
-                ) : (
-                  <span>{item.title}</span>
-                )}
+                    <Link href={`/${item.slug}`}>{item.title}</Link>
               </li>
-            //     <li key={index}>
-            //         <Link href={`/${item.slug}`}>{item.title}</Link>
-            //   </li>
             ))}
           </ul>
         </div>
