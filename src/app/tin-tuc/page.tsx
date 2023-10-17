@@ -5,7 +5,7 @@ import Header from '@/components/Header/Header'
 import Post from '@/components/Post'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import {API_URL} from '../../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 
 interface Category {
     id: number;

@@ -7,7 +7,7 @@ import { faBook } from '@fortawesome/free-solid-svg-icons';
 import Related_broker from './related-broker';
 import Post from './Post';
 import Header from "@/components/Header/Header";
-import {API_URL} from '../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 import axios from 'axios';
 
 interface Props {

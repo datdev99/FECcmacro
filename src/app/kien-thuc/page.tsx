@@ -8,7 +8,7 @@ import img from '../../../public/assets/images/san/prospero.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import axios from 'axios'
-import {API_URL} from '../../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 import Post from '@/components/Post'
 
 interface Category {

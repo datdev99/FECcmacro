@@ -3,7 +3,7 @@
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import React, { useEffect, useState } from 'react'
-import {API_URL} from '../../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 import axios from 'axios'
 
 

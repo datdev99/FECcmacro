@@ -5,7 +5,7 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from "react";
-import {API_URL} from '../../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from 'react';
-import {API_URL} from '../../../../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 import axios from 'axios';
 import Content from '@/components/Content';
 

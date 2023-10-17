@@ -9,7 +9,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { useState } from "react";
 import Link from 'next/link'
 import axios from 'axios'
-import {API_URL} from '../../../lib/api-request'
+import {API_URL} from '@/lib/api-request'
 import Post from '@/components/Post'
 
 const Page = () => {
