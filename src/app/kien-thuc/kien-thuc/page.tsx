@@ -4,7 +4,7 @@ import React from 'react'
 const Page = () => {
   return (
     <div>
-      <TemplatePage slug={'cac-mau-bieu-do'} />
+      <TemplatePage slug={'kien-thuc'} />
     </div>
   )
 }
