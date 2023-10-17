@@ -80,7 +80,7 @@ const Broker = (props: Props) => {
               </tr>
             </thead>
             <tbody>
-              {props.data.map(((broker) => (
+              {props.data.map((broker) => (
                 <tr className="table-row" key={broker.id}>
                   <td className="level">
                     {broker.ranking}
