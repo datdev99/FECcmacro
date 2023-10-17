@@ -84,7 +84,7 @@ const Tabs = ({rssNew, phantich}) => {
             className={`tablinks ${activeTab === 'tin-nhanh' ? 'active' : ''}`}
             onClick={() => openCity('tin-nhanh')}
           >
-            Tin nhanh
+            Tin nhanh 3
           </button>
           {/* <button
             className={`tablinks ${activeTab === 'phan-tich' ? 'active' : ''}`}

@@ -16,11 +16,22 @@ const Page = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState([])
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [processedContent, setProcessedContent] = useState([]);
 
   let { slug } = useParams();
   useEffect(() => {
     setTitle(slug);
   }, [slug]);
+
+
+  const processContent = (data) => {
+    const modifiedContent = data.map(item => {
+      const modifiedItem = { ...item };
+      modifiedItem.content = item.content.replace(/src="\/Image\//g, 'src="https://api.ccmacro.com/Image/');
+      return modifiedItem;
+    });
+    return modifiedContent;
+  };
 
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
@@ -30,6 +41,12 @@ const Page = () => {
     axios.get(apiUrl)
         .then(response => {
             setContent(response.data);
+            setIsDataLoaded(true);
+
+            const data = response.data;
+            const processedData = processContent(data);
+            setContent(data);
+            setProcessedContent(processedData);
             setIsDataLoaded(true);
         })
         .catch(error => {
@@ -55,7 +72,7 @@ const Page = () => {
         </div>
         <div className="review-page">
           <div className="review-content">
-            {isDataLoaded && content && content.map((item, index) => (
+            {isDataLoaded && processedContent && processedContent.map((item, index) => (
               <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
             ))}
           </div>
