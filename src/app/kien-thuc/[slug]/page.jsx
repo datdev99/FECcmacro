@@ -15,6 +15,7 @@ import Post from '@/components/Post'
 const Page = () => {
     const [title, setTitle] = useState("")
     const [post, setPost] = useState([])
+
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const router = useRouter();
     let route = [

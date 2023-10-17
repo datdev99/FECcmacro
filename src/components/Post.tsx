@@ -33,13 +33,15 @@ const Post = (props: Props) => {// Lấy giá trị của slug từ URL
     function UrlImage(direc:any) {
         return URL_SERVER + direc;
     }
+
+
     return (
     <>
         {
-            JSON.stringify(props) === '{}'            
-            ? 
-                <p>Chưa có bài viết nào</p>
-            :
+            // props.data.length === 0           
+            // ? 
+            //     <p>Chưa có bài viết nào</p>
+            // :
             props.data.map((item:any, index) => (
                 <div className="box-new" key={index}>
                     <article className="new">

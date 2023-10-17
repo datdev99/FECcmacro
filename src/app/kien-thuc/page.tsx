@@ -79,11 +79,6 @@ const Page = () => {
           </div>
         </div>
       </div>
-      {/* {post.map((item, i) => (
-        <div key={i}>
-          {item.title}
-        </div>
-      ))} */}
     </main>
     <Footer />
   </>

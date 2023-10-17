@@ -14,32 +14,50 @@ import axios from "axios";
 import '../../../css/style.css'
 import { useRouter } from "next/router";
 
+interface Category {
+  slug: any,
+}
+
 const Page = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState([])
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [category, setCategory] = useState<Category[]>([])
 
   const router = useRouter();
   const { slug, subslug } = router.query;
-  // useEffect(() => {
-  //   setTitle(slug);
-  // }, [slug]);
+
 
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    const apiUrl = `${API_URL}/Post/Get?action=GetDetail&slug=${subslug}`;
-
+    const apiUrl = `${API_URL}/Category/Get?action=get`;
     // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
     axios.get(apiUrl)
         .then(response => {
-            setContent(response.data);
-            setIsDataLoaded(true);
+          const categories = response.data.data;
+          // console.log(categories)
+          setCategory(categories);
         })
         .catch(error => {
             // Xử lý lỗi (nếu có)
             console.error('Error fetching data: ', error);
         });
-  }, [subslug]);
+  }, []);
+
+  useEffect(() => {
+    if(category.length > 0) {
+      console.log(category,"category");
+      const targetSlug = "cac-mau-bieu-o";
+  
+      const foundObject = category.find(item => item.slug === targetSlug);
+  
+      if (foundObject) {
+          console.log("Object found:", foundObject);
+      } else {
+          console.log("Object not found");
+      }
+    }
+  }, [category]);
  
   return (
     <div>

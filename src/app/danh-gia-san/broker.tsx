@@ -77,7 +77,7 @@ const Broker = (props: Props) => {
               </tr>
             </thead>
             <tbody>
-              {props.data.map((broker) => (
+              {props.data.map(((broker) => (
                 <tr className="table-row" key={broker.id}>
                   <td className="level">
                     {broker.ranking}
@@ -113,23 +113,6 @@ const Broker = (props: Props) => {
       <div className={`popup-login ${active}`}>
         <Login />
       </div>
-      {/* <div className='list-broker'>
-          {props.data.map(broker => (
-            <div className='broker-box'>
-              <div>
-              <p>{broker.id}</p>
-              </div>
-              <div className='broker-box__logo'>
-                  <Image src={broker.logo} width={64} height={64}  alt='a' />
-              </div>
-              <h3>{broker.company_name}</h3>
-              <p>
-                {broker.desc}
-              </p>
-            </div>
-          ))}
-
-      </div> */}
     </>
   );
 };
