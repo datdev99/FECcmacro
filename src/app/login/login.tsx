@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
+import {API_URL} from '@/lib/api-request'
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -17,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e:any) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://localhost:7256/api/Auth/login`, { username, password });
+      const response = await axios.post(`${API_URL}/User/login`, { username, password });
       const  token  = response.data;
       // Lưu token vào cookie
       document.cookie = `token=${token}; path=/`;
