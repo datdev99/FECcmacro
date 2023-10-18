@@ -9,6 +9,7 @@ import Post from './Post';
 import Header from "@/components/Header/Header";
 import {API_URL} from '@/lib/api-request'
 import axios from 'axios';
+import Related_articles from './Related-articles';
 
 interface Props {
     data: IF_Data[]
@@ -16,6 +17,7 @@ interface Props {
 }
 
 interface IF_Data {
+    postId: any,
     content: any,
     title: any,
     slug: any,
@@ -27,9 +29,10 @@ interface Category {
 }
 
 const Content = (props: Props) => {
-    console.log(props.pathArr)
+    
     const [category, setCategory] = useState<Category[]>([])
     const [crumb, setCrumb] = useState<Category[]>([])
+    const [postRelated, setPostRelated] = useState([])
     useEffect(() => {
         // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
         let apiUrl = ""
@@ -43,14 +46,31 @@ const Content = (props: Props) => {
                 // Xử lý lỗi (nếu có)
                 console.error('Error fetching data: ', error);
             });
-      }, []); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+    }, []); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
 
-      useEffect(() => {
+    useEffect(() => {
+      // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+      let apiUrl = ""
+      if(props.data.length > 0) {
+        apiUrl = `${API_URL}/Post/Get?action=Get_Related&slug=${props.pathArr[props.pathArr.length - 2]}&categoryId=${props.data[0].postId}`;
+        axios.get(apiUrl)
+          .then(response => {
+              // Xử lý dữ liệu nhận được từ API
+              setPostRelated(response.data);
+          })
+          .catch(error => {
+              // Xử lý lỗi (nếu có)
+              console.error('Error fetching data: ', error);
+          });
+      }
+      
+    }, [props.data]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
 
-        let result = category.filter(item => props.pathArr.includes(item.slug))
-                  .map(item => ({ title: item.title, slug: item.slug }));
-        setCrumb(result)
-      }, [props.pathArr])
+    useEffect(() => {
+      let result = category.filter(item => props.pathArr.includes(item.slug))
+                .map(item => ({ title: item.title, slug: item.slug }));
+      setCrumb(result)
+    }, [props.pathArr])
   return (
     <>
     <Header />
@@ -72,6 +92,7 @@ const Content = (props: Props) => {
             {props.data.map((item:any, index) => (
               <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
             ))}
+            <Related_articles brokerList={postRelated} />
           </div>
           <div className="list-san">
             <p className="heading"><FontAwesomeIcon icon={faBook} />Review - Đánh giá</p>

@@ -3191,7 +3191,49 @@ mainvisual
   }
 }
 
-/*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+.Related-articles__list {
+  margin: 0 -5px;
+}
+.Related-articles__item {
+  width: 25%;
+  background-color: red;
+  border: 1px solid rgba(27, 27, 27, 0.125);
+}
+.Related-articles__img {
+  height: 150px;
+}
+.Related-articles__img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.Related-articles h4 {
+  margin-top: 10px;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  position: relative;
+  height: 4.2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+}
+.Related-articles .slick-slide {
+  padding: 0 5px;
+}
+.Related-articles .slick-arrow {
+  display: none;
+}
+.Related-articles .slick-dots {
+  margin-left: 0;
+}
+.Related-articles .slick-dots li button:before {
+  font-size: 1.2rem;
+}
+.Related-articles .slick-dots li.slick-active button:before {
+  color: #007AFF;
+} /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Project .p-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
