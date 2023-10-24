@@ -181,7 +181,7 @@ const Slide = ({news}:any) => {
             <article className="new">
               <Link href={item.slug} title={item.time} className="image">
                 <span>
-                  <Image width="320" height="200" src={item.image} alt="" />
+                  <img width="320" height="200" src={UrlImage(item.image)} alt="" />
                 </span>
               </Link>
               <div className="info">

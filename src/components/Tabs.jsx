@@ -121,25 +121,11 @@ const Tabs = ({rssNew, phantich}) => {
             className={`tablinks ${activeTab === 'tin-nhanh' ? 'active' : ''}`}
             onClick={() => openCity('tin-nhanh')}
           >
-            Tin nhanh 3
+            Tin nhanh
           </button>
-          {/* <button
-            className={`tablinks ${activeTab === 'phan-tich' ? 'active' : ''}`}
-            onClick={() => openCity('phan-tich')}
-          >
-            Phân tích
-          </button> */}
         </div>
 
         <div id="tin-nhanh" className={`tabcontent ${activeTab === 'tin-nhanh' ? 'active' : ''}`}>
-          {/* {data.map((item,index) => (
-            <div className='item' key={index}>
-              
-              <span>{convertTime(item.isoDate)}</span>
-              <p onClick={handleShowModal(item["content:encodedSnippet"], item.title)}>{item.title}</p>
-            </div>
-          ))} */}
-          {/* dangerouslySetInnerHTML={{ __html: item.content }} */}
           {isDataLoaded && firstNew && firstNew.map((item,index) => (
             <div className='item' key={index}>
               <span>{handleTime(item.createtime)}</span>
@@ -168,11 +154,9 @@ const Tabs = ({rssNew, phantich}) => {
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
           <div style={divStyle} dangerouslySetInnerHTML={{ __html: content }}>
 
           </div>
-          {/* {content} */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>
