@@ -2171,6 +2171,14 @@ section {
   margin-bottom: 0;
   margin-top: 0;
   overflow: hidden;
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  margin: 0 auto;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media screen and (max-width: 1023px) {
   .new .info h5 {
@@ -2189,8 +2197,14 @@ section {
   color: #555761;
   font-size: 1.6rem;
   font-weight: 400;
-  margin-bottom: 0;
-  margin-top: 0.8rem;
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  margin: 0 auto;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media screen and (max-width: 1023px) {
   .new .info .desc {
@@ -3085,6 +3099,9 @@ mainvisual
     padding: 0 1.2rem;
   }
 }
+.tin-nhanh .item .important {
+  color: red;
+}
 
 .layout {
   display: -webkit-box;
@@ -3274,4 +3291,12 @@ mainvisual
 
 .u-mt40 {
   margin-top: 40px;
+}
+
+.u-mr5 {
+  margin-right: 5px;
+}
+
+.u-ml5 {
+  margin-left: 5px;
 }

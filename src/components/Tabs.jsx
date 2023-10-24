@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button, Form } from 'react-bootstrap';
+import axios from "axios";
 
 function convertTime(timestamp) {
     // Chuỗi thời gian ban đầu
@@ -46,13 +47,44 @@ function SapXep(rss) {
   });
 }
 
+function handleTime(time) {
+  const thoiGian = new Date(time);
+  const formattedTime = thoiGian.toLocaleString().split(" ")[1];
+  return formattedTime;
+}
+
 const Tabs = ({rssNew, phantich}) => {
   const [activeTab, setActiveTab] = useState('tin-nhanh');
   const [data, setData] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [firstNew, setFirstNew] = useState([]);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
+  useEffect(() => {
+    // Gọi API lần đầu khi component được mount
+    fetchData();
+  
+    // Thiết lập interval để gọi lại API sau mỗi 1 phút
+    const intervalId = setInterval(fetchData, 60000);
+  
+    // Xóa interval khi component bị unmounted hoặc khi useEffect chạy lại
+    return () => clearInterval(intervalId);
+  }, []);
+  
+  const fetchData = () => {
+    axios.get('/api/fastNews')
+      .then(response => {
+        // Xử lý dữ liệu nhận được từ API
+        setFirstNew(response.data);
+        setIsDataLoaded(true);
+      })
+      .catch(error => {
+        // Xử lý lỗi (nếu có)
+        console.error('Error fetching data: ', error);
+      });
+  };
 
   const handleShowModal = (content, title) => () => {
     // let text = e.target.textContent;
@@ -60,6 +92,7 @@ const Tabs = ({rssNew, phantich}) => {
     setTitle(title);
     setContent(content);
     setShowModal(true);
+    console.log(content,"content");
   };
 
   const handleCloseModal = () => {
@@ -75,6 +108,10 @@ const Tabs = ({rssNew, phantich}) => {
     setData(rssNew);
     console.log(rssNew,"rssNew")
   }, [rssNew]);
+
+  const divStyle = {
+    whiteSpace: 'pre-line'
+  };
 
   return (
     <>
@@ -95,11 +132,24 @@ const Tabs = ({rssNew, phantich}) => {
         </div>
 
         <div id="tin-nhanh" className={`tabcontent ${activeTab === 'tin-nhanh' ? 'active' : ''}`}>
-          {data.map((item,index) => (
+          {/* {data.map((item,index) => (
             <div className='item' key={index}>
               
               <span>{convertTime(item.isoDate)}</span>
               <p onClick={handleShowModal(item["content:encodedSnippet"], item.title)}>{item.title}</p>
+            </div>
+          ))} */}
+          {/* dangerouslySetInnerHTML={{ __html: item.content }} */}
+          {isDataLoaded && firstNew && firstNew.map((item,index) => (
+            <div className='item' key={index}>
+              <span>{handleTime(item.createtime)}</span>
+              {item.content && item.title ? <span className="u-ml5">Đọc</span> : ""}
+              {item.content && item.title ? 
+                <p className={item.important == 1 ? "important" : ""} onClick={handleShowModal(item.content == "" ? item.title : item.content, item.title)}>{item.title == "" ? item.content : item.title}</p>
+              :              
+                <p className={item.important == 1 ? "important" : ""}>{item.title == "" ? item.content : item.title}</p>               
+              }
+              
             </div>
           ))}
         </div>
@@ -118,7 +168,11 @@ const Tabs = ({rssNew, phantich}) => {
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {content}
+
+          <div style={divStyle} dangerouslySetInnerHTML={{ __html: content }}>
+
+          </div>
+          {/* {content} */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseModal}>

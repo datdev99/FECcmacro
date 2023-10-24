@@ -1,93 +1,90 @@
 "use client"
 
-import React from "react";
-import "./styles.css"; // Import file CSS nếu bạn muốn tùy chỉnh giao diện
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { useState, useEffect } from "react";
+import Footer from '@/components/Footer'
+import Header from '@/components/Header/Header'
+import New from '@/components/New'
+import React, { useEffect, useState } from 'react'
+import img from '../../../public/assets/images/san/prospero.png'
+import Image from 'next/image'
+import Link from 'next/link'
+import axios from 'axios'
 import {API_URL} from '@/lib/api-request'
-import axios from "axios";
-import Link from "next/link";
-import Image from "next/image";
-import logo from '../../../public/assets/images/logo.svg';
+import Post from '@/components/Post'
 
-  interface MenuItem {
-    text: string;
-    children: MenuItem[];
-    id: number;
-    slug: string;
-    // Thêm các trường dữ liệu khác nếu cần thiết
-  }
-  
-  interface Props {
-    item: MenuItem;
-    parentPath?: string;
-  }
-  
-const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
-    
+interface Category {
+  id: number;
+  parentCategoryId?: number;
+  slug: string
+}
 
-  const itemPath = `${parentPath}/${item.slug}`;
-  return (
-    <li>
-      <a href={itemPath}>{item.text}{item.children.length > 0 && <FontAwesomeIcon icon={faAngleDown} />}</a>
-      {item.children.length > 0 && (
-        <ul>
-          {item.children.map(child => (
-            <MenuItem key={child.id} item={child} parentPath={itemPath} />
-          ))}
-        </ul>
-      )}
-    </li>
-  );
-};
+interface Post {
+  categoryId : number;
+  content?: any;
+  dateCreated: Date;
+  description: string;
+  image: any;
+  slug: any;
+  title: any;
+}
 
 const Page = () => {
-    const [menuData, setMenuData] = useState([])
+  const [post, setPost] = useState<Post[]>([])
+  const [category, setCategory] = useState<Category[]>([])
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  
 
-    useEffect(() => {
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        const apiUrlCategory = `${API_URL}/Category/GetTreeCategory?action=get&para1=a`;
-    
-        // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
-        axios.get(apiUrlCategory)
-            .then(response => {
-                // Xử lý dữ liệu nhận được từ API
-                setMenuData(response.data);
-            })
-            .catch(error => {
-                // Xử lý lỗi (nếu có)
-                console.error('Error fetching data: ', error);
-            });
-      }, []);
+  useEffect(() => {
+    // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+    let apiUrl = ""
+    apiUrl = `${API_URL}/Post/Get?action=Get&slug=kien-thuc`;
+      axios.get<Post[]>(apiUrl)
+        .then(response => {
+            // Xử lý dữ liệu nhận được từ API
+            setPost(response.data);
+            setIsDataLoaded(true);
+        })
+        .catch(error => {
+            // Xử lý lỗi (nếu có)
+            console.error('Error fetching data: ', error);
+        });
+  }, [category]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+
   return (
     <>
-      <header className='c-header'>
-        <div className="l-container">
-            <div className='c-header__inner'>
-                <div className="c-header__logo">
-                    <Link href="/">
-                        <Image src={logo} width={160}  height={60} alt='' />
-                    </Link>
-                </div>
-                <nav className="menu">
-                  <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
-                </nav>
-                <div className="login">
-                    <Link href="/login">Đăng nhập</Link>
-                </div>
-                <div className='burger'>
-                    <div className='burger__menu'>
-                        <span></span><span></span><span></span>
-                    </div>
-                    <p>MENU</p>
-                </div>
-            </div>
-            
+    <Header />
+    <main className='l-container--1' id='page-post'>
+      <div className='breadcrumbs'>
+        <ul>
+          <li>
+            <Link href="/">Trang chủ</Link>
+          </li>
+          <li>
+            <Link href="/kien-thuc">Kiến thức</Link>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 className='title'>Kiến thức</h2>
+      </div>
+      <div className='content'>
+        <div className='post-list'>
+          {isDataLoaded && <Post data={post} slug={''} />}
         </div>
-    </header>
-    </>
-  );
-};
+        <div className='sidebar'>
+          <div className='advertisement'>
+            <div className='item'>
+              <Image src={img} alt='prospero' />
+            </div>
+            <div className='item'>
+              <Image src={img} alt='prospero' />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </>
+  )
+}
 
-export default Page;
+export default Page
