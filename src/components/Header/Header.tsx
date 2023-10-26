@@ -10,6 +10,7 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import logo from '../../../public/assets/images/logo 1.png';
+import { Cookie } from "next/font/google";
 
   interface MenuItem {
     text: string;
@@ -43,23 +44,35 @@ const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
 };
 
 const Page = () => {
-    const [menuData, setMenuData] = useState([])
+  const [menuData, setMenuData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [token, setToken] = useState<string>("");
 
-    useEffect(() => {
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        const apiUrlCategory = `${API_URL}/Category/GetTreeCategory?action=get&para1=a`;
-    
-        // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
-        axios.get(apiUrlCategory)
-            .then(response => {
-                // Xử lý dữ liệu nhận được từ API
-                setMenuData(response.data);
-            })
-            .catch(error => {
-                // Xử lý lỗi (nếu có)
-                console.error('Error fetching data: ', error);
-            });
-      }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Chỉ truy cập localStorage khi chạy trong môi trường trình duyệt
+      const storedToken = localStorage.getItem("Token") ?? "";
+      setToken(storedToken);
+      setIsLoading(true);
+      
+      // Thực hiện các thao tác với token ở đây
+    }
+
+    // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+    const apiUrlCategory = `${API_URL}/Category/GetTreeCategory?action=get&para1=a`;
+
+    // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
+    axios.get(apiUrlCategory)
+        .then(response => {
+            // Xử lý dữ liệu nhận được từ API
+            setMenuData(response.data);
+        })
+        .catch(error => {
+            // Xử lý lỗi (nếu có)
+            console.error('Error fetching data: ', error);
+        });
+  }, []); 
+
   return (
     <>
       <header className='c-header'>
@@ -73,9 +86,16 @@ const Page = () => {
                 <nav className="menu">
                   <ul>{menuData.map((item, i) => <MenuItem key={i} item={item} />)}</ul>
                 </nav>
-                <div className="login">
+                {
+                  isLoading && token === "" ? (
+                  <div className="login">
                     <Link href="/login">Đăng nhập</Link>
-                </div>
+                  </div> )
+                  : (
+                  <div className="account">
+                      <Link href="/account">Tài khoản</Link>
+                  </div> )
+                }
                 <div className='burger'>
                     <div className='burger__menu'>
                         <span></span><span></span><span></span>

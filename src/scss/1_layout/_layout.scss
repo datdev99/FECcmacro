@@ -83,8 +83,12 @@ main {
   }
 }
 
-.p-login, .p-register {
+.p-login, .p-register, .p-forgot {
   background-color: #f1f5f9;
+
+  .l-container--2 {
+    margin-top: 15px;
+  }
 }
 
 section {

@@ -3,40 +3,72 @@
 import Link from 'next/link';
 // import { useRouter } from 'next/router';
 import React, { useState } from 'react'
+import {API_URL} from '@/lib/api-request'
+import Image from 'next/image';
+import loading from '@/assets/images/loading.gif'
 
 const Register = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [fullname, setFullname] = useState('');
-  const [phone, setPhone] = useState('');
   const [rememberPassword, setRememberPassword] = useState(false);
-  // const router = useRouter();
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+    phone: '',
+  });
+  const [checkRegister, setCheckRegister] = useState(false)
+  const [pageLoading, setPageLoading] = useState(false)
 
-  const handleSubmit = () => {
-    // e.preventDefault();
-    // Xử lý đăng nhập ở đây, ví dụ kiểm tra tên người dùng và mật khẩu
-    // Nếu đăng nhập thành công, bạn có thể định tuyến đến trang chính
-    // router.push('/');
+  const handleInputChange = (e:any) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e:any) => {
+    e.preventDefault();
+    // Handle form submission logic here (e.g., send data to an API endpoint)
+    setPageLoading(true)
+    console.log(formData);
+    try {
+      const response = await fetch(`${API_URL}/User/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        // Handle successful registration
+        setCheckRegister(true)
+        setPageLoading(false)
+      } else {
+        // Handle registration error
+        setPageLoading(false)
+        alert("Thất bại")
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
     <div className="l-container--2">
-      <div className='form'>
-        <h1>Đăng ký</h1>
+      <div className={`form register ${checkRegister ? "hide" : ""}`}>
+        <h1>Đăng ký tài khoản</h1>
         {/* <p>Vui lòng điền tên người dùng và mật khẩu của bạn.</p> */}
         <hr />
 
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="username"><b>Tên người dùng</b></label>
+            <label htmlFor="email"><b>Email</b></label>
             <input
               type="text"
-              placeholder="Nhập tên người dùng"
-              name="username"
-              id="username"
+              placeholder="Nhập email"
+              name="email"
+              id="email"
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={formData.email}
+              onChange={handleInputChange}
             />
           </div>
           <div>
@@ -47,33 +79,33 @@ const Register = () => {
               name="password"
               id="password"
               required
-              value={password}
+              value={formData.password}
               checked={rememberPassword}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handleInputChange}
             />
           </div>
           <div>
-            <label htmlFor="fullname"><b>Họ và tên</b></label>
+            <label htmlFor="username"><b>Tên của bạn?</b></label>
             <input
               type="text"
-              placeholder="Nhập họ và tên"
-              name="fullname"
-              id="fullname"
+              placeholder="Nhập tên của bạn"
+              name="username"
+              id="username"
               required
-              value={fullname}
-              onChange={(e) => setFullname(e.target.value)}
+              value={formData.username}
+              onChange={handleInputChange}
             />
           </div>
           <div>
-            <label htmlFor="fullname"><b>Số điện thoại</b></label>
+            <label htmlFor="phone"><b>Số điện thoại</b></label>
             <input
               type="number"
               placeholder="Nhập số điện thoại"
               name="phone"
               id="phone"
               required
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={formData.phone}
+              onChange={handleInputChange}
             />
           </div>
 
@@ -83,8 +115,25 @@ const Register = () => {
             <p>Quên mật khẩu? <Link href="#">Lấy lại</Link>.</p>
           </div>
         </form>
+        <div className={`loading ${pageLoading ? "active" : "hide"}`}>
+          <Image src={loading} width={55} height={55} quality={80} unoptimized alt='loading' />
+        </div>
       </div>
+      <div className={`form confirm ${!checkRegister ? "hide" : ""}`}>
+        <h2>Đăng ký tài khoản cho Ccrystal</h2>
+        <p className='desc'>
+          Chào mừng bạn đến <span>Nền tảng Ccrystal</span> ! Tham gia cùng chúng tôi để tìm kiếm thông tin hữu ích cần thiết để cải thiện kỹ năng và kiến thức của bạn.
+        </p>
+        <div className='box'>
+          <p>
+            Chào mừng <span>{formData.username}</span> , tài khoản của bạn đã được <span>đăng ký thành công</span>. Chúng tôi đã gửi cho bạn một email kích hoạt tại địa chỉ email <span>{formData.email}</span>. Vui lòng kiểm tra hộp thư đến của bạn để hoàn thành.
+          </p>
+          <p>
+            Nếu bạn không nhận được email kích hoạt từ chúng tôi, vui lòng ấn <Link href="">gửi lại</Link> email kích hoạt.
+          </p>
+        </div>
       </div>
+    </div>
   );
 }
 

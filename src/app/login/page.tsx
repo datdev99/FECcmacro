@@ -10,7 +10,6 @@ const page = () => {
         <main className='p-login'>
           <Login />
         </main>
-        <Footer />
     </>
   )
 }

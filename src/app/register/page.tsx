@@ -10,7 +10,6 @@ const page = () => {
         <main className='p-register'>
           <Register />
         </main>
-        <Footer />
     </>
   )
 }

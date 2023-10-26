@@ -1077,8 +1077,11 @@ main {
   margin-right: auto;
 }
 
-.p-login, .p-register {
+.p-login, .p-register, .p-forgot {
   background-color: #f1f5f9;
+}
+.p-login .l-container--2, .p-register .l-container--2, .p-forgot .l-container--2 {
+  margin-top: 15px;
 }
 
 section {
@@ -3260,6 +3263,139 @@ mainvisual
 }
 .custom-iframe .quotesBox {
   width: 100% !important;
+}
+
+.form.register {
+  position: relative;
+}
+.form.register.hide {
+  display: none;
+}
+.form.register .loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.form.register .loading.hide {
+  display: none;
+}
+.form.register .loading.active {
+  display: block;
+}
+.form.confirm, .form.forgot {
+  max-width: 540px;
+}
+.form.confirm.hide, .form.forgot.hide {
+  display: none;
+}
+.form.confirm h2, .form.forgot h2 {
+  font-size: 2.2rem;
+  color: #303133;
+  line-height: 2.6rem;
+}
+.form.confirm .desc, .form.forgot .desc {
+  text-align: left;
+  color: #303133;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  margin: 16px 0;
+}
+.form.confirm .desc span, .form.forgot .desc span {
+  font-weight: 700;
+}
+.form.confirm .box, .form.forgot .box {
+  background-color: #F1F9EC;
+  padding: 16px 24px;
+  font-size: 1.2rem;
+  color: #67c23a;
+  line-height: 1.8rem;
+}
+.form.confirm .box p, .form.forgot .box p {
+  text-align: left;
+}
+.form.confirm .box p:nth-child(1), .form.forgot .box p:nth-child(1) {
+  margin-bottom: 15px;
+}
+.form.confirm .box span, .form.forgot .box span {
+  font-weight: 700;
+}
+.form.confirm .box a, .form.forgot .box a {
+  font-weight: 700;
+}
+
+.form-control {
+  margin-top: 15px;
+}
+.form-control .item {
+  margin-bottom: 10px;
+}
+.form-control .item label {
+  margin-bottom: 5px;
+  display: block;
+}
+.form-control .item__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+.form-control .item__column p {
+  position: absolute;
+  right: 15px;
+  height: 100%;
+  top: 15px;
+  color: #C19632;
+  font-weight: 700;
+  cursor: pointer;
+}
+.form-control .item__column input {
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #FCD535;
+  padding: 0 10px;
+  background-color: #fff;
+}
+.form-control .item span {
+  color: #7B808C;
+  font-size: 1.2rem;
+}
+
+.btn-next {
+  width: 100%;
+  background-color: #FCD535;
+  font-weight: 700;
+  opacity: 0.6;
+  pointer-events: none;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  color: #000;
+  font-size: 1.6rem;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+.btn-next.active {
+  opacity: 1;
+  pointer-events: unset;
+}
+.btn-next:hover {
+  opacity: 0.7;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
