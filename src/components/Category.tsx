@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Post from "./Post";
 import Header from "@/components/Header/Header";
-import "@/scss/investing.css";
 
 interface Props {
   data: IF_Data[];
