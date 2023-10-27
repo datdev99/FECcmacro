@@ -112,7 +112,7 @@ const Register = () => {
           <button type="submit" className="loginbtn">Đăng ký</button>
           <div className="signin">
             <p>Bạn đã có tài khoản? <Link href="/login">Đăng nhập</Link>.</p>
-            <p>Quên mật khẩu? <Link href="#">Lấy lại</Link>.</p>
+            <p>Quên mật khẩu? <Link href="/forgot-password">Lấy lại</Link>.</p>
           </div>
         </form>
         <div className={`loading ${pageLoading ? "active" : "hide"}`}>

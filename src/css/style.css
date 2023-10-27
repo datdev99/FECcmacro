@@ -3398,6 +3398,91 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.post-feed-item {
+  border-bottom: 1px solid #d6d6d7;
+  padding: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.post-feed-item .avata {
+  width: 37px;
+  max-height: 37px;
+  cursor: pointer;
+}
+.post-feed-item__info {
+  margin-left: 0.8rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.post-feed-item__info .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.post-feed-item__info .name a {
+  color: #5488c7;
+  margin-right: 0.8rem;
+}
+.post-feed-item__info .name span {
+  margin-right: 0.8rem;
+}
+.post-feed-item__info .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+.post-feed-item__info .title h3 {
+  font-size: 1.8rem;
+}
+.post-feed-item__info .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 1.2rem;
+  margin-left: 0.8rem;
+}
+.post-feed-item__info .tags a {
+  background-color: #f4f4f5;
+  border-color: #e9e9eb;
+  color: #909399;
+  height: 20px;
+  padding: 0 5px;
+  line-height: 1.9rem;
+  display: inline-block;
+  border: 1px solid #dde7f4;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  white-space: nowrap;
+}
+.post-feed-item__info .tags a:not(:last-child) {
+  margin-right: 5px;
+}
+.post-feed-item__info .content p {
+  font-size: 1.4rem;
+}
+.post-feed-item__info .content p:not(:first-child) {
+  margin-top: 1.2rem;
+  line-height: 2.2rem;
+}
+
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Project .p-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
