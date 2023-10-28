@@ -1,0 +1,78 @@
+.ecosystem {
+    margin-bottom: -200px;
+    
+    &__bg {
+        background: RGB(23,49,102);
+        background-image: url('/../../assets/images/bg-eco-system.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        padding-top: 80px;
+        position: relative;
+    }
+
+    .tab-list {
+        display: flex;
+        gap: 24px;
+        flex-direction: column;
+        width: 45%;
+        flex: 1 1;
+
+        li {
+            cursor: pointer;
+            background-color: #DBF1F6;
+            transition: all .15s ease;
+            padding: 12px 24px;
+            border-radius: 12px;
+
+            &.active {
+                background-color: #0FA0C3 !important;
+                color: #fff;
+            }
+
+            &:hover {
+                color: #fff;
+                background-color: #87CFE1;
+            }
+
+            h4 {
+                font-weight: 700;
+                font-size: 2rem;
+                line-height: 2.4rem;
+            }
+
+            span {
+                font-size: 1.4rem;
+                line-height: 2.1rem;
+            }
+        }
+    }
+
+    &__tab-content {
+        background-color: #fff;
+        width: 55%;
+
+        img {
+            height: fit-content;
+            border-radius: 12px;
+        }
+    }
+
+    &__tab-item {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    &__box {
+        background-color: #fff;
+        display: flex;
+        padding: 24px;
+        column-gap: 24px;
+        box-shadow: 0 4px 21px 0 rgba(0,0,0,.25);
+        border-radius: 12px;
+        transform: translate(0, -200px);
+    }
+}

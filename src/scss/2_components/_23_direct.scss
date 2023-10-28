@@ -1,0 +1,92 @@
+.direct {
+    color: #333333;
+    &__heading {
+        text-align: center;
+
+        h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 4rem;
+        }
+
+        span {
+            color: #0fa0c3;
+            line-height: 2.4rem;
+            font-size: 1.6rem;
+            margin-top: 12px;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex: 1 1;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        flex: 1 1;
+    }
+
+    &__item {
+        background: #F4F5F8;
+        display: flex;
+        width: calc(50% - 12px);
+        padding: 24px;
+        max-width: 450px;
+        border-radius: 12px;
+        align-items: center;
+
+        img {
+            width: 80px;
+            height: 80px;
+            margin-right: 1.6rem;
+        }
+    }
+
+    &__info {
+        flex: 1 1;
+        p {
+            font-size: 2rem;
+            line-height: 2.4rem;
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            li {
+                font-size: 1.4rem;
+                line-height: 2.1rem;
+                position: relative;
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+
+                &::after {
+                    content: '';
+                    background-image: url("/../../../assets/images/circle-check.svg");
+                    width: 15px;
+                    height: 15px;
+                    display: block;
+                    position: absolute;
+                    top: 3px;
+                    left: -25px;
+                }
+
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    &__image {
+        img {
+            width: 400px;
+            height: 334px;
+            object-fit: cover;
+        }
+    }
+}

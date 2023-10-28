@@ -17,6 +17,10 @@ import '../css/style.css'
 import Link from 'next/link'
 import axios from 'axios'
 import {API_URL} from '../lib/api-request'
+import Slide1 from '@/components/Slide1'
+import Direct from '@/components/direct'
+import Copytrade from '@/components/copytrade'
+import Ecosystem from '@/components/Ecosystem'
 
 export async function getStaticProps() {
     const feed = FEEDS.find((feed) => feed.slug === "");
@@ -77,8 +81,11 @@ const Page = ({ items }:any) => {
       <Header />
       <main >
         <Mainvisual />
-        <div className='l-container--1'>
-          <section>
+        <div>
+          <section className='l-container--1'>
+            <Slide1 />
+          </section>
+          <section className='l-container--1'>
             <div className='layout'>
               <div className='d-flex'>
                 <div className='slide'>
@@ -94,27 +101,14 @@ const Page = ({ items }:any) => {
               </div>
             </div>
           </section>
-          <section>
-            <div className='c-heading'>
-              <h4>
-                <Link href="/bai-viet-moi-nhat">Bài viết mới nhất</Link>
-              </h4>
-              <Link className='xem-them' href="/bai-viet-moi-nhat">Xem thêm</Link>
-            </div>
-            <div className='list-news'>
-              <New data={postTinTuc} slug={""}/>
-            </div>
+          <section className='l-container--1'>
+            <Direct />
           </section>
           <section>
-            <div className='c-heading'>
-              <h4>
-                <Link href="/kien-thuc">Kiến thức cơ bản</Link>
-              </h4>
-              <Link className='xem-them' href="/kien-thuc">Xem thêm</Link>
-            </div>
-            <div className='list-news'>
-              <New data={postKienThuc} slug={""}/>
-            </div>
+            <Ecosystem />
+          </section>
+          <section className='l-container--1'>
+            <Copytrade />
           </section>
         </div>
 
