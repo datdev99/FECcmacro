@@ -35,7 +35,7 @@ const Copytrade = () => {
                 </div>
                 <div className='copytrade__item'>
                     <Image src={img4} alt='' />
-                    <p>Trader's Guard</p>
+                    <p>Trader is Guard</p>
                     <span>Limit the market risk when investing in your masters</span>
                 </div>
             </div>

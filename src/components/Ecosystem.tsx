@@ -19,7 +19,7 @@ const Ecosystem = () => {
         <div className='ecosystem__bg'>
             <div className='c-heading--1'>
                 <h3 className='white'>FXCE EA Ecosystem</h3>
-                <span>Not Only EA. It's More</span>
+                <span>Not Only EA. It is More</span>
             </div>
         </div>
         <div className='ecosystem__box l-container--1'>
