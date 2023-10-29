@@ -31,7 +31,7 @@ const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
   const itemPath = `${parentPath}/${item.slug}`;
   return (
     <li>
-      <a href={itemPath}>{item.text}{item.children.length > 0 && <FontAwesomeIcon icon={faAngleDown} />}</a>
+      <Link href={itemPath}>{item.text}{item.children.length > 0 && <FontAwesomeIcon icon={faAngleDown} />}</Link>
       {item.children.length > 0 && (
         <ul>
           {item.children.map(child => (
