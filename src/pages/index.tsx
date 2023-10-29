@@ -2,7 +2,6 @@
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header/Header'
-import New from '@/components/New'
 import React, { useEffect, useState } from 'react'
 import Mainvisual from '@/components/Mainvisual'
 import Tabs from '@/components/Tabs'
@@ -14,13 +13,14 @@ import icon from '../../public/assets/images/icon/icon-chat-luong.png'
 import Image from 'next/image'
 import { FEEDS, getFeed } from "../lib/rss-news";
 import '../css/style.css'
-import Link from 'next/link'
 import axios from 'axios'
 import {API_URL} from '../lib/api-request'
 import Slide1 from '@/components/Slide1'
 import Direct from '@/components/direct'
 import Copytrade from '@/components/copytrade'
 import Ecosystem from '@/components/Ecosystem'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Import the styles
 
 export async function getStaticProps() {
     const feed = FEEDS.find((feed) => feed.slug === "");
@@ -76,6 +76,13 @@ const Page = ({ items }:any) => {
     });
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Animation duration
+      easing: 'ease-in-out', // Easing options
+    });
+  }, []); // Run this effect once on mount
+
   return (
     <>
       <Header />
@@ -101,13 +108,13 @@ const Page = ({ items }:any) => {
               </div>
             </div>
           </section>
-          <section className='l-container--1'>
+          <section className='l-container--1 aos-animate' data-aos="fade-right">
             <Direct />
           </section>
-          <section>
+          <section className='aos-animate' data-aos="fade-up">
             <Ecosystem />
           </section>
-          <section className='l-container--1'>
+          <section className='l-container--1 aos-animate' data-aos="fade-right">
             <Copytrade />
           </section>
         </div>
