@@ -96,7 +96,7 @@ const Page = ({ items }:any) => {
             <div className='layout'>
               <div className='d-flex'>
                 <div className='slide'>
-                  <Slide news={postPhanTich} /> 
+                  <Slide news={postKienThuc} /> 
                 </div>
                 <div className='tin-nhanh'>
                   <Tabs rssNew={items} phantich={postPhanTich} />

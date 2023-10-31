@@ -3527,6 +3527,21 @@ input::-webkit-inner-spin-button {
   overflow: hidden;
   width: 100%;
 }
+.programme .slick-prev, .programme .slick-next {
+  width: 50px;
+  height: 50px;
+  z-index: 9;
+}
+.programme .slick-next {
+  right: -35px;
+}
+.programme .slick-prev {
+  left: -35px;
+}
+.programme .slick-prev:before, .programme .slick-next:before {
+  font-size: 50px;
+  color: #000;
+}
 
 .direct {
   color: #333333;
