@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import axios from 'axios'
+import {API_URL} from '@/lib/api-request'
 
 const Page = () => {
     const [forum, setForum] = useState([])
@@ -15,9 +16,9 @@ const Page = () => {
         setContent(true)
     }
     useEffect(() => {
-        axios.get('/api/forum')
+        axios.get(`${API_URL}/Post/Get?action=get&slug=forum`)
         .then(response => {
-            setForum(response.data.data)
+            setForum(response.data)
             console.log(forum,"forum");
         })
         .catch(error => {
@@ -46,15 +47,15 @@ const Page = () => {
                                 </div>
                                 <div className='title'>
                                     <h3>
-                                        <a href="#">{item.title}</a>
+                                        <a href={`/${item.slug}`}>{item.title}</a>
                                     </h3>
-                                    <div className='tags'>
+                                    {/* <div className='tags'>
                                         {
                                             item.tags.map((tag:any, i:number) => (
                                                 <a href="#" key={i}>{tag}</a>
                                             ))
                                         }
-                                    </div>
+                                    </div> */}
                                 </div>
                                 {
                                     content ? 
