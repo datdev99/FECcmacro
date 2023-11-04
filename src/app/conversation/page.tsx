@@ -6,7 +6,7 @@ const Page = () => {
     <>
       <Layout>
         <main>
-          <h1>Hello</h1>
+          <h1>Cuoc thi</h1>
         </main>
       </Layout> 
     </>

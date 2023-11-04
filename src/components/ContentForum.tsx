@@ -92,7 +92,7 @@ const ContentForum = (props: Props) => {
             {props.data.map((item:any, index) => (
                 <>
                     <div>
-                        {item.categoryId}
+                        {item.userName}
                     </div>
                     <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
                 </>

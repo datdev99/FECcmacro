@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react";
-// import "../../css/style.css"; // Import file CSS nếu bạn muốn tùy chỉnh giao diện
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from "react";
@@ -10,24 +9,21 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import logo from '../../../public/assets/images/logo 1.png';
-import { Cookie } from "next/font/google";
 
-  interface MenuItem {
-    text: string;
-    children: MenuItem[];
-    id: number;
-    slug: string;
-    // Thêm các trường dữ liệu khác nếu cần thiết
-  }
-  
-  interface Props {
-    item: MenuItem;
-    parentPath?: string;
-  }
+interface MenuItem {
+  text: string;
+  children: MenuItem[];
+  id: number;
+  slug: string;
+  // Thêm các trường dữ liệu khác nếu cần thiết
+}
+
+interface Props {
+  item: MenuItem;
+  parentPath?: string;
+}
   
 const MenuItem: React.FC<Props> = ({ item, parentPath = "" }) => {
-    
-
   const itemPath = `${parentPath}/${item.slug}`;
   return (
     <li>
@@ -54,10 +50,7 @@ const Page = () => {
       const storedToken = localStorage.getItem("Token") ?? "";
       setToken(storedToken);
       setIsLoading(true);
-      
-      // Thực hiện các thao tác với token ở đây
     }
-
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
     const apiUrlCategory = `${API_URL}/Category/GetTreeCategory?action=get&para1=a`;
 

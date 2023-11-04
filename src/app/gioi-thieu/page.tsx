@@ -1,11 +1,9 @@
 "use client"
 
-import Header from '@/components/Header/Header'
-import Footer from '@/components/Footer'
 import React, { useEffect, useState } from 'react'
 import {API_URL} from '@/lib/api-request'
 import axios from 'axios'
-
+import Layout from '@/components/layout';
 
 const Page = () => {
     const [content, setContent] = useState([])
@@ -28,15 +26,15 @@ const Page = () => {
       }, []); 
   return (
     <>
-        <Header />
-        <main className='bg-1'>
-          <div className='l-container--3'>
-            {isDataLoaded && content && content.map((item:any, index) => (
-              <div key={index} dangerouslySetInnerHTML={{ __html: item.description }} />
-            ))}
-          </div>
-        </main>
-        <Footer />
+        <Layout>
+          <main className='bg-1'>
+            <div className='l-container--3'>
+              {isDataLoaded && content && content.map((item:any, index) => (
+                <div key={index} dangerouslySetInnerHTML={{ __html: item.description }} />
+              ))}
+            </div>
+          </main>
+        </Layout> 
     </>
   )
 }
