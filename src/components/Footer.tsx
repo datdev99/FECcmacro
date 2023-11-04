@@ -10,8 +10,7 @@ const Footer = () => {
     <footer className="footer-area footer--light">
       <div className="l-container--1">
         <div className="footer-big">
-          <div className="container">
-            <div className="row">
+        <div className="row">
               <div className="col-md-3 col-sm-12">
                 <div className="footer-widget">
                   <div className="widget-about">
@@ -85,8 +84,6 @@ const Footer = () => {
               </div>
               {/* Ends: .col-lg-3 */}
             </div>
-            {/* end /.row */}
-          </div>
         </div>
       </div>
       <div className="mini-footer">

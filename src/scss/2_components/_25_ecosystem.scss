@@ -18,6 +18,10 @@
         width: 45%;
         flex: 1 1;
 
+        @include mq(lg, max) {
+            width: 100%;
+        }
+
         li {
             cursor: pointer;
             background-color: #DBF1F6;
@@ -52,6 +56,11 @@
         background-color: #fff;
         width: 55%;
 
+        @include mq(lg, max) {
+            width: 100%;
+            margin-top: 20px;
+        }
+
         img {
             height: fit-content;
             border-radius: 12px;
@@ -74,5 +83,10 @@
         box-shadow: 0 4px 21px 0 rgba(0,0,0,.25);
         border-radius: 12px;
         transform: translate(0, -200px);
+
+        @include mq(lg, max) {
+            width: 90vw;
+            flex-direction: column;
+        }
     }
 }

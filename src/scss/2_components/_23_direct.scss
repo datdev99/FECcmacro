@@ -20,6 +20,10 @@
     &__content {
         display: flex;
         flex: 1 1;
+
+        @include mq(xl, max) {
+            flex-direction: column-reverse;
+        }
     }
 
     &__list {
@@ -27,6 +31,16 @@
         flex-wrap: wrap;
         gap: 24px;
         flex: 1 1;
+
+        @include mq(xl, max) {
+            justify-content: center;
+        }
+    }
+
+    &__image {
+        @include mq(xl, max) {
+            text-align: center;
+        }
     }
 
     &__item {

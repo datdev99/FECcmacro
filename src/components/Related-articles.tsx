@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {URL_SERVER} from '@/lib/api-request'
+import Link from 'next/link';
 
 const Related_articles = ({brokerList}:any) => {
   const settings = {
@@ -26,7 +27,7 @@ const Related_articles = ({brokerList}:any) => {
                 <div className="Related-articles__img">
                   <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
                 </div>
-                <h4>{item.title}</h4>
+                <Link href={`/${item.slug}`}>{item.title}</Link>
               </article>
             ))}
           </Slider>
@@ -34,9 +35,11 @@ const Related_articles = ({brokerList}:any) => {
           brokerList.map((item:any, index:any) => (
             <article className='Related-articles__item' key={index}>
               <div className="Related-articles__img">
-                <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
+                <Link href={`/${item.slug}`}>
+                  <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
+                </Link>
               </div>
-              <h4>{item.title}</h4>
+              <Link href={`/${item.slug}`}>{item.title}</Link>
             </article>
           ))
         }

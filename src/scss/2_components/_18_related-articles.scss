@@ -1,11 +1,11 @@
 .Related-articles {
     &__list {
         margin: 0 -5px;
+        display: flex;
     }
 
     &__item {
         width: 25%;
-        background-color: red;
         // box-shadow: 0 0.5rem 3rem 0 rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(27,27,27,.125);
     }

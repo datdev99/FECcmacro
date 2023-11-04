@@ -11,6 +11,15 @@ const Slide1 = () => {
         slidesToScroll: 2,
         autoplay: true,
         autoplaySpeed: 3000,
+        responsive: [
+            {
+              breakpoint: 992, // Khi màn hình nhỏ hơn hoặc bằng 991px
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+        ]
     };
 
     return (
