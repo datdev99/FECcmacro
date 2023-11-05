@@ -28,7 +28,7 @@ const Page = () => {
                 console.error('Error fetching data: ', error);
             });
         
-    }, [subSlug])
+    }, [subSlug, pathArray])
 
   return (
     <div>

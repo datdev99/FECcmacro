@@ -64,13 +64,13 @@ const ContentForum = (props: Props) => {
           });
       }
       
-    }, [props.data]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+    }, [props.data, props.pathArr]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
 
     useEffect(() => {
       let result = category.filter(item => props.pathArr.includes(item.slug))
                 .map(item => ({ title: item.title, slug: item.slug }));
       setCrumb(result)
-    }, [props.pathArr])
+    }, [props.pathArr, category])
 
     const modifyImagePaths = (content: any) => {
       const parser = new DOMParser();
