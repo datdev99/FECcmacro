@@ -7,7 +7,7 @@ import { faBook } from '@fortawesome/free-solid-svg-icons';
 import Related_broker from './related-broker';
 import Post from './Post';
 import Header from "@/components/Header/Header";
-import {API_URL} from '@/lib/api-request'
+import {API_URL, URL_SERVER} from '@/lib/api-request'
 import axios from 'axios';
 import Related_articles from './Related-articles';
 
@@ -71,6 +71,27 @@ const ContentForum = (props: Props) => {
                 .map(item => ({ title: item.title, slug: item.slug }));
       setCrumb(result)
     }, [props.pathArr])
+
+    const modifyImagePaths = (content: any) => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(content, 'text/html');
+      const images = doc.querySelectorAll('img');
+  
+      const domain = URL_SERVER;
+  
+      images.forEach((img) => {
+          const currentSrc = img.getAttribute('src');
+          // Kiểm tra nếu đường dẫn hiện tại không bắt đầu bằng "https://"
+          if (currentSrc && !currentSrc.startsWith('https://')) {
+              // Thay thế đường dẫn của thẻ <img> thành đường dẫn tuyệt đối
+              const newSrc = domain + currentSrc.replace('/Image', '/Image');
+              img.setAttribute('src', newSrc);
+          }
+      });
+  
+      return doc.body.innerHTML;
+  };
+  
   return (
     <>
     <Header />
@@ -94,7 +115,7 @@ const ContentForum = (props: Props) => {
                     <div>
                         {item.userName}
                     </div>
-                    <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
+                    <div key={index} dangerouslySetInnerHTML={{ __html: modifyImagePaths(item.content) }} />
                 </>
             ))}
             <Related_articles brokerList={postRelated} />
