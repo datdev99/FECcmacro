@@ -214,7 +214,7 @@ const Page = () => {
                       </div>
                       <div className="item-prize__button">
                         <div className="colosseum-button colosseum-button__register">
-                          <button disabled="">
+                          <button>
                             <span>Register</span>
                           </button>
                         </div>
