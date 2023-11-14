@@ -9,12 +9,24 @@ import {API_URL} from '@/lib/api-request'
 const Page = () => {
     const [forum, setForum] = useState([])
     const [content, setContent] = useState(false)
+    const [isCheck, setIsCheck] = useState(true)
+
+    
     const handleTitle = () => {
         setContent(false)
     }
     const handleContent = () => {
         setContent(true)
     }
+
+    useEffect(() => {
+        if(localStorage.getItem("Token")) {
+            setIsCheck(true)
+        }else {
+            setIsCheck(false)
+        }
+    },[isCheck])
+
     useEffect(() => {
         axios.get(`${API_URL}/Post/Get?action=get&slug=forum`)
         .then(response => {
@@ -24,7 +36,7 @@ const Page = () => {
         .catch(error => {
             console.error('Error fetching data: ', error);
         })
-    },[])
+    })
     return (
     <>
         <Header />
@@ -38,7 +50,7 @@ const Page = () => {
                     {forum.map((item:any, index) => (
                         <div className='post-feed-item' key={index}>
                             <a href="">
-                                <img className='avata' src={item.avata} alt="" />
+                                {/* <img className='avata' src={item.avata} alt="" /> */}
                             </a>
                             <div className='post-feed-item__info'>
                                 <div className='name'>
@@ -69,6 +81,35 @@ const Page = () => {
                     ))}
                 </div>
             </div>
+            {isCheck == false ? 
+                <div className="fixed-bottom-bar">
+                    <div className="wrapper d-flex">
+                        <div className="logo-bottom">
+                        </div>
+                        <div className="content d-flex flex-column">
+                        <div className="text">
+                            <span className="text-register">Hãy đăng ký một tài khoản Ccrystal để nhận được nhiều bài viết thú vị hơn.</span>
+                        </div>
+                        <div className="button d-flex mt-1">
+                            <button className="login-button">
+                            Đăng nhập
+                            </button>
+                            <a
+                            href="https://accounts.viblo.asia/register"
+                            className="register-button"
+                            >
+                            Đăng kí
+                            </a>
+                        </div>
+                        </div>
+                        <div className="icon-close" style={{ cursor: "pointer" }}>
+                        <i className="icon fa fa-close" />
+                        </div>
+                    </div> 
+                </div>
+            :
+                ""
+            }
         </main>
         <Footer />
     </>
