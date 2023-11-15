@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 const Related_articles = ({brokerList}:any) => {
   const settings = {
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     // autoplay: true,
     // autoplaySpeed: 5000,
     dots: true,

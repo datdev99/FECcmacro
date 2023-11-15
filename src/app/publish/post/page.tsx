@@ -5,6 +5,11 @@ import dynamic from 'next/dynamic';
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import 'react-quill/dist/quill.snow.css';
 import { Quill } from 'react-quill';
+import { NextPageContext } from 'next';
+import { isAuthenticated } from '@/lib/auth';
+import 'quill-image-resize';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBold, faItalic, faUnderline, faStrikethrough, faQuoteRight, faListOl, faListUl, faLink, faImage, faEraser } from '@fortawesome/free-solid-svg-icons';
 
 const length = 14;
 const factor = 20;
@@ -23,7 +28,7 @@ const Editor = (props:any) => {
     }
     const handleSubmit = async (e:any) => {
       e.preventDefault();
-      console.log("editorHtml");
+      console.log("Editor HTML:", editorHtml);
     }
     return (
         <>
@@ -70,3 +75,18 @@ Editor.formats = [
 ]
 
 export default Editor;
+// Sử dụng getServerSideProps để kiểm tra đăng nhập trước khi render trang
+export async function getServerSideProps(context:any) {
+  if (!isAuthenticated(context)) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
