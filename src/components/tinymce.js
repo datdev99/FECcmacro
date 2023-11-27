@@ -5,7 +5,7 @@ import { Editor } from "@tinymce/tinymce-react";
 export default function TinyMCE({ value, onChange }) {
   return (
     <Editor
-    apiKey="DatNguyen"
+      apiKey="xvspl24fv425zlmgdnp0k6dbmw5yrys5f575z9kgwd6w14zo"
         value={value}
         onEditorChange={onChange}
         init={{
