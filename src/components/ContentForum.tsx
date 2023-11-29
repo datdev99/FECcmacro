@@ -111,12 +111,13 @@ const ContentForum = (props: Props) => {
         <div className="review-page">
           <div className="review-content">
             {props.data.map((item:any, index) => (
-                <>
-                    <div>
-                        {item.userName}
-                    </div>
-                    <div key={index} dangerouslySetInnerHTML={{ __html: modifyImagePaths(item.content) }} />
-                </>
+              <>
+                <h3 className='review-title'>{item.title}</h3>
+                <div>
+                    {item.userName}
+                </div>
+                <div key={index} dangerouslySetInnerHTML={{ __html: modifyImagePaths(item.content) }} />
+              </>
             ))}
             <Related_articles brokerList={postRelated} />
           </div>
