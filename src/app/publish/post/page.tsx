@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import {API_URL} from '@/lib/api-request'
 import { getToken } from '@/utils/auth';
+import Header from '@/components/Header/Header'
 
 const TinyMCE = dynamic(() => import("@/components/tinymce"), {
   ssr: false,
@@ -41,7 +42,7 @@ export default function Home() {
           Slug: "",
           Content: content,
           CategoryId: "28",
-          AuthorId: "ecb3e2e2-f138-4392-8c91-33f47720ca43"
+          AuthorId: localStorage.getItem("userId")
         };
     
         try {
@@ -68,14 +69,16 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Nextjs 13 with tinymce editor</h1>
-      <form action="">
-        <button onClick={handleSubmit}>Đăng</button>
-        <input type="text" value={title} onChange={handleTitleChange} placeholder="Nhập tiêu đề" />
-        <TinyMCE value={content} onChange={handleEditorChange} />
-      </form>
-      
-      {/* <p>Content: {content}</p> */}
+      <Header />
+      <main>
+        <form action="">
+          <div>
+            <input type="text" value={title} onChange={handleTitleChange} placeholder="Nhập tiêu đề" />
+            <button onClick={handleSubmit}>Đăng</button>
+          </div>
+          <TinyMCE value={content} onChange={handleEditorChange} />
+        </form>
+      </main>
     </div>
   );
 }

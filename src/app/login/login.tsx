@@ -33,11 +33,15 @@ const Login = () => {
       }else {
         const  token  = response.data.data.accessToken;
         const  refreshToken  = response.data.data.refreshToken;
+        const  userId  = response.data.data.id;
+        const userName = response.data.data.userName
         // Lưu token vào cookie
         // document.cookie = `token=${token}; path=/`;
         if (typeof window !== "undefined") {
           localStorage.setItem("Token", token)
           localStorage.setItem("RefreshToken", refreshToken)
+          localStorage.setItem("userId", userId)
+          localStorage.setItem("userName", userName)
         }
   
         if (token) {
