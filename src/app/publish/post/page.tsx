@@ -19,8 +19,8 @@ export default function Home() {
   let token:any = ""
   let userId:any = ""
   if (typeof window !== 'undefined') {
-    token = localStorage.getItem("Token");
-    userId = localStorage.getItem("userId");
+    token = getToken();
+    userId = getUserID();
     // Thực hiện các xử lý với token và userId tại đây
   }
   const handleEditorChange = (value:any) => {
