@@ -5,17 +5,17 @@ import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import axios from 'axios'
 import {API_URL} from '@/lib/api-request'
-import img from '../../../public/assets/images/banner-forum.png'
+import img from '../../../../public/assets/images/banner-forum.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
+import SidebarForum from '@/components/SidebarForum'
 
 const Page = () => {
     const [forum, setForum] = useState([])
     const [content, setContent] = useState(false)
     const [isCheck, setIsCheck] = useState(true)
-
     
     const handleTitle = () => {
         setContent(false)
@@ -42,6 +42,11 @@ const Page = () => {
             console.error('Error fetching data: ', error);
         })
     }, [])
+
+    const handleClick = () => {
+        alert("2")
+    }
+
     return (
     <>
         <Header />
@@ -57,47 +62,55 @@ const Page = () => {
                         <li>Câu hỏi</li>
                         <li>Đang theo dõi</li>
                     </ul>
-                    <Link href="/publish/post"><FontAwesomeIcon icon={faCircleQuestion} />Tạo câu hỏi</Link>
+                    {
+                    isCheck == true ? 
+                        <Link href="/publish/post"><FontAwesomeIcon icon={faCircleQuestion} />Tạo câu hỏi</Link>
+                        :
+                        <Link href="#" onClick={handleClick}><FontAwesomeIcon icon={faCircleQuestion} />Tạo câu hỏi</Link>
+                    } 
                 </div>
             </div>
             <div className='l-container--1'>
-                <div className='post-feed'>
-                    <div className='post-feed-switcher'>
-                        <a data-original-title="Chỉ tiêu đề" onClick={handleTitle}>Tiêu đề </a>
-                        <a data-original-title="Xem trước nội dung" onClick={handleContent}>Nội dung</a>
-                    </div>
-                    {forum.map((item:any, index) => (
-                        <div className='post-feed-item' key={index}>
-                            <a href="">
-                                {/* <img className='avata' src={item.avata} alt="" /> */}
-                            </a>
-                            <div className='post-feed-item__info'>
-                                <div className='name'>
-                                    <a href="">{item.userName}</a>
-                                    <span>{item.created}</span>
-                                </div>
-                                <div className='title'>
-                                    <h3>
-                                        <a href={`/${item.slug}`}>{item.title}</a>
-                                    </h3>
-                                    {/* <div className='tags'>
-                                        {
-                                            item.tags.map((tag:any, i:number) => (
-                                                <a href="#" key={i}>{tag}</a>
-                                            ))
-                                        }
-                                    </div> */}
-                                </div>
-                                {
-                                    content ? 
-                                    <div className='content' dangerouslySetInnerHTML={{ __html: item.content }}>
-                                    
-                                    </div>:
-                                    ""
-                                }
-                            </div>
+                <div className='layout-forum'>
+                    <div className='post-feed'>
+                        <div className='post-feed-switcher'>
+                            <a data-original-title="Chỉ tiêu đề" onClick={handleTitle}>Tiêu đề </a>
+                            <a data-original-title="Xem trước nội dung" onClick={handleContent}>Nội dung</a>
                         </div>
-                    ))}
+                        {forum.map((item:any, index) => (
+                            <div className='post-feed-item' key={index}>
+                                <a href="">
+                                    {/* <img className='avata' src={item.avata} alt="" /> */}
+                                </a>
+                                <div className='post-feed-item__info'>
+                                    <div className='name'>
+                                        <a href="">{item.userName}</a>
+                                        <span>{item.created}</span>
+                                    </div>
+                                    <div className='title'>
+                                        <h3>
+                                            <a href={`/${item.slug}`}>{item.title}</a>
+                                        </h3>
+                                        {/* <div className='tags'>
+                                            {
+                                                item.tags.map((tag:any, i:number) => (
+                                                    <a href="#" key={i}>{tag}</a>
+                                                ))
+                                            }
+                                        </div> */}
+                                    </div>
+                                    {
+                                        content ? 
+                                        <div className='content' dangerouslySetInnerHTML={{ __html: item.content }}>
+                                        
+                                        </div>:
+                                        ""
+                                    }
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <SidebarForum data={forum} text='NEWEST POST' />
                 </div>
             </div>
             {isCheck == false ? 

@@ -3348,6 +3348,141 @@ input::-webkit-inner-spin-button {
   line-height: 2.45rem !important;
 }
 
+.banner-forum {
+  background-color: #001e78;
+}
+.banner-forum img {
+  height: 16rem;
+}
+
+.sub-menu {
+  background-color: #0b1a33;
+  padding: 16px 0;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.sub-menu a {
+  color: #fff;
+  background-color: #5488c7;
+  border-color: #5488c7;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.sub-menu a svg {
+  margin-right: 5px;
+  font-size: 1.4rem;
+}
+.sub-menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.sub-menu ul li {
+  margin-right: 20px;
+  font-size: 1.8rem;
+}
+.sub-menu > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.layout-forum {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.layout-forum .post-feed {
+  width: 75%;
+  padding-right: 15px;
+}
+
+.siderbar-forum {
+  width: 25%;
+}
+.siderbar-forum .list ul li {
+  border-bottom: 1px solid #e9ecef;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+.siderbar-forum .top-author .item {
+  margin-bottom: 10px;
+}
+.siderbar-forum .top-author .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+.siderbar-forum .top-author .info button {
+  display: block;
+  color: #5488c7;
+  background-color: #fff;
+  border: 2px solid #5488c7;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.siderbar-forum .top-author .info button:hover {
+  background-color: #5488c7;
+  color: #fff;
+}
+.siderbar-forum .top-author .info button svg {
+  margin-right: 5px;
+}
+.siderbar-forum .top-author .info a:hover {
+  color: #33629c;
+  text-decoration: underline;
+}
+.siderbar-forum .top-author .avata {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.siderbar-forum .top-author .avata img {
+  width: 100px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.siderbar-forum .top-author .param {
+  color: #898b96;
+}
+.siderbar-forum .top-author .param > div {
+  margin-right: 10px;
+}
+.siderbar-forum .top-author .param svg {
+  font-size: 1.4rem;
+  position: relative;
+  top: -1px;
+  margin-right: 2px;
+}
+
+hr {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+  border: 0;
+  border-top: 1px solid rgba(27, 27, 27, 0.1);
+  margin-left: 1.6em;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-color: #d6d6d7;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
 .item-dashboard {
   position: relative;
   border: 1px solid #ab8a41;

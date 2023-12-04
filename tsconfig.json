@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/login/login.js", "src/app/tin-tuc/Tradingviewchart.js", "src/app/phan-tich/[slug]/Page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/login/login.js", "src/app/tin-tuc/Tradingviewchart.js", "src/app/phan-tich/[slug]/Page.jsx", "src/components/CKEditorComponent.js"],
   "exclude": ["node_modules"]
 }

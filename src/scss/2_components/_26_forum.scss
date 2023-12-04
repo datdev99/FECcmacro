@@ -16,3 +16,150 @@
         max-height: 10rem;
     }
 }
+
+.banner-forum {
+    background-color: #001e78;
+    img {
+        height: 16rem;
+    }
+}
+
+.sub-menu {
+    background-color: #0b1a33;
+    padding: 16px 0;
+    color: #fff;
+    margin-bottom: 20px;
+
+    a {
+        color: #fff;
+        background-color: #5488c7;
+        border-color: #5488c7;
+        padding: 6px 12px;
+        border-radius: 8px;
+
+        svg {
+            margin-right: 5px;
+            font-size: 1.4rem;
+        }
+    }
+    ul {
+        display: flex;
+        
+        li {
+            margin-right: 20px;
+            font-size: 1.8rem;
+        }
+    }
+
+    > div {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.layout-forum {
+    display: flex;
+
+    .post-feed {
+        width: 75%;
+        padding-right: 15px;
+    }
+}
+
+.siderbar-forum {
+    width: 25%;
+
+    .list {
+        ul {
+            li {
+                border-bottom: 1px solid #e9ecef;
+                padding-top: 0.8rem;
+                padding-bottom: 0.8rem;
+            }
+        }
+    }
+
+    .top-author {
+        .item {
+            margin-bottom: 10px;
+        }
+
+       
+
+        .info {
+            display: flex;
+            gap: 10px;
+
+            button {
+                display: block;
+                color: #5488c7;
+                background-color: #fff;
+                border: 2px solid #5488c7;
+                padding: 5px;
+                border-radius: 5px;
+                transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+                cursor: pointer;
+                margin-top: 8px;
+
+                &:hover {
+                    background-color: #5488c7;
+                    color: #fff;
+                }
+
+                svg {
+                    margin-right: 5px;
+                }
+            }
+
+            a {
+                &:hover {
+                    color: #33629c;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .avata {
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            border-radius: 50%;
+
+            img {
+                width: 100px;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .param {
+            color: #898b96;
+
+            > div {
+                margin-right: 10px;
+            }
+
+            svg {
+                font-size: 1.4rem;
+                position: relative;
+                top: -1px;
+                margin-right: 2px;
+            }
+        }
+    }
+}
+
+hr {
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    border: 0;
+    border-top: 1px solid rgba(27,27,27,.1);
+
+    margin-left: 1.6em;
+    flex-grow: 1;
+    border-color: #d6d6d7;
+
+    box-sizing: initial;
+    height: 0;
+    overflow: visible;
+}
