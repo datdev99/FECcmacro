@@ -17,8 +17,8 @@ export default function Home() {
   const [title, setTitle] = useState("");
   // const [userId, setUserId] = useState("")
   
-  const token = getToken();  
-  const userId = getUserID();
+  const token = localStorage.getItem("Token")
+  const userId = localStorage.getItem("userId")
   const handleEditorChange = (value:any) => {
     setContent(value);
   };
