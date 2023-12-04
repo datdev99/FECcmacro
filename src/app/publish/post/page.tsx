@@ -15,8 +15,10 @@ const TinyMCE = dynamic(() => import("@/components/tinymce"), {
 export default function Home() {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
+  // const [userId, setUserId] = useState("")
   
   const token = getToken();  
+  const userId = localStorage.getItem("userId")
   const handleEditorChange = (value:any) => {
     setContent(value);
   };
@@ -42,7 +44,7 @@ export default function Home() {
           Slug: "",
           Content: content,
           CategoryId: "28",
-          AuthorId: localStorage.getItem("userId")
+          AuthorId: userId
         };
     
         try {
