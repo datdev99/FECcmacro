@@ -5,7 +5,7 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import {API_URL} from '@/lib/api-request'
-import { getToken } from '@/utils/auth';
+import { getToken, getUserID } from '@/utils/auth';
 import Header from '@/components/Header/Header'
 
 const TinyMCE = dynamic(() => import("@/components/tinymce"), {
@@ -18,7 +18,7 @@ export default function Home() {
   // const [userId, setUserId] = useState("")
   
   const token = getToken();  
-  const userId = localStorage.getItem("userId")
+  const userId = getUserID();
   const handleEditorChange = (value:any) => {
     setContent(value);
   };
