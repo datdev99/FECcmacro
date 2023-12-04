@@ -16,9 +16,13 @@ export default function Home() {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   // const [userId, setUserId] = useState("")
-  
-  const token = localStorage.getItem("Token")
-  const userId = localStorage.getItem("userId")
+  let token:any = ""
+  let userId:any = ""
+  if (typeof window !== 'undefined') {
+    token = localStorage.getItem("Token");
+    userId = localStorage.getItem("userId");
+    // Thực hiện các xử lý với token và userId tại đây
+  }
   const handleEditorChange = (value:any) => {
     setContent(value);
   };
