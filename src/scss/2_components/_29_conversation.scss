@@ -4,6 +4,7 @@
 
 .conversation-item {
     border: 1px solid #000;
+    width: calc(100% / 4);
 
     .inner {
         padding: 15px;

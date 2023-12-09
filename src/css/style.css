@@ -3500,6 +3500,7 @@ hr {
 
 .conversation-item {
   border: 1px solid #000;
+  width: 25%;
 }
 .conversation-item .inner {
   padding: 15px;
