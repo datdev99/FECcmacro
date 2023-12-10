@@ -21,7 +21,7 @@ const Contest = (props: Props) => {
     <>
     {
         props.data.map(item => (
-            <div className="conversation-item">
+            <div className="conversation-item" key={item.id}>
                 <div className="inner">
                 <div className="conversation-item__status">
                     <div className="time">
