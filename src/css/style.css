@@ -3526,6 +3526,7 @@ hr {
   color: #F9CA64;
   font-size: 2rem;
   text-align: center;
+  display: block;
 }
 .conversation-item__content .conect {
   text-align: center;
@@ -3634,6 +3635,58 @@ hr {
   -webkit-transition-timing-function: ease-in;
           transition-timing-function: ease-in;
   opacity: 0;
+}
+
+.conversation-tbl {
+  max-height: 80vh;
+  overflow-y: scroll;
+  background: #1B232E;
+}
+.conversation-tbl table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.conversation-tbl table thead {
+  background: #2D3440;
+  color: #fff;
+  height: 60px;
+  position: sticky;
+  top: -1px;
+  left: 0;
+  text-align: left;
+}
+.conversation-tbl table thead th {
+  padding: 0 0.5rem;
+}
+.conversation-tbl table thead th:first-child {
+  padding-left: 20px;
+}
+.conversation-tbl table thead th:last-child {
+  padding-right: 20px;
+}
+.conversation-tbl table tbody tr {
+  border-bottom: 0.2px solid hsla(0, 0%, 100%, 0.14);
+}
+.conversation-tbl table tbody tr td {
+  color: #03e4ff;
+  font-size: 1.4rem;
+  padding: 1.5rem 0.5rem;
+}
+.conversation-tbl table tbody tr td:first-child {
+  padding-left: 20px;
+}
+.conversation-tbl table tbody tr td:last-child {
+  padding-right: 20px;
+}
+.conversation-tbl::-webkit-scrollbar-track {
+  background: #464e57;
+}
+.conversation-tbl::-webkit-scrollbar-thumb {
+  background: #bbc0c1;
+  border-radius: 5px;
+}
+.conversation-tbl::-webkit-scrollbar {
+  width: 8px;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
