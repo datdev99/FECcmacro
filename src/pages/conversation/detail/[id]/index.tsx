@@ -38,7 +38,7 @@ const DetailPage = ({ id, data }:any) => {
             </div>
             <div className="conversation-tbl">
               <div className="inner">
-                <ContestDetail data={data.data} />
+                <ContestDetail data={data.data} contestInfo={data.contestInfo} />
               </div>
             </div>
           </div>
