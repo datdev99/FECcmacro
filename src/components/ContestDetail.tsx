@@ -1,7 +1,9 @@
+import Link from 'next/link'
 import React from 'react'
 
 interface Props {
-    data: IFData[]
+    data: IFData[],
+    contestInfo: ContestInfo[]
 }
 
 interface IFData {
@@ -17,6 +19,9 @@ interface IFData {
     isInvestor: string,
 }
 
+interface ContestInfo {
+  id: number
+}
 
 const ContestDetail = (props: Props) => {
   return (
@@ -33,8 +38,8 @@ const ContestDetail = (props: Props) => {
         </thead>
         <tbody>
             {props.data.map((item, index) => (
-                <tr>
-                    <td>{item.mT4Account}</td>
+                <tr key={index}>
+                    <td><Link href={`./${props.contestInfo}/aaa`}>aaaa</Link></td>
                     <td>{item.gain}</td>
                     <td>{item.balance}</td>
                     <td>{item.equity}</td>

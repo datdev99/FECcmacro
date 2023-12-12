@@ -1,6 +1,5 @@
 // pages/conversation/detail/[id]/index.tsx
 import React, { useState } from 'react'
-import Contest from '@/components/Contest';
 import Layout from '@/components/layout';
 import { API_URL } from '@/lib/api-request';
 import ContestDetail from '@/components/ContestDetail';
@@ -38,7 +37,7 @@ const DetailPage = ({ id, data }:any) => {
             </div>
             <div className="conversation-tbl">
               <div className="inner">
-                <ContestDetail data={data.data} />
+                lll
               </div>
             </div>
           </div>
