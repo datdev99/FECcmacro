@@ -208,3 +208,95 @@
         width: 8px;
     }
 }
+
+.conversation-history {
+    table {
+        width: 100%;
+        color: #FFF;
+        border-collapse: collapse;
+
+        thead {
+            background-color: #1e444a;
+            font-size: 1.4rem;
+            font-weight: 500;
+
+            th {
+                line-height: 21px;
+                &:first-child {
+                    padding-left: 20px;
+                }
+
+                &:last-child {
+                    padding-right: 20px;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                border-bottom: 1px solid #ffffff33;
+                font-size: 1.4rem;
+                font-weight: 500;
+                
+                td {
+                    padding: 10px 0;
+                    line-height: 21px;
+
+                    &:first-child {
+                        padding-left: 20px;
+                    }
+    
+                    &:last-child {
+                        padding-right: 20px;
+                    }
+                }
+
+                &:nth-child(odd) {
+                    background-color: #0c1d20;
+                }
+                &:nth-child(even) {
+                    background-color: #1e444a;
+                }
+            }
+        }
+    }
+
+    .txt-right {
+        text-align: right;
+    }
+
+    .txt-left {
+        text-align: left;
+    }
+
+    .Loading {
+        text-align: center;
+
+        p {
+            position: relative;
+            top: -40px;
+        }
+    }
+}
+
+.info-trader {
+    ul {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        li {
+            width: calc(50% - 5px);
+            background: #1e444a;
+            padding: 10px 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p, li {
+            color: #cccccc;
+            font-size: 1.4rem;
+            line-height: 21px;
+        }
+    }
+}

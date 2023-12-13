@@ -3689,6 +3689,85 @@ hr {
   width: 8px;
 }
 
+.conversation-history table {
+  width: 100%;
+  color: #FFF;
+  border-collapse: collapse;
+}
+.conversation-history table thead {
+  background-color: #1e444a;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.conversation-history table thead th {
+  line-height: 21px;
+}
+.conversation-history table thead th:first-child {
+  padding-left: 20px;
+}
+.conversation-history table thead th:last-child {
+  padding-right: 20px;
+}
+.conversation-history table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.conversation-history table tbody tr td {
+  padding: 10px 0;
+  line-height: 21px;
+}
+.conversation-history table tbody tr td:first-child {
+  padding-left: 20px;
+}
+.conversation-history table tbody tr td:last-child {
+  padding-right: 20px;
+}
+.conversation-history table tbody tr:nth-child(odd) {
+  background-color: #0c1d20;
+}
+.conversation-history table tbody tr:nth-child(even) {
+  background-color: #1e444a;
+}
+.conversation-history .txt-right {
+  text-align: right;
+}
+.conversation-history .txt-left {
+  text-align: left;
+}
+.conversation-history .Loading {
+  text-align: center;
+}
+.conversation-history .Loading p {
+  position: relative;
+  top: -40px;
+}
+
+.info-trader ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.info-trader ul li {
+  width: calc(50% - 5px);
+  background: #1e444a;
+  padding: 10px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.info-trader ul p, .info-trader ul li {
+  color: #cccccc;
+  font-size: 1.4rem;
+  line-height: 21px;
+}
+
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Project .p-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
