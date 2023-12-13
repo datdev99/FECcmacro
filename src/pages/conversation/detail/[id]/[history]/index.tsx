@@ -1,43 +1,22 @@
 // pages/conversation/detail/[id]/index.tsx
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '@/components/layout';
-import { API_URL } from '@/lib/api-request';
-import ContestDetail from '@/components/ContestDetail';
+import { API_URL, URL_SERVER } from '@/lib/api-request';
 
-const DetailPage = ({ id, data }:any) => {
-  const [filter, setFilter] = useState(data)
-  console.log(data.data);
-  
-  let timeoutId:any;
-  const handleInputChange = (e:any) => {
-    clearTimeout(timeoutId);
-    var filteredArray = filter.filter(function(item:any) {
-      // Kiểm tra kiểu dữ liệu của mT4Account
-      if (typeof item.mT4Account === 'string') {
-        // Kiểm tra xem giá trị của trường mT4Account có chứa giá trị tìm kiếm không
-        return item.mT4Account.toLowerCase().includes(e.target.value);
-      }
-      return false; // Nếu không phải là chuỗi, không thỏa mãn điều kiện
-    });
-    console.log(filteredArray, "filteredArray", filter);
-    
-    // Đặt timeout mới
-    timeoutId = setTimeout(function() {
-      // Thực hiện hành động sau khi chờ 3 giây
-      console.log("Thực hiện hành động sau khi chờ 3 giây", e.target.value);
-    }, 3000);
-  }
+const DetailPage = ({ extractedPath, id }:any) => {
+
   return (
     <>
       <Layout>
         <main className="l-container--1">
           <div>
-            <div>
-              <input type="text" onChange={handleInputChange} placeholder='search' />
+            <div className="info-trader">
+              <p>{extractedPath}</p>
+              <p>{id}</p>
             </div>
-            <div className="conversation-tbl">
+            <div className="conversation-history">
               <div className="inner">
-                lll
+                
               </div>
             </div>
           </div>
@@ -47,23 +26,41 @@ const DetailPage = ({ id, data }:any) => {
   );
 };
 
-export async function getServerSideProps({ params }:any) {
-  // params.id chứa giá trị của [id] từ URL
-  const id = params.id;
-  const res = await fetch(`${API_URL}/Contest/GetDetailContest?IdContest=${id}`);
-  console.log('res', res);
-  const data = await res.json();
-  
-  // Fetch dữ liệu chi tiết dựa trên id từ API hoặc nguồn dữ liệu khác
-  // const data = await fetchData(id);
+export async function getServerSideProps(context) {
+  try {
+    // Lấy đường dẫn từ context.req (nếu nó tồn tại)
+    const fullPath = context.req ? context.req.url : null;
+    const id = context.params.id
 
-  // Trả về dữ liệu để render trang
-  return {
-    props: {
-      id,
-      data
-    },
-  };
+    const match = fullPath.match(/conversation\/detail\/history\/(\d+)/);
+    const extractedPath = match ? match[0] : null;
+
+    console.log("Extracted Path:", extractedPath);
+
+    // Chuyển giá trị thành số nếu cần thiết
+    const idContest = extractedPath ? parseInt(extractedPath, 10) : null;
+
+    console.log("idContest:", idContest);
+
+    // Trả về dữ liệu để render trang
+    return {
+      props: {
+        extractedPath,
+        id
+      },
+    };
+  } catch (error) {
+    console.error("Error in getServerSideProps:", error.message);
+
+    // Xử lý lỗi và trả về dữ liệu mặc định hoặc thông báo lỗi
+    return {
+      props: {
+        idContest: null,
+      },
+    };
+  }
 }
+
+
 
 export default DetailPage;

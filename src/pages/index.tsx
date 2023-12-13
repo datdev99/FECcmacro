@@ -22,60 +22,10 @@ import Ecosystem from '@/components/Ecosystem'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import the styles
 
-export async function getStaticProps() {
-    const feed = FEEDS.find((feed) => feed.slug === "");
-    console.log(feed,"feed")
-    if (!feed) return;
-
-    const detailedFeed = await getFeed(feed.url);
-
-    return {
-      props: {
-        feed,
-        items: detailedFeed.items,
-      },
-      revalidate: 1,
-    };
-}
 
 
 
-const Page = ({ items }:any) => {
-  const [postTinTuc, setPostTinTuc] = useState([])
-  const [postKienThuc, setPostKienThuc] = useState([])
-  const [postPhanTich, setPostPhanTich] = useState([])
-  useEffect(() => {
-    // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    const apiUrlCategory = `${API_URL}/Post/Get?action=get&slug=tin-tuc`;
-    const apiUrlKienThuc = `${API_URL}/Post/Get?action=get&slug=kien-thuc`;
-    const apiUrlPhanTich = `${API_URL}/Post/Get?action=get&slug=phan-tich`;
-    // Sử dụng Axios để gửi yêu cầu GET đến API endpoint
-    axios.get(apiUrlCategory)
-        .then(response => {
-            setPostTinTuc(response.data);
-        })
-        .catch(error => {
-            // Xử lý lỗi (nếu có)
-            console.error('Error fetching data: ', error);
-        });
-    axios.get(apiUrlKienThuc)
-    .then(response => {
-      setPostKienThuc(response.data);
-    })
-    .catch(error => {
-        // Xử lý lỗi (nếu có)
-        console.error('Error fetching data: ', error);
-    });
-    axios.get(apiUrlPhanTich)
-    .then(response => {
-      setPostPhanTich(response.data);
-    })
-    .catch(error => {
-        // Xử lý lỗi (nếu có)
-        console.error('Error fetching data: ', error);
-    });
-  }, []);
-
+const Page = ({ postKienThuc, postPhanTich, items }:any) => {
   useEffect(() => {
     AOS.init({
       duration: 800, // Animation duration
@@ -124,5 +74,28 @@ const Page = ({ items }:any) => {
     </>
   )
 }
+export async function getStaticProps() {
+  const resDataKienThuc = await fetch(`${API_URL}/Post/Get?action=get&slug=kien-thuc`);
+  const postKienThuc = await resDataKienThuc.json();
+
+  const resDataPhanTich = await fetch(`${API_URL}/Post/Get?action=get&slug=phan-tich`);
+  const postPhanTich = await resDataPhanTich.json();
+  
+  const feed = FEEDS.find((feed) => feed.slug === "");
+  console.log(feed,"feed")
+  if (!feed) return;
+
+  const detailedFeed = await getFeed(feed.url);
+
+  return {
+    props: {
+      postKienThuc,
+      postPhanTich,
+      items: detailedFeed.items,
+    },
+    revalidate: 1,
+  };
+}
+
 
 export default Page

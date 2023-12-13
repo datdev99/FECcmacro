@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 interface Props {
     data: IFData[],
-    contestInfo: ContestInfo[]
+    contestInfo: ContestInfo
 }
 
 interface IFData {
@@ -20,10 +20,14 @@ interface IFData {
 }
 
 interface ContestInfo {
-  id: number
+  id: number,
+  createdDate: any,
+  expiredDate: any
 }
 
 const ContestDetail = (props: Props) => {
+  console.log(props.contestInfo.id,"ee");
+  
   return (
     <>
       <table>
@@ -39,7 +43,7 @@ const ContestDetail = (props: Props) => {
         <tbody>
             {props.data.map((item, index) => (
                 <tr key={index}>
-                    <td><Link href={`./${props.contestInfo}/aaa`}>aaaa</Link></td>
+                    <td><Link href={`./${props.contestInfo.id}/${item.mT4Account}`}>{item.mT4Account}</Link></td>
                     <td>{item.gain}</td>
                     <td>{item.balance}</td>
                     <td>{item.equity}</td>
