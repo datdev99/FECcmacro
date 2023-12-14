@@ -572,6 +572,11 @@ main {
     padding: 0 20px;
   }
 }
+.l-container--0 {
+  max-width: calc(100vw - 100px);
+  margin-left: auto;
+  margin-right: auto;
+}
 .l-container--1 {
   max-width: 1300px;
   margin-left: auto;
@@ -610,6 +615,10 @@ main {
 }
 .p-login .l-container--2, .p-register .l-container--2, .p-forgot .l-container--2 {
   margin-top: 15px;
+}
+
+.p-history {
+  background: #1c273d;
 }
 
 section {
@@ -3689,6 +3698,10 @@ hr {
   width: 8px;
 }
 
+.conversation-history {
+  max-height: 550px;
+  overflow-y: scroll;
+}
 .conversation-history table {
   width: 100%;
   color: #FFF;
@@ -3698,6 +3711,11 @@ hr {
   background-color: #1e444a;
   font-size: 1.4rem;
   font-weight: 500;
+  position: sticky;
+  top: 0;
+  left: 0;
+  min-height: 55px;
+  height: 55px;
 }
 .conversation-history table thead th {
   line-height: 21px;
@@ -3714,7 +3732,7 @@ hr {
   font-weight: 500;
 }
 .conversation-history table tbody tr td {
-  padding: 10px 0;
+  padding: 15px 0;
   line-height: 21px;
 }
 .conversation-history table tbody tr td:first-child {
@@ -3729,6 +3747,27 @@ hr {
 .conversation-history table tbody tr:nth-child(even) {
   background-color: #1e444a;
 }
+.conversation-history table tfoot {
+  background-color: #61656b;
+  position: sticky;
+  bottom: -1px;
+  left: 0;
+}
+.conversation-history table tfoot tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1.4rem;
+  font-weight: 570;
+}
+.conversation-history table tfoot tr td {
+  padding: 10px 0;
+  line-height: 21px;
+}
+.conversation-history table tfoot tr td:first-child {
+  padding-left: 20px;
+}
+.conversation-history table tfoot tr td:last-child {
+  padding-right: 20px;
+}
 .conversation-history .txt-right {
   text-align: right;
 }
@@ -3742,7 +3781,33 @@ hr {
   position: relative;
   top: -40px;
 }
+.conversation-history::-webkit-scrollbar-track {
+  background: #464e57;
+}
+.conversation-history::-webkit-scrollbar-thumb {
+  background: #bbc0c1;
+  border-radius: 5px;
+}
+.conversation-history::-webkit-scrollbar {
+  width: 8px;
+}
+.conversation-history .special {
+  color: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  background: #C8C8C8;
+  font-size: 1.8rem;
+}
+.conversation-history .special span {
+  margin-right: 15px;
+}
 
+.info-trader {
+  /* Style the tab */
+  /* Style the buttons that are used to open the tab content */
+  /* Change background color of buttons on hover */
+  /* Create an active/current tablink class */
+  /* Style the tab content */
+}
 .info-trader ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3766,6 +3831,36 @@ hr {
   color: #cccccc;
   font-size: 1.4rem;
   line-height: 21px;
+}
+.info-trader .tab {
+  overflow: hidden;
+  background-color: #1c273d;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+.info-trader .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #fff;
+}
+.info-trader .tab button:hover {
+  background-color: #086c7d;
+}
+.info-trader .tab button.active {
+  background-color: #086c7d;
+}
+.info-trader .contentTab {
+  display: none;
+  border-top: none;
+}
+.info-trader .contentTab.show {
+  display: block;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

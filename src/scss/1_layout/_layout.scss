@@ -54,6 +54,12 @@ main {
     padding: 0 20px;
   }
 
+  &--0 {
+    max-width: calc(100vw - 100px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   &--1 {
     max-width: 1300px;
     margin-left: auto;
@@ -95,6 +101,10 @@ main {
   .l-container--2 {
     margin-top: 15px;
   }
+}
+
+.p-history {
+  background: #1c273d;
 }
 
 section {
