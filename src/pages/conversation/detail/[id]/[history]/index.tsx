@@ -36,7 +36,7 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
       .catch(error => {
           console.error('Error fetching data: ', error);
       })
-  }, [MT4Account, id])
+  }, [MT4Account, id, data.createdDate, data.expiredDate])
 
   return (
     <>
