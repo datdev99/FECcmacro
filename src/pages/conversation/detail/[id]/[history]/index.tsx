@@ -28,7 +28,7 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
   const [idLoading, setIsLoading] = useState(false)
   
   useEffect(() => {
-    axios.get(`${API_URL}/Contest/GetHistory?IdContest=${id}&mt4Account=${MT4Account}&fromdate="2023-12-01"&todate="2023-12-31"`)
+    axios.get(`${API_URL}/Contest/GetHistory?IdContest=${id}&mt4Account=${MT4Account}&fromdate=${data.createdDate}&todate=${data.expiredDate}`)
       .then(response => {
         setHistory(response.data)
         setIsLoading(true)
