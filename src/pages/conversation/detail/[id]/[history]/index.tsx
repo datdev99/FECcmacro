@@ -4,7 +4,7 @@ import Layout from '@/components/layout';
 import { API_URL, URL_SERVER } from '@/lib/api-request';
 import axios from 'axios';
 import Link from 'next/link';
-import loading from '../../../../../assets/images/Loading.gif'
+import loading from '../../../../../assets/images/loading.gif'
 import Image from 'next/image';
 
 function ConvertDateTime(Datetime:any) {
