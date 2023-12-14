@@ -44,7 +44,7 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
         <main className="l-container--1">
           <div>
             <div className="info-trader">
-              <div>{data.data.userName}</div>
+              <div>{data.userName}</div>
                 <div>
                   Trading Stats
                   <ul>
@@ -160,7 +160,11 @@ export async function getServerSideProps({ params, req }: any) {
     props: {
       MT4Account,
       id,
-      data
+      data: {
+        createdDate: data.contestInfo.createdDate,
+        expiredDate: data.contestInfo.expiredDate,
+        userName: data.data.userName
+      }
     },
   };
 }
