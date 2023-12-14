@@ -122,7 +122,7 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
                   </table>
                   <div className='Loading'>
                     {/* <Image alt='' src={loading} width={190} height={150} /> */}
-                    <p>Loading</p>
+                    <p>Loading 1</p>
                   </div>
                 </>
                }
