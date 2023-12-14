@@ -4,7 +4,7 @@ import Layout from '@/components/layout';
 import { API_URL, URL_SERVER } from '@/lib/api-request';
 import axios from 'axios';
 import Link from 'next/link';
-// import loading from '../../../../../assets/images/Loading1.gif'
+import loading from '../../../../../assets/images/Loading1.gif'
 import Image from 'next/image';
 
 function ConvertDateTime(Datetime:any) {
@@ -28,7 +28,7 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
   const [idLoading, setIsLoading] = useState(false)
   
   useEffect(() => {
-    axios.get(`${API_URL}/Contest/GetHistory?IdContest=${id}&mt4Account=${MT4Account}&fromdate=${data.contestInfo.createdDate}&todate=${data.contestInfo.expiredDate}`)
+    axios.get(`${API_URL}/Contest/GetHistory?IdContest=${id}&mt4Account=${MT4Account}&fromdate="2023-12-01"&todate="2023-12-31"`)
       .then(response => {
         setHistory(response.data)
         setIsLoading(true)
@@ -36,7 +36,7 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
       .catch(error => {
           console.error('Error fetching data: ', error);
       })
-  }, [MT4Account, id, data.contestInfo.createdDate, data.contestInfo.expiredDate])
+  }, [MT4Account, id])
 
   return (
     <>
@@ -121,8 +121,8 @@ const DetailPage = ({ MT4Account, id, data}:any) => {
                   </thead>
                   </table>
                   <div className='Loading'>
-                    {/* <Image alt='' src={loading} width={190} height={150} /> */}
-                    <p>Loading 1</p>
+                    <Image alt='' src={loading} width={190} height={150} />
+                    <p>Loading</p>
                   </div>
                 </>
                }
