@@ -130,7 +130,7 @@ const DetailPage = ({ MT4Account, id, data, trading}:any) => {
                                 <td className='txt-left'>{item.ticket}</td>
                                 <td className='txt-left'>{ConvertDateTime(item.openTime)}</td>
                                 <td className='txt-left'>{item.type}</td>
-                                <td className='txt-left'>aaa</td>
+                                <td className='txt-left'>{item.lots}</td>
                                 <td className='txt-left'>{item.openPrice}</td>
                                 <td className='txt-left'>{item.ex.sl}</td>
                                 <td className='txt-left'>{item.ex.tp}</td>
@@ -186,7 +186,7 @@ const DetailPage = ({ MT4Account, id, data, trading}:any) => {
                             <tr key={index}>
                               <td>{ConvertDateTime(item.openTime)}<br></br>{ConvertDateTime(item.closeTime)}</td>
                               <td className='txt-right'>{item.type}</td>
-                              <td className='txt-right'>{item.ex.symbol}</td>
+                              <td className='txt-right'>{item.symbol}</td>
                               <td className='txt-right'>{item.openPrice}<br></br>{item.closePrice}</td>
                               <td className='txt-right'>{item.ex.volume}</td>
                               <td className='txt-right'>{item.stopLoss}</td>
