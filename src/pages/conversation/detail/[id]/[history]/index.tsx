@@ -123,7 +123,7 @@ const DetailPage = ({ MT4Account, id, data, trading}:any) => {
                       </thead>
                       <tbody>
                         {
-                          trading.map((item:any, index:any) => (
+                          trading != null && trading.map((item:any, index:any) => (
                             <>
                               <tr key={index}>
                                 <td className='txt-left'>{item.symbol}</td>
