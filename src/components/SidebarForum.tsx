@@ -16,7 +16,7 @@ interface IF_Data {
 const SidebarForum = (props: Props) => {
   return (
     <div className='siderbar-forum'>
-        <div className='d-flex'>
+        {/* <div className='d-flex'>
             <p>{props.text}</p>
             <hr />
         </div>
@@ -31,7 +31,7 @@ const SidebarForum = (props: Props) => {
                     </>
                 ))}
             </ul>
-        </div>
+        </div> */}
         <div className='top-author'>
             <div className='d-flex'>
                 <p>TOP AUTHORS</p>

@@ -1,6 +1,7 @@
 // utils/auth.js
 const TOKEN_NAME = 'Token';
 const USERID = 'userId';
+const REFRESH_TOKEN = 'RefreshToken';
 
 export const setToken = (token) => {
   localStorage.setItem(TOKEN_NAME, token);
@@ -16,4 +17,8 @@ export const getToken = () => {
 
 export const getUserID = () => {
   return localStorage.getItem(USERID);
+};
+
+export const getRefreshToken = () => {
+  return localStorage.getItem(REFRESH_TOKEN);
 };
