@@ -10,14 +10,18 @@ const Page = () => {
     const [content, setContent] = useState([]);
     let url = ""
     let pathArray:any;
+    let postId:any;
     if (typeof window !== 'undefined') {
         url = window.location.pathname;
         pathArray = url.split("/").filter(item => item !== "");
+        
+        // postId = url.split("=")[1].split("/").join("")
+        console.log(url,"url");
         // Tiếp tục xử lý dữ liệu
     }
     useEffect(() => {
         setSubSlug(pathArray[pathArray.length - 1])
-        let apiUrl = `${API_URL}/Post/Get?action=GetDetail&slug=forum/${subSlug}`;
+        let apiUrl = `${API_URL}/Discuss/Get?action=getdiscussdetail&slug=${postId}`;
           axios.get(apiUrl)
             .then(response => {
                 // Xử lý dữ liệu nhận được từ API
@@ -28,11 +32,11 @@ const Page = () => {
                 console.error('Error fetching data: ', error);
             });
         
-    }, [subSlug])
+    }, [subSlug, url])
 
   return (
     <div>
-      <ContentForum data={content} pathArr={pathArray} />
+      {/* <ContentForum data={content} pathArr={pathArray} /> */}
     </div>
   );
 };

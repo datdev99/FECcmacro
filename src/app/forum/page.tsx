@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
+import Page1 from './[slug]/page'
 
 const Page = () => {
     const [forum, setForum] = useState([])
@@ -33,7 +34,7 @@ const Page = () => {
     },[isCheck])
 
     useEffect(() => {
-        axios.get(`${API_URL}/Post/Get?action=get&slug=forum`)
+        axios.get(`${API_URL}/Discuss/Get?action=getdiscuss`)
         .then(response => {
             setForum(response.data)
             console.log(forum,"forum");
@@ -89,7 +90,8 @@ const Page = () => {
                                     </div>
                                     <div className='title'>
                                         <h3>
-                                            <a href={`/${item.slug}`}>{item.title}</a>
+                                            <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
+                                            {/* <Link href={{ pathname: `/forum/${item.slug}`, query: { item } }} passHref></Link> */}
                                         </h3>
                                         {/* <div className='tags'>
                                             {

@@ -97,7 +97,7 @@ export default function Home() {
         console.log(newPost);
         
         try {
-          const response = await fetch(`${API_URL}/post/add`, {
+          const response = await fetch(`${API_URL}/Discuss/add`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

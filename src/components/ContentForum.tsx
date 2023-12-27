@@ -119,7 +119,7 @@ const ContentForum = (props: Props) => {
                 <div key={index} dangerouslySetInnerHTML={{ __html: modifyImagePaths(item.content) }} />
               </>
             ))}
-            <Related_articles brokerList={postRelated} />
+            {/* <Related_articles brokerList={postRelated} /> */}
           </div>
           <div className="list-san">
             <p className="heading"><FontAwesomeIcon icon={faBook} />Review - Đánh giá</p>
