@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
 import Page1 from './[slug]/page'
+import {ConvertDate} from '@/lib/func'
 
 const Page = () => {
     const [forum, setForum] = useState([])
@@ -85,8 +86,8 @@ const Page = () => {
                                 </a>
                                 <div className='post-feed-item__info'>
                                     <div className='name'>
-                                        <a href="">{item.userName}</a>
-                                        <span>{item.created}</span>
+                                        <a href="">{item.authorId}</a>
+                                        <span>{ConvertDate(item.dateCreated)}</span>
                                     </div>
                                     <div className='title'>
                                         <h3>
