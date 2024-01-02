@@ -94,9 +94,7 @@ const ContentForum = (props: Props) => {
   
   return (
     <>
-    <Header />
-      <main className="l-container--1" id="page-review">
-        <div className="breadcrumbs">
+    <div className="breadcrumbs">
           <ul>
             <li>
               <Link href="/">Trang chủ</Link>
@@ -132,7 +130,6 @@ const ContentForum = (props: Props) => {
             </div>
           </div>
         </div>
-      </main>
     </>
   )
 }

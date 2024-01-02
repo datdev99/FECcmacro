@@ -139,18 +139,19 @@ export default function Home() {
     <div>
       <Header />
       <main className="l-container--0">
-        <form action="">
+        <form action="" className="publish-post">
           <div>
-            <div>
+            <p>Tiêu đề</p>
+            <div className="input-title">
               <input type="text" value={title} onChange={handleTitleChange} placeholder="Nhập tiêu đề" />
               {checktitle == false ? <label htmlFor="">Tiêu đề phải nhiều hơn 3 từ</label> : ""}
+              <button onClick={handleSubmit}>Đăng</button>
             </div>
-            <button onClick={handleSubmit}>Đăng</button>
           </div>
           <div>
             <p>Nội dung</p>
             {checkContent == false ? <label htmlFor="">Nội dung phải ít nhất 50 từ</label> : ""}
-            <Editor apiKey={API_KEY_TINYMCE} value={content} onChange={handleEditorChange} />
+            <Editor apiKey={API_KEY_TINYMCE} value={content} onEditorChange ={handleEditorChange} />
           </div>
           <div style={{ marginTop: '10px' }}>
             <p>Mô tả ngắn</p>
@@ -158,7 +159,7 @@ export default function Home() {
               <Editor
                 apiKey={API_KEY_TINYMCE}
                 value={description}
-                onChange={handleEditorDescription}
+                onEditorChange ={handleEditorDescription}
                 init={{
                   // Các cài đặt khác của TinyMCE
                   height: 200,

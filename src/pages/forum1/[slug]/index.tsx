@@ -4,13 +4,10 @@ import { useEffect, useState } from 'react';
 import {API_URL} from '@/lib/api-request'
 import axios from 'axios';
 import ContentForum from '@/components/ContentForum';
-import { useRouter } from 'next/router';
+import Layout from '@/components/layout';
 
-const Page = () => {
-    const [subSlug, setSubSlug] = useState("");
+const Page = ({ postId }:any) => {
     const [content, setContent] = useState([]);
-    const router = useRouter();
-    const { slug, postId } = router.query;
     let url = ""
     let pathArray:any;
     // let postId:any;
@@ -23,7 +20,6 @@ const Page = () => {
         // Tiếp tục xử lý dữ liệu
     }
     useEffect(() => {
-        setSubSlug(pathArray[pathArray.length - 1])
         let apiUrl = `${API_URL}/Discuss/Get?action=getdiscussdetail&slug=${postId}`;
           axios.get(apiUrl)
             .then(response => {
@@ -35,13 +31,30 @@ const Page = () => {
                 console.error('Error fetching data: ', error);
             });
         
-    }, [subSlug, url])
+    }, [postId])
 
   return (
-    <div>
-      {/* <ContentForum data={content} pathArr={pathArray} /> */}
-    </div>
+    <>
+      <Layout>
+        <main className="l-container--1">
+          <ContentForum data={content} pathArr={pathArray} />
+        </main>
+      </Layout>
+      
+    </>
   );
 };
+
+export async function getServerSideProps(context:any) {
+  const { slug } = context.query;
+  const postId = slug && slug.length > 0 ? slug[slug.length - 1] : null;
+
+  return {
+    props: {
+      postId: postId || "null",
+    },
+  };
+}
+
 
 export default Page;

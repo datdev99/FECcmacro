@@ -11,20 +11,20 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
-import Page1 from './[slug]/page'
 import {ConvertDate} from '@/lib/func'
 
 const Page = () => {
     const [forum, setForum] = useState([])
     const [content, setContent] = useState(false)
     const [isCheck, setIsCheck] = useState(true)
+    const [isChecked, setIsChecked] = useState(false)
     
-    const handleTitle = () => {
-        setContent(false)
-    }
-    const handleContent = () => {
-        setContent(true)
-    }
+    // const handleTitle = () => {
+    //     setContent(false)
+    // }
+    // const handleContent = () => {
+    //     setContent(true)
+    // }
 
     useEffect(() => {
         if(localStorage.getItem("Token")) {
@@ -47,6 +47,16 @@ const Page = () => {
 
     const handleClick = () => {
         alert("2")
+    }
+
+    const handleCkecked = () => {
+        setIsChecked(!isChecked)
+        if(isChecked == false) {
+            setContent(false)
+        }
+        else {
+            setContent(true)
+        }
     }
 
     return (
@@ -76,8 +86,13 @@ const Page = () => {
                 <div className='layout-forum'>
                     <div className='post-feed'>
                         <div className='post-feed-switcher'>
-                            <a data-original-title="Chỉ tiêu đề" onClick={handleTitle}>Tiêu đề </a>
-                            <a data-original-title="Xem trước nội dung" onClick={handleContent}>Nội dung</a>
+                            {/* <a data-original-title="Chỉ tiêu đề" onClick={handleTitle}>Tiêu đề </a>
+                            <a data-original-title="Xem trước nội dung" onClick={handleContent}>Nội dung</a> */}
+                            <label className="switch">
+                                <input type="checkbox" checked={isChecked} onClick={handleCkecked} />
+                                <span className="slider round"></span>
+                            </label>
+                            <span>{isChecked ? "Tiêu đề" : "Nội dung"}</span>
                         </div>
                         {forum.map((item:any, index) => (
                             <div className='post-feed-item' key={index}>
