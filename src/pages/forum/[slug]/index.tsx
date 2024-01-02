@@ -20,7 +20,7 @@ const Page = ({ postId }:any) => {
         // Tiếp tục xử lý dữ liệu
     }
     useEffect(() => {
-        let apiUrl = `${API_URL}/Discuss/Get?action=getdiscussdetail&slug=${postId}`;
+        let apiUrl = `${API_URL}/Discuss/Get?action=getdiscussdetail&para1=${postId}`;
           axios.get(apiUrl)
             .then(response => {
                 // Xử lý dữ liệu nhận được từ API
@@ -47,7 +47,9 @@ const Page = ({ postId }:any) => {
 
 export async function getServerSideProps(context:any) {
   const { slug } = context.query;
-  const postId = slug && slug.length > 0 ? slug[slug.length - 1] : null;
+  
+  const postIdMatch = typeof slug === 'string' ? slug.match(/postId=(\d+)/) : null;
+  const postId = postIdMatch ? postIdMatch[1] : null;
 
   return {
     props: {
