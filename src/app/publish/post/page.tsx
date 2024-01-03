@@ -10,6 +10,9 @@ import Header from '@/components/Header/Header'
 import { Editor } from '@tinymce/tinymce-react';
 import Footer from "@/components/Footer";
 import $ from "jquery";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/navigation";
 
 const TinyMCE = dynamic(() => import("@/components/tinymce"), {
   ssr: false,
@@ -23,7 +26,7 @@ export default function Home() {
   const [title, setTitle] = useState("");
   const [checktitle, setCheckTitle] = useState(true);
   const [checkContent, setCheckContent] = useState(true);
-
+  const router = useRouter();
   // const [userId, setUserId] = useState("")
   let token:any = ""
   let userId:any = ""
@@ -109,7 +112,11 @@ export default function Home() {
           if (!response.ok) {
             throw new Error('Failed to add post');
           }
-    
+          toast.success(`Thành công`, {
+            icon: "😊",
+            position: "top-right",
+          });
+          return router.push("/publish/list")
           // Xử lý khi bài đăng được thêm thành công, ví dụ như chuyển hướng trang
         } catch (error) {
           if(i < 2) {
@@ -169,6 +176,7 @@ export default function Home() {
             </div>
           </div>
         </form>
+        <ToastContainer autoClose={2000} />
       </main>
       <Footer />
     </div>

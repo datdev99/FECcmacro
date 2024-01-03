@@ -1,9 +1,10 @@
+import ListDiscussPostOfYou from '@/components/ListDiscussPostOfYou'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      Danh sách bài viết của bạn
+      <ListDiscussPostOfYou />
     </div>
   )
 }
