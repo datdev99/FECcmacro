@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
 import {ConvertDate} from '@/lib/func'
+import logo from '../../../public/assets/images/logo 1.png'
 
 const Page = () => {
     const [forum, setForum] = useState([])
@@ -134,23 +135,26 @@ const Page = () => {
             {isCheck == false ? 
                 <div className="fixed-bottom-bar">
                     <div className="wrapper d-flex">
-                        <div className="logo-bottom">
-                        </div>
                         <div className="content d-flex flex-column">
-                        <div className="text">
-                            <span className="text-register">Hãy đăng ký một tài khoản Ccrystal để nhận được nhiều bài viết thú vị hơn.</span>
-                        </div>
-                        <div className="button d-flex mt-1">
-                            <button className="login-button">
-                            Đăng nhập
-                            </button>
-                            <a
-                            href="https://accounts.viblo.asia/register"
-                            className="register-button"
-                            >
-                            Đăng kí
-                            </a>
-                        </div>
+                            <div className="logo-bottom">
+                                <Image src={logo} alt='Crystal' width={200} height={100} />
+                            </div>
+                            <div>
+                                <div className="text">
+                                    <span className="text-register">Hãy đăng ký một tài khoản Ccrystal để nhận được nhiều bài viết thú vị hơn.</span>
+                                </div>
+                                <div className="button d-flex mt-1">
+                                    <button className="login-button">
+                                    Đăng nhập
+                                    </button>
+                                    <a
+                                    href="https://accounts.viblo.asia/register"
+                                    className="register-button"
+                                    >
+                                    Đăng kí
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div className="icon-close" style={{ cursor: "pointer" }}>
                         <i className="icon fa fa-close" />

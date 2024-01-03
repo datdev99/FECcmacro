@@ -3338,7 +3338,9 @@ input::-webkit-inner-spin-button {
 }
 
 .p-forum .content {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   max-width: 100%;
   margin: 0 auto;
   -webkit-line-clamp: 4;
@@ -3351,6 +3353,15 @@ input::-webkit-inner-spin-button {
   font-size: 1.4rem !important;
   margin: 0 !important;
   line-height: 2.45rem !important;
+}
+.p-forum .text {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.logo-bottom {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .banner-forum {
