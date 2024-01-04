@@ -8,7 +8,12 @@ import Link from 'next/link';
 
 const ListDiscussPostOfYou = () => {
     const [listDiscuss, setListDiscuss] = useState([])
-    let userId = getUserID()
+    
+    if (typeof window !== 'undefined') {
+        // Perform localStorage action
+        var userId:any = getUserID()
+    }
+  
     useEffect(() => {
         const apiUrl = `${API_URL}/Discuss/Get?action=GetUserPosts&Para1=${userId}`;
         axios.get(apiUrl)
