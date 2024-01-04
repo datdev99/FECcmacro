@@ -47,7 +47,7 @@ const Page = () => {
     }, [])
 
     const handleClick = () => {
-        alert("2")
+        alert("Vui lòng đăng nhập để tạo câu hỏi.")
     }
 
     const handleCkecked = () => {

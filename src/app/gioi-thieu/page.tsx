@@ -33,6 +33,7 @@ const Page = () => {
                 <div key={index} dangerouslySetInnerHTML={{ __html: item.description }} />
               ))}
             </div>
+            
           </main>
         </Layout> 
     </>
