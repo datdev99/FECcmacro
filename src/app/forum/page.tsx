@@ -5,7 +5,7 @@ import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import axios from 'axios'
 import {API_URL} from '@/lib/api-request'
-import img from '../../../public/assets/images/banner-forum.png'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +13,7 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
 import {ConvertDate} from '@/lib/func'
 import logo from '../../../public/assets/images/logo 1.png'
+import Banner_forum from '@/components/Banner_forum'
 
 const Page = () => {
     const [forum, setForum] = useState([])
@@ -53,10 +54,10 @@ const Page = () => {
     const handleCkecked = () => {
         setIsChecked(!isChecked)
         if(isChecked == false) {
-            setContent(false)
+            setContent(true)
         }
         else {
-            setContent(true)
+            setContent(false)
         }
     }
 
@@ -64,11 +65,7 @@ const Page = () => {
     <>
         <Header />
         <main className='p-forum'>
-            <div className='banner-forum'>
-                <div className='l-container--1'>
-                    <Image src={img} alt='' />
-                </div>
-            </div>
+            <Banner_forum />
             <div className='sub-menu'>
                 <div className='l-container--1'>
                     <ul>

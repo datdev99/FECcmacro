@@ -30,6 +30,24 @@
         @include mq(tab, max) {
             width: 100%;
         }
+
+        .author-info {
+            .top {
+                display: flex;
+            }
+
+        }
+
+        .review-title {
+            font-size: 3rem;
+            line-height: 5rem;
+            font-weight: 700;
+        }
+
+        .top-info {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     .list-san {

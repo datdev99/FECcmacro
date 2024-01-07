@@ -1,0 +1,84 @@
+.author {
+    &--detail {
+        .avata {
+            width: 80px;
+            height: 80px;
+        }
+
+        .name {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .info button {
+            margin-top: 0 !important;
+            margin-left: 10px;
+        }
+    }
+
+    .item {
+        margin-bottom: 10px;
+    }
+
+    .info {
+        display: flex;
+        gap: 10px;
+
+        button {
+            display: block;
+            color: #5488c7;
+            background-color: #fff;
+            border: 2px solid #5488c7;
+            padding: 5px;
+            border-radius: 5px;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+            cursor: pointer;
+            margin-top: 8px;
+
+            &:hover {
+                background-color: #5488c7;
+                color: #fff;
+            }
+
+            svg {
+                margin-right: 5px;
+            }
+        }
+
+        a {
+            &:hover {
+                color: #33629c;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .avata {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .param {
+        color: #898b96;
+
+        > div {
+            margin-right: 10px;
+        }
+
+        svg {
+            font-size: 1.4rem;
+            position: relative;
+            top: -1px;
+            margin-right: 2px;
+        }
+    }
+}

@@ -34,6 +34,18 @@
   margin-bottom: 3rem;
 }
 
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.mr-2 {
+  margin-right: 2rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
 /*------------------------------------------------------------
     Reset
 ------------------------------------------------------------*/
@@ -2316,6 +2328,24 @@ section {
     width: 100%;
   }
 }
+.review-page .review-content .author-info .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.review-page .review-content .review-title {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-weight: 700;
+}
+.review-page .review-content .top-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 .review-page .list-san {
   width: calc(20% + 100px);
   padding: 0 1.6rem;
@@ -3450,64 +3480,6 @@ input::-webkit-inner-spin-button {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
 }
-.siderbar-forum .top-author .item {
-  margin-bottom: 10px;
-}
-.siderbar-forum .top-author .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 10px;
-}
-.siderbar-forum .top-author .info button {
-  display: block;
-  color: #5488c7;
-  background-color: #fff;
-  border: 2px solid #5488c7;
-  padding: 5px;
-  border-radius: 5px;
-  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  cursor: pointer;
-  margin-top: 8px;
-}
-.siderbar-forum .top-author .info button:hover {
-  background-color: #5488c7;
-  color: #fff;
-}
-.siderbar-forum .top-author .info button svg {
-  margin-right: 5px;
-}
-.siderbar-forum .top-author .info a:hover {
-  color: #33629c;
-  text-decoration: underline;
-}
-.siderbar-forum .top-author .avata {
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 50%;
-}
-.siderbar-forum .top-author .avata img {
-  width: 100px;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.siderbar-forum .top-author .param {
-  color: #898b96;
-}
-.siderbar-forum .top-author .param > div {
-  margin-right: 10px;
-}
-.siderbar-forum .top-author .param svg {
-  font-size: 1.4rem;
-  position: relative;
-  top: -1px;
-  margin-right: 2px;
-}
 
 hr {
   margin-top: 1.6rem;
@@ -4017,6 +3989,82 @@ input:checked + .slider:before {
 }
 .profile-tabs ul li:not(:last-child) {
   margin-right: 10px;
+}
+
+.author--detail .avata {
+  width: 80px;
+  height: 80px;
+}
+.author--detail .name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+.author--detail .info button {
+  margin-top: 0 !important;
+  margin-left: 10px;
+}
+.author .item {
+  margin-bottom: 10px;
+}
+.author .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+.author .info button {
+  display: block;
+  color: #5488c7;
+  background-color: #fff;
+  border: 2px solid #5488c7;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.author .info button:hover {
+  background-color: #5488c7;
+  color: #fff;
+}
+.author .info button svg {
+  margin-right: 5px;
+}
+.author .info a:hover {
+  color: #33629c;
+  text-decoration: underline;
+}
+.author .avata {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.author .avata img {
+  width: 100px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.author .param {
+  color: #898b96;
+}
+.author .param > div {
+  margin-right: 10px;
+}
+.author .param svg {
+  font-size: 1.4rem;
+  position: relative;
+  top: -1px;
+  margin-right: 2px;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

@@ -35,7 +35,7 @@ const Author = () => {
 
     return (
     <>
-        <div className='list'>
+        <div className='list author'>
             {author.slice(0,5).map((item:any, index) => (
                 <>
                     <div className='item' key={index}>
