@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {ConvertDate} from '@/lib/func'
 
-const index = ({userId}:any) => {
+const Author = ({userId}:any) => {
     const [list, setList] = useState([])
     useEffect(() => {
         axios.get(`${API_URL}/Discuss/Get?action=GetUserPosts&Para1=${userId}`)
@@ -21,7 +21,7 @@ const index = ({userId}:any) => {
             // Xử lý lỗi (nếu có)
             console.error('Error fetching data: ', error);
         });
-    },[])
+    },[userId])
 
     return (
         <>
@@ -87,4 +87,4 @@ export async function getServerSideProps(context:any) {
     };
   }
 
-export default index
+export default Author
