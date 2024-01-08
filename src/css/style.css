@@ -3510,15 +3510,24 @@ hr {
           box-shadow: 0 -1px 5px 1px rgba(0, 0, 0, 0.15);
 }
 
+.p-conversation {
+  background: #202531;
+}
+
 .list-conversation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 15px;
+  margin-top: 3rem;
 }
 
 .conversation-item {
-  border: 1px solid #000;
   width: 25%;
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(0deg, #d09345, #9b6e20);
+  border-image-slice: 1;
 }
 .conversation-item .inner {
   padding: 15px;
@@ -3526,7 +3535,7 @@ hr {
 .conversation-item__status .time {
   background-color: #484C55;
   padding: 5px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3541,17 +3550,35 @@ hr {
   text-align: center;
 }
 .conversation-item__content .title {
-  color: #F9CA64;
+  color: #f9ca64;
   font-size: 2rem;
   text-align: center;
   display: block;
 }
 .conversation-item__content .conect {
   text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+.conversation-item__content .conect span {
+  color: #00f0ff;
 }
 .conversation-item__prize {
-  border: 1px solid #000;
   padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(0deg, #d09345, #9b6e20);
+  border-image-slice: 1;
+}
+.conversation-item__prize--title {
+  color: #ccc187;
+  text-align: center;
+}
+.conversation-item__prize--total {
+  font-size: 3.5rem;
+  color: #ccc187;
+  text-align: center;
 }
 .conversation-item__prize--fee {
   display: -webkit-box;
@@ -3560,6 +3587,14 @@ hr {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: rgba(255, 255, 255, 0.7);
+}
+.conversation-item__prize--fee .bold {
+  font-weight: 700;
+  color: #fff;
+}
+.conversation-item__prize--fee p {
+  color: rgba(255, 255, 255, 0.7);
 }
 .conversation-item__prize--button {
   text-align: center;

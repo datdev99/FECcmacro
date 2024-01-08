@@ -47,8 +47,8 @@ const Contest = (props: Props) => {
                         </div>
                         <div className="conversation-item__prize--total">{item.prize}</div>
                         <div className="conversation-item__prize--fee">
-                        <p>Lệ phí tham gia</p>
-                        <p>{item.balance}</p>
+                            <p>Lệ phí tham gia</p>
+                            <p className="bold">{item.balance}</p>
                         </div>
                         <div className="conversation-item__prize--button">
                             <button>Đăng ký</button>

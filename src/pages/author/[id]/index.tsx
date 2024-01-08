@@ -8,8 +8,7 @@ import Link from 'next/link';
 import {ConvertDate} from '@/lib/func'
 
 const Author = ({userId}:any) => {
-    const [list, setList] = useState([])
-   
+    const [list, setList] = useState([])  
 
     useEffect(() => {
         axios.get(`${API_URL}/Discuss/Get?action=GetUserPosts&Para1=${userId}`)
@@ -24,8 +23,6 @@ const Author = ({userId}:any) => {
             console.error('Error fetching data: ', error);
         });
     },[userId])
-
-    
 
     return (
         <>

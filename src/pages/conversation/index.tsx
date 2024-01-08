@@ -8,8 +8,8 @@ const page = ({ data }:any) => {
   return (
     <>
       <Layout>
-        <main className="l-container--1">
-          <section>
+        <main className='p-conversation'>
+          <section className="l-container--1">
             <div className="list-conversation">
               <Contest data={data} />
             </div>

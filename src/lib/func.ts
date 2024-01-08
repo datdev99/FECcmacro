@@ -10,3 +10,12 @@ export function ConvertDate(date:Date) {
     var formattedDateStr = day + "-" + month + "-" + year;
     return formattedDateStr;
 } //2023-12-27T13:46:05.8827216 => 27-12-2023
+
+
+export function GetPostIdInString(str:string) {
+    const queryString = str;
+    const match = queryString.match(/postId=(\d+)/);
+
+    const postId = match ? match[1] : null;
+    return postId;
+} 
