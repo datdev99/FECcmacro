@@ -4,7 +4,7 @@ import { GetPostIdInString } from '@/lib/func';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-const index = ({postId, pathArr}:any) => {
+const Index = ({postId, pathArr}:any) => {
   const [content, setContent] = useState([])
 
   useEffect(() => {
@@ -42,4 +42,4 @@ export async function getServerSideProps(context:any) {
 }
 
 
-export default index
+export default Index
