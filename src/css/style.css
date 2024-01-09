@@ -1514,9 +1514,10 @@ section {
 
 .menu ul li ul {
   position: absolute;
-  top: 60px;
+  top: 59px;
   left: 0;
   display: none;
+  background-color: #0f172a;
 }
 @media screen and (max-width: 1499px) {
   .menu ul li ul {
@@ -1538,15 +1539,6 @@ section {
 
 .menu ul li ul li:hover > a {
   background-color: #e91e63;
-}
-
-.menu ul li ul {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  display: none;
-  background-color: #0f172a;
-  /* Thêm màu nền cho các mục con */
 }
 
 .menu ul li:hover > ul {
@@ -1740,6 +1732,8 @@ section {
   position: absolute;
   top: 0;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .new .info {
   padding-left: 1rem;
@@ -2433,6 +2427,7 @@ section {
 .review-page .list-san .box-new .new .info {
   padding-right: 10px;
   padding-left: 0;
+  width: 100%;
 }
 @media screen and (max-width: 1023px) {
   .review-page .list-san .box-new .new .info {
@@ -4105,6 +4100,15 @@ input:checked + .slider:before {
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Project .p-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
+#page-gioithieu .banner {
+  height: 300px;
+}
+#page-gioithieu .banner img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Utility .u-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/

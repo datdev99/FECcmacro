@@ -1,7 +1,5 @@
 "use client"
 
-import Footer from '@/components/Footer'
-import Header from '@/components/Header/Header'
 import React, { useEffect, useState } from 'react'
 import Mainvisual from '@/components/Mainvisual'
 import Tabs from '@/components/Tabs'
@@ -12,8 +10,6 @@ import Slide from '@/components/Slide'
 import icon from '../../public/assets/images/icon/icon-chat-luong.png'
 import Image from 'next/image'
 import { FEEDS, getFeed } from "../lib/rss-news";
-import '../css/style.css'
-import axios from 'axios'
 import {API_URL} from '../lib/api-request'
 import Slide1 from '@/components/Slide1'
 import Direct from '@/components/direct'
@@ -21,6 +17,7 @@ import Copytrade from '@/components/copytrade'
 import Ecosystem from '@/components/Ecosystem'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import the styles
+import Layout from '@/components/layout'
 
 
 
@@ -35,42 +32,42 @@ const Page = ({ postKienThuc, postPhanTich, items }:any) => {
 
   return (
     <>
-      <Header />
-      <main >
-        <Mainvisual />
-        <div>
-          <section className='l-container--1'>
-            <Slide1 />
-          </section>
-          <section className='l-container--1'>
-            <div className='layout'>
-              <div className='d-flex'>
-                <div className='slide'>
-                  <Slide news={postKienThuc} /> 
+      <Layout>
+        <main >
+          <Mainvisual />
+          <div>
+            <section className='l-container--1'>
+              <Slide1 />
+            </section>
+            <section className='l-container--1'>
+              <div className='layout'>
+                <div className='d-flex'>
+                  <div className='slide'>
+                    <Slide news={postKienThuc} /> 
+                  </div>
+                  <div className='tin-nhanh'>
+                    <Tabs rssNew={items} phantich={postPhanTich} />
+                  </div>
                 </div>
-                <div className='tin-nhanh'>
-                  <Tabs rssNew={items} phantich={postPhanTich} />
+                <div className='san-uy-tin'>
+                  <p className='heading'> <Image src={icon} alt='' width={30} height={30} quality={80} unoptimized /> Top sàn uy tín</p>
+                  <Related_broker />
                 </div>
               </div>
-              <div className='san-uy-tin'>
-                <p className='heading'> <Image src={icon} alt='' width={30} height={30} quality={80} unoptimized /> Top sàn uy tín</p>
-                <Related_broker />
-              </div>
-            </div>
-          </section>
-          <section className='l-container--1 aos-animate' data-aos="fade-right">
-            <Direct />
-          </section>
-          <section className='aos-animate' data-aos="fade-up">
-            <Ecosystem />
-          </section>
-          <section className='l-container--1 aos-animate' data-aos="fade-right">
-            <Copytrade />
-          </section>
-        </div>
+            </section>
+            <section className='l-container--1 aos-animate' data-aos="fade-right">
+              <Direct />
+            </section>
+            <section className='aos-animate' data-aos="fade-up">
+              <Ecosystem />
+            </section>
+            <section className='l-container--1 aos-animate' data-aos="fade-right">
+              <Copytrade />
+            </section>
+          </div>
 
-      </main>
-      <Footer />
+        </main>
+      </Layout>
     </>
   )
 }

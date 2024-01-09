@@ -97,7 +97,10 @@ const Content = (props: Props) => {
           <div className="review-page">
             <div className="review-content">
               {props.data.map((item:any, index) => (
-                <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
+                <>
+                  <h1>{item.title}</h1>
+                  <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
+                </>
               ))}
               <Related_articles brokerList={postRelated} />
             </div>

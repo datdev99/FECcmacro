@@ -37,6 +37,9 @@ const Category = (props: Props) => {
               <li>
                 <Link href="/kien-thuc">Kiến thức</Link>
               </li>
+              <li>
+                Ngoại hối
+              </li>
             </ul>
           </div>
           <div>

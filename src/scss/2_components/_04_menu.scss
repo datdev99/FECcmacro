@@ -65,10 +65,10 @@
 
 .menu ul li ul {
     position: absolute;
-    top: 60px;
+    top: 59px;
     left: 0;
     display: none;
-
+    background-color: #0f172a;
     @include mq(xxl, max) {
         top: 54px;
     }
@@ -88,15 +88,6 @@
 
 .menu ul li ul li:hover>a {
     background-color: #e91e63;
-}
-
-.menu ul li ul {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    display: none;
-    background-color: #0f172a;
-    /* Thêm màu nền cho các mục con */
 }
 
 .menu ul li:hover>ul {

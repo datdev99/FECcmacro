@@ -38,17 +38,17 @@ const Post = (props: Props) => {// Lấy giá trị của slug từ URL
     return (
     <>
         {
-            // props.data.length === 0           
-            // ? 
-            //     <p>Chưa có bài viết nào</p>
-            // :
+            props.data.length === 0           
+            ? 
+                <p>Chưa có bài viết nào</p>
+            :
             props.data.map((item:any, index) => (
                 <div className="box-new" key={index}>
                     <article className="new">
                         <Link href={`/${item.slug}&postId=${item.postId}`} title={item.time} className="image">
-                        <span>
-                            <img src={UrlImage(item.image)} alt={item.description} />
-                        </span>
+                            <span>
+                                <img src={UrlImage(item.image)} alt={item.description} />
+                            </span>
                         </Link>
                         <div className="info">
                         <h5>

@@ -23,9 +23,9 @@ const TemplatePage = ({slug}:any) => {
             });
       }, []); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
   return (
-    <div>
+    <>
         <Category data={post} slug={''} />
-    </div>
+    </>
   )
 }
 

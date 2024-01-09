@@ -135,6 +135,8 @@
                 .info {
                     padding-right: 10px;
                     padding-left: 0;
+                    width: 100%;
+                    
                     @include mq(tab, max) {
                         padding-left: 10px;
                     }
