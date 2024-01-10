@@ -4097,6 +4097,164 @@ input:checked + .slider:before {
   margin-right: 2px;
 }
 
+.c-account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #fff;
+}
+.c-account .sidebar {
+  width: 300px;
+  height: calc(100vh - 60px);
+  position: fixed !important;
+  overflow: auto;
+  background: #242526;
+  border-radius: 10px;
+}
+.c-account .content {
+  width: calc(100% - 315px);
+  margin-left: 315px;
+}
+.c-account .avata img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.c-account .user {
+  text-align: center;
+  padding-top: 15px;
+}
+.c-account .user .avata {
+  width: 250px;
+  height: 250px;
+  -webkit-transform: translate(25px, 0);
+          transform: translate(25px, 0);
+  margin-bottom: 10px;
+}
+.c-account .user .username {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.c-account .list-func ul {
+  padding: 0 15px;
+  margin-top: 2rem;
+}
+.c-account .list-func ul li {
+  background: #3A3B3C;
+  padding: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  border-radius: 8px;
+  text-align: center;
+}
+.c-account .list-func ul li:hover {
+  background: #4E4F50;
+}
+.c-account .list-func ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.c-account .post-new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  border-radius: 15px;
+  padding: 15px;
+  background: #242526;
+}
+.c-account .post-new .avata {
+  width: 40px;
+  height: 40px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+.c-account .post-new input {
+  border-radius: 20px;
+  outline: none;
+  padding: 5px 15px;
+  width: 100%;
+  border: aliceblue;
+  background: #3A3B3C;
+  color: #b0b3b8;
+  font-size: 1.7rem;
+  cursor: pointer;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+.c-account .post-new input:hover {
+  background: #4E4F50;
+  color: #919396;
+}
+.c-account .content .heading {
+  font-size: 3rem;
+  line-height: 5rem;
+  color: #fff;
+  font-weight: 700;
+}
+.c-account .list-post .post-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+.c-account .post-item {
+  border-radius: 15px;
+  padding: 15px 15px 5px 15px;
+  background: #242526;
+}
+.c-account .post-item .avata {
+  width: 40px;
+  height: 40px;
+}
+.c-account .post-item .post-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.c-account .post-item .username {
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #fff;
+}
+.c-account .post-item .date_created {
+  font-size: 1.2rem;
+  color: #b0b3b8;
+}
+.c-account .post-item h3 {
+  font-size: 1.5rem;
+  color: #e4e6eb;
+}
+.c-account .post-item .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 1px solid #3E4042;
+  margin-top: 10px;
+  padding-top: 5px;
+}
+.c-account .post-item .actions p {
+  cursor: pointer;
+  padding: 5px 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.c-account .post-item .actions p:hover {
+  background: #3A3B3C;
+}
+
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 // Project .p-
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡*/
@@ -4107,6 +4265,11 @@ input:checked + .slider:before {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#page-account {
+  background: #18191A;
+  min-height: calc(100vh - 75px);
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

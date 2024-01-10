@@ -8,7 +8,5 @@ const GoogleMapEmbed = () => (
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
     ></iframe>
-  );
-  
-  export default GoogleMapEmbed;
-  
+);
+export default GoogleMapEmbed;
