@@ -16,6 +16,8 @@ import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 import { faUserPlus, faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import { ConvertDate } from "@/lib/func";
+import Comment from "./Comment";
+import CommentComponent from "./Comment";
 
 interface Props {
   data: IF_Data[];
@@ -40,6 +42,95 @@ const ContentForum = (props: Props) => {
   const [category, setCategory] = useState<Category[]>([]);
   const [crumb, setCrumb] = useState<Category[]>([]);
   const [postRelated, setPostRelated] = useState([]);
+  const [commentsData, setCommentsData] = useState([
+    {
+      id: 1,
+      author: 'User1',
+      text: 'Comment 1',
+      children: [
+        {
+          id: 2,
+          author: 'User2',
+          text: 'Reply to Comment 1',
+          children: [
+            {
+              id: 3,
+              author: 'User1',
+              text: 'Reply to Reply 1',
+              children: [
+                {
+                  id: 4,
+                  author: 'User2',
+                  text: 'Reply to Reply to Reply 1',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 5,
+      author: 'User3',
+      text: 'Comment 2',
+    },
+  ]);
+  //
+  // const handleReply = (text:any, parentCommentId:any) => {
+  //   // Logic để thêm bình luận reply vào danh sách
+  //   console.log('Reply:', text, 'Parent ID:', parentCommentId);
+  // };
+
+  const handleAddComment = (text:any) => {
+    // Logic để thêm bình luận mới vào danh sách
+    console.log('New Comment:', text);
+  };
+  const handleReply = (text, parentCommentId) => {
+    // Tạo một bình luận reply mới
+    const newReply = {
+      id: generateUniqueId(),
+      author: 'New User', // Thay thế bằng thông tin người dùng thực tế
+      text,
+    };
+
+    // Sao chép danh sách bình luận
+    const updatedComments = [...commentsData];
+
+    // Tìm bình luận cha để thêm reply
+    const parentComment = findCommentById(updatedComments, parentCommentId);
+
+    if (parentComment) {
+      // Thêm reply vào mảng children của bình luận cha
+      if (!parentComment.children) {
+        parentComment.children = [];
+      }
+      parentComment.children.push(newReply);
+
+      // Cập nhật state
+      setCommentsData(updatedComments);
+    }
+  };
+
+  // Các hàm hỗ trợ
+  const findCommentById = (comments, commentId) => {
+    for (const comment of comments) {
+      if (comment.id === commentId) {
+        return comment;
+      }
+      if (comment.children) {
+        const childComment = findCommentById(comment.children, commentId);
+        if (childComment) {
+          return childComment;
+        }
+      }
+    }
+    return null;
+  };
+
+  const generateUniqueId = () => {
+    return Date.now(); // Thay thế bằng một phương thức tạo ID duy nhất tốt hơn
+  };
+  //
   
   useEffect(() => {
     // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
@@ -175,6 +266,11 @@ const ContentForum = (props: Props) => {
               />
             </>
           ))}
+          <CommentComponent
+            comments={commentsData}
+            onReply={handleReply}
+            onAddComment={handleAddComment}
+          />
           {/* <Related_articles brokerList={postRelated} /> */}
         </div>
         <div className="list-san">

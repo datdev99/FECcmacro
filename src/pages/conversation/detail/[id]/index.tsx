@@ -33,10 +33,10 @@ const DetailPage = ({ id, data }:any) => {
       <Layout>
         <main className="l-container--1">
           <div>
-            <div>
+            {/* <div>
               <input type="text" onChange={handleInputChange} placeholder='search' />
-            </div>
-            <div className="conversation-tbl">
+            </div> */}
+            <div className="conversation-tbl mt-1">
               <div className="inner">
                 <ContestDetail data={data.data} contestInfo={data.contestInfo} />
               </div>

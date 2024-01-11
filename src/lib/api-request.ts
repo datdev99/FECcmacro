@@ -6,6 +6,8 @@ const SERVER_ENDPOINT = process.env.SERVER_ENDPOINT || "https://localhost:7190";
 
 export const API_URL = "https://api.ccmacro.com/api";
 export const URL_SERVER = "https://api.ccmacro.com/";
+// export const API_URL = "https://localhost:7190/api";
+// export const URL_SERVER = "https://localhost:7190/";
 export const API_KEY_TINYMCE = "xvspl24fv425zlmgdnp0k6dbmw5yrys5f575z9kgwd6w14zo"
 // export async function api() {
 //   return SERVER_ENDPOINT;
