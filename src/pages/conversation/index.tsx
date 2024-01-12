@@ -20,7 +20,7 @@ const page = ({ data }:any) => {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // Fetch dữ liệu từ API hoặc nguồn dữ liệu khác
   const res = await fetch(`${API_URL}/Contest/GetContest`);
   const data = await res.json();
