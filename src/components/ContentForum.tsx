@@ -23,6 +23,7 @@ interface Props {
   data: IF_Data[];
   pathArr: string[];
   author: string[];
+  postId: number;
 }
 
 interface IF_Data {
@@ -42,50 +43,66 @@ const ContentForum = (props: Props) => {
   const [category, setCategory] = useState<Category[]>([]);
   const [crumb, setCrumb] = useState<Category[]>([]);
   const [postRelated, setPostRelated] = useState([]);
-  const [commentsData, setCommentsData] = useState([
-    {
-      id: 1,
-      author: 'User1',
-      text: 'Comment 1',
-      children: [
-        {
-          id: 2,
-          author: 'User2',
-          text: 'Reply to Comment 1',
-          children: [
-            {
-              id: 3,
-              author: 'User1',
-              text: 'Reply to Reply 1',
-              children: [
-                {
-                  id: 4,
-                  author: 'User2',
-                  text: 'Reply to Reply to Reply 1',
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 5,
-      author: 'User3',
-      text: 'Comment 2',
-    },
-  ]);
+  const [commentsData, setCommentsData] = useState([]);
+  // const [commentsData, setCommentsData] = useState([
+  //   {
+  //     id: 1,
+  //     author: 'User1',
+  //     text: 'Comment 1',
+  //     children: [
+  //       {
+  //         id: 2,
+  //         author: 'User2',
+  //         text: 'Reply to Comment 1',
+  //         children: [
+  //           {
+  //             id: 3,
+  //             author: 'User1',
+  //             text: 'Reply to Reply 1',
+  //             children: [
+  //               {
+  //                 id: 4,
+  //                 author: 'User2',
+  //                 text: 'Reply to Reply to Reply 1',
+  //               },
+  //             ],
+  //           },
+  //         ],
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     id: 5,
+  //     author: 'User3',
+  //     text: 'Comment 2',
+  //   },
+  // ]);
   //
   // const handleReply = (text:any, parentCommentId:any) => {
   //   // Logic để thêm bình luận reply vào danh sách
   //   console.log('Reply:', text, 'Parent ID:', parentCommentId);
   // };
+  useEffect(() => {
+    if (props.postId) {
+      const fetchData = async () => {
+        try {
+          const comment = await axios.get(`${API_URL}/Comment/Get?action=GetComment&slug=${props.postId}`);
+          setCommentsData(comment.data);
+          console.log(comment.data,"comment");
+        } catch (error) {
+          console.error('Error fetching data: ', error);
+        }
+      };
+      
+        fetchData();
+    }
+  }, [props.postId])
 
   const handleAddComment = (text:any) => {
     // Logic để thêm bình luận mới vào danh sách
     console.log('New Comment:', text);
   };
-  const handleReply = (text, parentCommentId) => {
+  const handleReply = (text:any, parentCommentId:any) => {
     // Tạo một bình luận reply mới
     const newReply = {
       id: generateUniqueId(),
@@ -112,13 +129,13 @@ const ContentForum = (props: Props) => {
   };
 
   // Các hàm hỗ trợ
-  const findCommentById = (comments, commentId) => {
+  const findCommentById = (comments:any, commentId:any) => {
     for (const comment of comments) {
       if (comment.id === commentId) {
         return comment;
       }
       if (comment.children) {
-        const childComment = findCommentById(comment.children, commentId);
+        const childComment:any = findCommentById(comment.children, commentId);
         if (childComment) {
           return childComment;
         }
@@ -270,6 +287,8 @@ const ContentForum = (props: Props) => {
             comments={commentsData}
             onReply={handleReply}
             onAddComment={handleAddComment}
+            postId={props.postId}
+            index={0}
           />
           {/* <Related_articles brokerList={postRelated} /> */}
         </div>

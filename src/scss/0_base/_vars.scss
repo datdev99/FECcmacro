@@ -11,6 +11,10 @@ $poppins-fonts: "poppins", sans-serif;
     display: flex;
 }
 
+.align-item-center {
+    align-items: center;
+}
+
 .mt-1 {
     margin-top: 1rem;
 }
@@ -46,3 +50,4 @@ $poppins-fonts: "poppins", sans-serif;
 .gap-1 {
     gap: 1rem;
 }
+

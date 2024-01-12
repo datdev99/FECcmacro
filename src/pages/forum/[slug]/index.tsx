@@ -40,10 +40,10 @@ const Page = ({ postId }:any) => {
   return (
     <>
       <Layout>
-        <main>
+        <main id='page-forum-detail'>
           <Banner_forum />
           <div className="l-container--1">
-            <ContentForum data={content} author={infoAuthor} pathArr={pathArray} />
+            <ContentForum data={content} author={infoAuthor} pathArr={pathArray} postId={postId} />
           </div>
         </main>
       </Layout>
