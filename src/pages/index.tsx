@@ -71,7 +71,7 @@ const Page = ({ postKienThuc, postPhanTich, items }:any) => {
     </>
   )
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const resDataKienThuc = await fetch(`${API_URL}/Post/Get?action=get&slug=kien-thuc`);
   const postKienThuc = await resDataKienThuc.json();
 
