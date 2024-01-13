@@ -71,28 +71,69 @@ const Page = ({ postKienThuc, postPhanTich, items }:any) => {
     </>
   )
 }
-export async function getServerSideProps() {
-  const resDataKienThuc = await fetch(`${API_URL}/Post/Get?action=get&slug=kien-thuc`);
-  const postKienThuc = await resDataKienThuc.json();
 
-  const resDataPhanTich = await fetch(`${API_URL}/Post/Get?action=get&slug=phan-tich`);
-  const postPhanTich = await resDataPhanTich.json();
-  
-  const feed = FEEDS.find((feed) => feed.slug === "");
-  console.log(feed,"feed")
-  if (!feed) return;
+export async function getStaticProps() {
+  try {
+    const resDataKienThuc = await fetch(`${API_URL}/Post/Get?action=get&slug=kien-thuc`);
+    const postKienThuc = await resDataKienThuc.json();
 
-  const detailedFeed = await getFeed(feed.url);
+    const resDataPhanTich = await fetch(`${API_URL}/Post/Get?action=get&slug=phan-tich`);
+    const postPhanTich = await resDataPhanTich.json();
+    
+    const feed = FEEDS.find((feed) => feed.slug === "");
+    console.log(feed, "feed");
 
-  return {
-    props: {
-      postKienThuc,
-      postPhanTich,
-      items: detailedFeed.items,
-    },
-    revalidate: 1,
-  };
+    if (!feed) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const detailedFeed = await getFeed(feed.url);
+
+    return {
+      props: {
+        postKienThuc,
+        postPhanTich,
+        items: detailedFeed.items,
+      },
+      revalidate: 1,
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        error: "Error fetching data",
+      },
+    };
+  }
 }
 
+export default Page;
 
-export default Page
+
+// export async function getServerSideProps() {
+//   const resDataKienThuc = await fetch(`${API_URL}/Post/Get?action=get&slug=kien-thuc`);
+//   const postKienThuc = await resDataKienThuc.json();
+
+//   const resDataPhanTich = await fetch(`${API_URL}/Post/Get?action=get&slug=phan-tich`);
+//   const postPhanTich = await resDataPhanTich.json();
+  
+//   const feed = FEEDS.find((feed) => feed.slug === "");
+//   console.log(feed,"feed")
+//   if (!feed) return;
+
+//   const detailedFeed = await getFeed(feed.url);
+
+//   return {
+//     props: {
+//       postKienThuc,
+//       postPhanTich,
+//       items: detailedFeed.items,
+//     },
+//     revalidate: 1,
+//   };
+// }
+
+
+// export default Page
