@@ -1,6 +1,6 @@
 // CommentComponent.jsx
 import { API_URL, URL_SERVER } from '@/lib/api-request';
-import { handleMoment } from '@/lib/func';
+import { PostComment, handleMoment } from '@/lib/func';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import avata from '@/assets/images/user.png'
@@ -14,6 +14,17 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
 
   const handleCommentSubmit = (parentCommentId) => {
     if (parentCommentId !== null) {
+      console.log("keke",newComment, parentCommentId);
+      PostComment(
+        {
+          "content": "Tao dùng api để thêm nè, ghê chưa",
+          "slug": "string",
+          "published": true,
+          "authorId": "ecb3e2e2-f138-4392-8c91-33f47720ca43",
+          "postId": 3,
+          "parentCommentId": 12
+        }
+      )
       onReply(newComment, parentCommentId);
     } else {
       onAddComment(newComment);
@@ -28,11 +39,13 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
       <ul>
         {comments.map((comment) => (
           <>
-            {/* {setRIndex(index)} */}
             <li key={comment.commentId} className="comment">
               <div>
                 <div className="avata align-item-center mr-1">
-                  <Image src={comment.avatar != null ? `${URL_SERVER}${comment.avatar}` : avata} alt='' width={45} height={45} quality={80} unoptimized />
+                  <Image src={comment.avatar != null ? 
+                    `${URL_SERVER}${comment.avatar}` : 
+                    avata} alt='' width={45} height={45} quality={80} unoptimized 
+                  />
                   <div className="comment-header">
                     <strong>
                       {

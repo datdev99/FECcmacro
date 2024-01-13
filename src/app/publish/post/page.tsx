@@ -13,6 +13,7 @@ import $ from "jquery";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from "next/navigation";
+import { RefreshToken } from "@/lib/func";
 
 const TinyMCE = dynamic(() => import("@/components/tinymce"), {
   ssr: false,
@@ -31,28 +32,6 @@ export default function Home() {
   let token:any = ""
   let userId:any = ""
   let i = 0
-
-  const RefreshToken = () => {
-    return new Promise(function (resolve, reject) {
-        $.ajax({
-            type: "POST",
-            url: `${API_URL}/User/Refresh`,
-            data: JSON.stringify({
-              AccessToken: localStorage.getItem('Token'),
-              RefreshToken: localStorage.getItem('RefreshToken'),
-            }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (d) {
-                localStorage.setItem('Token', d.accessToken);
-                resolve(true); // Resolve the promise with true
-            },
-            error: function (e) {
-                reject(false); // Reject the promise with false
-            }
-        });
-    });
-  }
 
   if (typeof window !== 'undefined') {
     token = getToken();
