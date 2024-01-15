@@ -45,7 +45,7 @@ const Page = () => {
         .catch(error => {
             console.error('Error fetching data: ', error);
         })
-    }, [])
+    }, [forum])
 
     const handleClick = () => {
         alert("Vui lòng đăng nhập để tạo câu hỏi.")

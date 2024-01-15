@@ -41,7 +41,7 @@ const Page = () => {
         .catch(error => {
             console.error('Error fetching data: ', error);
         })
-    }, [])
+    }, [forum])
 
     const handleClick = () => {
         alert("2")
