@@ -104,7 +104,7 @@ const Tabs = ({rssNew, phantich}) => {
   };
 
   useEffect(() => { 
-    SapXep(rssNew)
+    // SapXep(rssNew)
     setData(rssNew);
     console.log(rssNew,"rssNew")
   }, [rssNew]);
@@ -141,7 +141,7 @@ const Tabs = ({rssNew, phantich}) => {
         </div>
 
         <div id="phan-tich" className={`tabcontent ${activeTab === 'phan-tich' ? 'active' : ''}`}>
-          {phantich.map((item,index) => (
+          {phantich && phantich.map((item,index) => (
             <div className='item' key={index}>
               <span>{convertTime(item.isoDate)}</span>
               <p data-content={item.title} onClick={handleShowModal}>{item.title}</p>

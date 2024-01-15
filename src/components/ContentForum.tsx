@@ -53,8 +53,8 @@ const ContentForum = (props: Props) => {
         const response = await axios.get(`${API_URL}/Comment/Get?action=GetComment&slug=${props.postId}`);
         const newCommentsData = response.data;
 
-        console.log('New Data:', newCommentsData);
-        console.log('Current Data:', commentsData);
+        // console.log('New Data:', newCommentsData);
+        // console.log('Current Data:', commentsData);
         // Kiểm tra xem dữ liệu mới có khác với dữ liệu hiện tại không
         setCommentsData(newCommentsData);
         setNewComment(null)

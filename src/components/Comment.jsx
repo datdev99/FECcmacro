@@ -17,12 +17,12 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
       console.log("keke",newComment, parentCommentId);
       const postNewComment = await PostComment(
         {
-          "content": "Tao dùng api để thêm nè, ghê chưa",
+          "content": newComment,
           "slug": "string",
           "published": true,
           "authorId": "ecb3e2e2-f138-4392-8c91-33f47720ca43",
-          "postId": 3,
-          "parentCommentId": 12
+          "postId": postId,
+          "parentCommentId": parentCommentId
         }
       )
       console.log(postNewComment,"postNewComment");

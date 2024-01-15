@@ -176,7 +176,7 @@ const Slide = ({news}:any) => {
   return (
     <>
       <Slider {...settings}>
-        {news.slice(0, 6).map((item: any, index:any) => (
+        {news && news.slice(0, 6).map((item: any, index:any) => (
           <div className="box-new" key={index}>
             <article className="new">
               <Link href={item.slug} title={item.time} className="image">
