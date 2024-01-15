@@ -44,62 +44,32 @@ const ContentForum = (props: Props) => {
   const [crumb, setCrumb] = useState<Category[]>([]);
   const [postRelated, setPostRelated] = useState([]);
   const [commentsData, setCommentsData] = useState([]);
-  // const [commentsData, setCommentsData] = useState([
-  //   {
-  //     id: 1,
-  //     author: 'User1',
-  //     text: 'Comment 1',
-  //     children: [
-  //       {
-  //         id: 2,
-  //         author: 'User2',
-  //         text: 'Reply to Comment 1',
-  //         children: [
-  //           {
-  //             id: 3,
-  //             author: 'User1',
-  //             text: 'Reply to Reply 1',
-  //             children: [
-  //               {
-  //                 id: 4,
-  //                 author: 'User2',
-  //                 text: 'Reply to Reply to Reply 1',
-  //               },
-  //             ],
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     id: 5,
-  //     author: 'User3',
-  //     text: 'Comment 2',
-  //   },
-  // ]);
-  //
-  // const handleReply = (text:any, parentCommentId:any) => {
-  //   // Logic để thêm bình luận reply vào danh sách
-  //   console.log('Reply:', text, 'Parent ID:', parentCommentId);
-  // };
+  const [newComment, setNewComment] = useState(null);
+
   useEffect(() => {
-    if (props.postId) {
-      const fetchData = async () => {
-        try {
-          const comment = await axios.get(`${API_URL}/Comment/Get?action=GetComment&slug=${props.postId}`);
-          setCommentsData(comment.data);
-          console.log(comment.data,"comment");
-        } catch (error) {
-          console.error('Error fetching data: ', error);
-        }
-      };
-      
-        fetchData();
-    }
-  }, [props.postId, commentsData])
+  if (props.postId) {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/Comment/Get?action=GetComment&slug=${props.postId}`);
+        const newCommentsData = response.data;
+
+        console.log('New Data:', newCommentsData);
+        console.log('Current Data:', commentsData);
+        // Kiểm tra xem dữ liệu mới có khác với dữ liệu hiện tại không
+        setCommentsData(newCommentsData);
+        setNewComment(null)
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }
+}, [newComment, props.postId]);
 
   const handleAddComment = (text:any) => {
     // Logic để thêm bình luận mới vào danh sách
+    setNewComment(text);
     console.log('New Comment:', text);
   };
   const handleReply = (text:any, parentCommentId:any) => {

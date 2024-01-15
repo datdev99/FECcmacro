@@ -38,7 +38,7 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
           "parentCommentId": 0
         }
       )
-      console.log(postNewComment,"postNewComment");
+      console.log(postNewComment,"postNewComment", comments);
       onAddComment(newComment);
     }
     setNewComment('');
