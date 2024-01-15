@@ -12,10 +12,10 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
   const [newComment, setNewComment] = useState('');
   const [replyingTo, setReplyingTo] = useState(null);
 
-  const handleCommentSubmit = (parentCommentId) => {
+  const handleCommentSubmit = async (parentCommentId) => {
     if (parentCommentId !== null) {
       console.log("keke",newComment, parentCommentId);
-      PostComment(
+      const postNewComment = await PostComment(
         {
           "content": "Tao dùng api để thêm nè, ghê chưa",
           "slug": "string",
@@ -25,8 +25,20 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
           "parentCommentId": 12
         }
       )
+      console.log(postNewComment,"postNewComment");
       onReply(newComment, parentCommentId);
     } else {
+      const postNewComment = await PostComment(
+        {
+          "content": newComment,
+          "slug": "string",
+          "published": true,
+          "authorId": "ecb3e2e2-f138-4392-8c91-33f47720ca43",
+          "postId": postId,
+          "parentCommentId": 0
+        }
+      )
+      console.log(postNewComment,"postNewComment");
       onAddComment(newComment);
     }
     setNewComment('');

@@ -75,7 +75,8 @@ export function PostComment(objComment:object) {
     })
     .then((response) => {
       // Xử lý kết quả thành công
-      console.log("Response data:", response.data);
+      // console.log("Response data:", response.data);
+      return response.data;
     })
     .catch((error) => {
         console.log("error", error, objComment);

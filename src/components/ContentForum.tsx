@@ -96,7 +96,7 @@ const ContentForum = (props: Props) => {
       
         fetchData();
     }
-  }, [props.postId])
+  }, [props.postId, commentsData])
 
   const handleAddComment = (text:any) => {
     // Logic để thêm bình luận mới vào danh sách
