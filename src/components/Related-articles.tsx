@@ -15,33 +15,42 @@ const Related_articles = ({brokerList}:any) => {
     dots: true,
     adaptiveHeight: true
   };
+  console.log(brokerList,"brokerList");
+  
   return (
     <div className='Related-articles'>
       <h3>Bài viết liên quan</h3>
       <div className='Related-articles__list'>
         {
-        brokerList.length > 4 ? 
-          <Slider {...settings}>
-            {brokerList.map((item:any, index:any) => (
-              <article className='Related-articles__item' key={index}>
-                <div className="Related-articles__img">
-                  <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
-                </div>
-                <Link href={`/${item.slug}`}>{item.title}</Link>
-              </article>
-            ))}
-          </Slider>
-          :
           brokerList.map((item:any, index:any) => (
             <article className='Related-articles__item' key={index}>
-              <div className="Related-articles__img">
-                <Link href={`/${item.slug}`}>
-                  <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
-                </Link>
+              <div className='author'>
+                {item.authorId}
               </div>
-              <Link href={`/${item.slug}`}>{item.title}</Link>
+              <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
             </article>
           ))
+          // <Slider {...settings}>
+          //   {brokerList.map((item:any, index:any) => (
+          //     <article className='Related-articles__item' key={index}>
+          //       <div className="Related-articles__img">
+          //         <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
+          //       </div>
+          //       <Link href={`/${item.slug}`}>{item.title}</Link>
+          //     </article>
+          //   ))}
+          // </Slider>
+          // :
+          // brokerList.map((item:any, index:any) => (
+          //   <article className='Related-articles__item' key={index}>
+          //     <div className="Related-articles__img">
+          //       <Link href={`/${item.slug}`}>
+          //         <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
+          //       </Link>
+          //     </div>
+          //     <Link href={`/${item.slug}`}>{item.title}</Link>
+          //   </article>
+          // ))
         }
         
       </div>

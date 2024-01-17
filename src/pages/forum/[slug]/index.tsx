@@ -6,9 +6,11 @@ import axios from 'axios';
 import ContentForum from '@/components/ContentForum';
 import Layout from '@/components/layout';
 import Banner_forum from '@/components/Banner_forum';
+import Related_articles from '@/components/Related-articles';
 
 const Page = ({ postId }:any) => {
     const [content, setContent] = useState([]);
+    const [listForum, setlistForum] = useState([]);
     const [infoAuthor, setInfoAuthor] = useState([])
 
     let url = ""
@@ -25,6 +27,9 @@ const Page = ({ postId }:any) => {
             try {
                 const discussResponse = await axios.get(`${API_URL}/Discuss/Get?action=getdiscussdetail&para1=${postId}`);
                 setContent(discussResponse.data);
+
+                const forumResponse = await axios.get(`${API_URL}/Discuss/Get?action=getdiscuss`);
+                setlistForum(forumResponse.data);
 
                 const authorResponse = await axios.get(`${API_URL}/Discuss/GetAuthor?action=GetInfoAuthorByPostId&para1=${postId}`);
                 setInfoAuthor(authorResponse.data);
@@ -44,6 +49,7 @@ const Page = ({ postId }:any) => {
           <Banner_forum />
           <div className="l-container--1">
             <ContentForum data={content} author={infoAuthor} pathArr={pathArray} postId={postId} />
+            <Related_articles brokerList={listForum} />
           </div>
         </main>
       </Layout>

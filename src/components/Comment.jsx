@@ -7,6 +7,7 @@ import avata from '@/assets/images/user.png'
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
+import Related_articles from './Related-articles';
 
 const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) => {
   const [newComment, setNewComment] = useState('');
@@ -131,6 +132,7 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
         :
         ""
       }
+     
     </div>
   );
 };
