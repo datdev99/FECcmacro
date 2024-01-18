@@ -5,55 +5,48 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {URL_SERVER} from '@/lib/api-request'
 import Link from 'next/link';
+import { calculateReadingTime } from '@/lib/func';
 
-const Related_articles = ({brokerList}:any) => {
+const Related_articles = ({brokerList, type}:any) => {
   const settings = {
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    // autoplay: true,
-    // autoplaySpeed: 5000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    arrows: false,
     dots: true,
-    adaptiveHeight: true
   };
-  console.log(brokerList,"brokerList");
   
   return (
     <div className='Related-articles'>
-      <h3>Bài viết liên quan</h3>
-      <div className='Related-articles__list'>
-        {
-          brokerList.map((item:any, index:any) => (
+      <h3>{type}</h3>
+      {brokerList.length > 4 ?
+        <div className='Related-articles__list'>
+          <Slider {...settings}>
+              {brokerList.map((item:any, index:any) => (
+                <article className='Related-articles__item' key={index}>
+                  <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
+                  <div className='author'>
+                    {item.authorId}
+                  </div>
+                  <span>{calculateReadingTime(item.content)} phút đọc</span>
+                </article>
+              ))}
+          </Slider>
+        </div>
+      :
+        <div className='Related-articles__list__no-slide'>
+          {brokerList.map((item:any, index:any) => (
             <article className='Related-articles__item' key={index}>
+              <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
               <div className='author'>
                 {item.authorId}
               </div>
-              <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
             </article>
-          ))
-          // <Slider {...settings}>
-          //   {brokerList.map((item:any, index:any) => (
-          //     <article className='Related-articles__item' key={index}>
-          //       <div className="Related-articles__img">
-          //         <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
-          //       </div>
-          //       <Link href={`/${item.slug}`}>{item.title}</Link>
-          //     </article>
-          //   ))}
-          // </Slider>
-          // :
-          // brokerList.map((item:any, index:any) => (
-          //   <article className='Related-articles__item' key={index}>
-          //     <div className="Related-articles__img">
-          //       <Link href={`/${item.slug}`}>
-          //         <Image src={`${URL_SERVER}${item.image}`} alt="" width={0} height={0} style={{ width: '100%', height: '100%' }} quality={80} unoptimized />
-          //       </Link>
-          //     </div>
-          //     <Link href={`/${item.slug}`}>{item.title}</Link>
-          //   </article>
-          // ))
-        }
-        
-      </div>
+          ))}
+        </div>
+      }
+      
     </div>
   );
 }

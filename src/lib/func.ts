@@ -112,25 +112,12 @@ export async function RefreshToken() {
       return false;
     }
 }
-// export function RefreshToken() {
-//   return new Promise(function (resolve, reject) {
-//     $.ajax({
-//       type: "POST",
-//       url: `${API_URL}/User/Refresh`,
-//       data: JSON.stringify({
-//         AccessToken: getToken(),
-//         RefreshToken: getRefreshToken(),
-//       }),
-//       contentType: "application/json; charset=utf-8",
-//       dataType: "json",
-//       success: function (d) {
-//         localStorage.setItem("Token", d.accessToken);
-//         resolve(true); // Resolve the promise with true
-//       },
-//       error: function (e) {
-//         reject(false); // Reject the promise with false
-//         console.log("regggg");
-//       },
-//     });
-//   });
-// }
+
+//Tính thời gian đọc 1 bài viết
+export function calculateReadingTime(content:any, wordsPerMinute = 200) {
+  // Giả sử một người đọc trung bình đọc khoảng 200 từ mỗi phút
+  const wordCount = content.split(/\s+/).length;
+  const estimatedTime = Math.ceil(wordCount / wordsPerMinute);
+
+  return estimatedTime;
+}

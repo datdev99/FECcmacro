@@ -11,7 +11,8 @@ import Related_articles from '@/components/Related-articles';
 const Page = ({ postId }:any) => {
     const [content, setContent] = useState([]);
     const [listForum, setlistForum] = useState([]);
-    const [infoAuthor, setInfoAuthor] = useState([])
+    const [infoAuthor, setInfoAuthor] = useState([]);
+    const [userPost, setUserPost] = useState([])
 
     let url = ""
     let pathArray:any;
@@ -33,6 +34,12 @@ const Page = ({ postId }:any) => {
 
                 const authorResponse = await axios.get(`${API_URL}/Discuss/GetAuthor?action=GetInfoAuthorByPostId&para1=${postId}`);
                 setInfoAuthor(authorResponse.data);
+
+                const userPostResponse = await axios.get(`${API_URL}/Discuss/Get?action=GetUserPosts&para1=${authorResponse.data[0].userId}`);
+                setUserPost(userPostResponse.data);
+
+                console.log(userPost.filter((item:any) => item.PostId != postId), "eee");
+                
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }
@@ -49,7 +56,8 @@ const Page = ({ postId }:any) => {
           <Banner_forum />
           <div className="l-container--1">
             <ContentForum data={content} author={infoAuthor} pathArr={pathArray} postId={postId} />
-            <Related_articles brokerList={listForum} />
+            <Related_articles brokerList={listForum} type={"Bài viết liên quan"} />
+            <Related_articles brokerList={userPost.filter((item:any) => item.postId != postId)} type={`Bài viết khác từ ${infoAuthor.length == 0 ? "" : infoAuthor[0].userName}`} />
           </div>
         </main>
       </Layout>
