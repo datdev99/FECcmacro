@@ -16,7 +16,7 @@ interface IF_Data {
     isCompleted?: any;
 }
 const Contest = (props: Props) => {
-    console.log(props.data[0].createdDate,"props");
+    // console.log(props.data[0].createdDate,"props");
     
   return ( 
     <>
