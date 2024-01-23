@@ -27,7 +27,7 @@ const Related_articles = ({brokerList, type}:any) => {
                 <article className='Related-articles__item' key={index}>
                   <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
                   <div className='author'>
-                    {item.authorId}
+                    {item.userName == null ? item.authorId : item.userName}
                   </div>
                   <span>{calculateReadingTime(item.content)} phút đọc</span>
                 </article>
@@ -40,7 +40,7 @@ const Related_articles = ({brokerList, type}:any) => {
             <article className='Related-articles__item' key={index}>
               <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
               <div className='author'>
-                {item.authorId}
+              {item.userName == null ? item.authorId : item.userName}
               </div>
             </article>
           ))}

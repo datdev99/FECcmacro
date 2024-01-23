@@ -21,6 +21,7 @@ interface IF_Data {
     content: any,
     title: any,
     slug: any,
+    categoryId: any,
 }
 
 interface Category {
@@ -33,46 +34,45 @@ const Content = (props: Props) => {
     const [category, setCategory] = useState<Category[]>([])
     const [crumb, setCrumb] = useState<Category[]>([])
     const [postRelated, setPostRelated] = useState([])
+    const [postNew, setPostNew] = useState([])
     useEffect(() => {
-        // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-        let apiUrl = ""
-        apiUrl = `${API_URL}/Category/Get?action=get`;
-          axios.get(apiUrl)
-            .then(response => {
-                // Xử lý dữ liệu nhận được từ API
-                setCategory(response.data.data);
-            })
-            .catch(error => {
-                // Xử lý lỗi (nếu có)
-                console.error('Error fetching data: ', error);
-            });
-    }, []); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+      const fetchData = async () => {
+        try {
+            const newResponse = await axios.get(`${API_URL}/Post/Get?action=GetNewPost&slug=1&categoryId=1`);
+            setPostNew(newResponse.data);
 
-    // useEffect(() => {
-    //   // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    //   let apiUrl = ""
-    //   if(props.data.length > 0) {
-    //     apiUrl = `${API_URL}/Post/Get?action=Get_Related&slug=${props.pathArr[props.pathArr.length - 2]}&categoryId=${props.data[0].postId}`;
-    //     axios.get(apiUrl)
-    //       .then(response => {
-    //           // Xử lý dữ liệu nhận được từ API
-    //           setPostRelated(response.data);
-    //       })
-    //       .catch(error => {
-    //           // Xử lý lỗi (nếu có)
-    //           console.error('Error fetching data: ', error);
-    //       });
-    //   }
-      
-    // }, [props.data, props.pathArr]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+            const categoryResponse = await axios.get(`${API_URL}/Category/Get?action=get`);
+            setCategory(categoryResponse.data);
+
+            let result = categoryResponse.data.filter((item:any) => props.pathArr.includes(item.slug))
+                .map((item:any) => ({ title: item.title, slug: item.slug }));
+            setCrumb(result)
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+        }
+      };
+
+      fetchData();
+    }, [props.pathArr])
 
     useEffect(() => {
-      let result = category.filter(item => props.pathArr.includes(item.slug))
-                .map(item => ({ title: item.title, slug: item.slug }));
-      setCrumb(result)
-      console.log(result,"result Cum");
+      // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+      let apiUrl = ""
+      if(props.data.length > 0) {
+        apiUrl = `${API_URL}/Post/Get?action=Get_Related&slug=${props.data[0].postId}&categoryId=${props.data[0].categoryId}`;
+        axios.get(apiUrl)
+          .then(response => {
+              // Xử lý dữ liệu nhận được từ API
+              setPostRelated(response.data);
+          })
+          .catch(error => {
+              // Xử lý lỗi (nếu có)
+              console.error('Error fetching data: ', error);
+          });
+      }
       
-    }, [props.pathArr, category])
+    }, [props.data, props.pathArr]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+
   return (
     <>
       <Layout>
@@ -102,7 +102,7 @@ const Content = (props: Props) => {
                   <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
                 </>
               ))}
-              <Related_articles brokerList={postRelated} />
+              <Related_articles brokerList={postRelated} type={"Bài viết liên quan"} />
             </div>
             <div className="list-san">
               <p className="heading"><FontAwesomeIcon icon={faBook} />Review - Đánh giá</p>
@@ -111,7 +111,7 @@ const Content = (props: Props) => {
               </div>
               <span className="heading"><FontAwesomeIcon icon={faBook} />Bài viết mới nhất</span>
               <div className='all-news'>
-                  <Post data={[]} slug={''}/>
+                <Post data={postNew} slug={''}/>
               </div>
             </div>
           </div>

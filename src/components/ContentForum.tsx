@@ -45,7 +45,9 @@ const ContentForum = (props: Props) => {
   const [postRelated, setPostRelated] = useState([]);
   const [commentsData, setCommentsData] = useState([]);
   const [newComment, setNewComment] = useState(null);
-
+  const [postNew, setPostNew] = useState([])
+  console.log(props, "props");
+  
   useEffect(() => {
   if (props.postId) {
     const fetchData = async () => {
@@ -118,50 +120,57 @@ const ContentForum = (props: Props) => {
     return Date.now(); // Thay thế bằng một phương thức tạo ID duy nhất tốt hơn
   };
   //
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+          const newResponse = await axios.get(`${API_URL}/Post/Get?action=GetNewPost&slug=1&categoryId=1`);
+          setPostNew(newResponse.data);
+
+          const categoryResponse = await axios.get(`${API_URL}/Category/Get?action=get`);
+          setCategory(categoryResponse.data);
+
+          const postRelatedResponse = await axios.get(`${API_URL}/Post/Get?action=Get_Related&slug=${props.pathArr[props.pathArr.length - 2]}&categoryId=${props.data[0].postId}`);
+          setPostRelated(postRelatedResponse.data);
+
+          const result = await categoryResponse.data.filter((item:any) => props.pathArr.includes(item.slug))
+              .map((item:any) => ({ title: item.title, slug: item.slug }));
+          setCrumb(result)
+      } catch (error) {
+          console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }, [props.pathArr])
+
+  // useEffect(() => {
+  //   let result = category
+  //     .filter((item) => props.pathArr.includes(item.slug))
+  //     .map((item) => ({ title: item.title, slug: item.slug }));
+  //   setCrumb(result);
+  // }, [props.pathArr, category]);
   
-  useEffect(() => {
-    // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    let apiUrl = "";
-    apiUrl = `${API_URL}/Category/Get?action=get`;
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        // Xử lý dữ liệu nhận được từ API
-        setCategory(response.data.data);
-        
-      })
-      .catch((error) => {
-        // Xử lý lỗi (nếu có)
-        console.error("Error fetching data: ", error);
-      });
-  }, []); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
+  // useEffect(() => {
+  //   // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
+  //   let apiUrl = "";
+  //   if (props.data.length > 0) {
+  //     apiUrl = `${API_URL}/Post/Get?action=Get_Related&slug=${
+  //       props.pathArr[props.pathArr.length - 2]
+  //     }&categoryId=${props.data[0].postId}`;
+  //     axios
+  //       .get(apiUrl)
+  //       .then((response) => {
+  //         // Xử lý dữ liệu nhận được từ API
+  //         setPostRelated(response.data);
+  //       })
+  //       .catch((error) => {
+  //         // Xử lý lỗi (nếu có)
+  //         console.error("Error fetching data: ", error);
+  //       });
+  //   }
+  // }, [props.data, props.pathArr]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
 
-  useEffect(() => {
-    // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-    let apiUrl = "";
-    if (props.data.length > 0) {
-      apiUrl = `${API_URL}/Post/Get?action=Get_Related&slug=${
-        props.pathArr[props.pathArr.length - 2]
-      }&categoryId=${props.data[0].postId}`;
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          // Xử lý dữ liệu nhận được từ API
-          setPostRelated(response.data);
-        })
-        .catch((error) => {
-          // Xử lý lỗi (nếu có)
-          console.error("Error fetching data: ", error);
-        });
-    }
-  }, [props.data, props.pathArr]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
-
-  useEffect(() => {
-    let result = category
-      .filter((item) => props.pathArr.includes(item.slug))
-      .map((item) => ({ title: item.title, slug: item.slug }));
-    setCrumb(result);
-  }, [props.pathArr, category]);
+ 
 
   const modifyImagePaths = (content: any) => {
     const parser = new DOMParser();
@@ -275,7 +284,7 @@ const ContentForum = (props: Props) => {
             Bài viết mới nhất
           </span>
           <div className="all-news">
-            <Post data={[]} slug={""} />
+            <Post data={postNew} slug={""} />
           </div>
         </div>
       </div>

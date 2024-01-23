@@ -6,7 +6,7 @@ import { faUserPlus, faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import img from '../../public/assets/images/avata.webp'
 import Image from 'next/image'
 import axios from 'axios';
-import { API_URL } from "@/lib/api-request";
+import { API_URL, URL_SERVER } from "@/lib/api-request";
 
 type TooltipProps = any
 const Author = () => {
@@ -41,7 +41,10 @@ const Author = () => {
                     <div className='item' key={index}>
                         <div className='info'>
                             <div className='avata'>
-                                <Image src={img} alt='' />
+                                <Image src={item.avatar != null ? 
+                                    `${URL_SERVER}${item.avatar}` : 
+                                    img} alt='' width={45} height={45} quality={80} unoptimized 
+                                />
                             </div>
                             <div className='name'>
                                 <a href={`/author/${item.userId}`}>{item.userName}</a>

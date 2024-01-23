@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer'
 import axios from 'axios'
-import {API_URL} from '@/lib/api-request'
+import {API_URL, URL_SERVER} from '@/lib/api-request'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,6 +13,7 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
 import {ConvertDate} from '@/lib/func'
 import logo from '../../../public/assets/images/logo 1.png'
+import avata from '../../../public/assets/images/avata.webp'
 import Banner_forum from '@/components/Banner_forum'
 
 const Page = () => {
@@ -45,7 +46,7 @@ const Page = () => {
         .catch(error => {
             console.error('Error fetching data: ', error);
         })
-    }, [forum])
+    }, [])
 
     const handleClick = () => {
         alert("Vui lòng đăng nhập để tạo câu hỏi.")
@@ -95,7 +96,10 @@ const Page = () => {
                         {forum.map((item:any, index) => (
                             <div className='post-feed-item' key={index}>
                                 <a href="">
-                                    {/* <img className='avata' src={item.avata} alt="" /> */}
+                                <Image src={item.image != null ? 
+                                    `${URL_SERVER}${item.image}` : 
+                                    avata} alt='' width={45} height={45} quality={100} unoptimized 
+                                />
                                 </a>
                                 <div className='post-feed-item__info'>
                                     <div className='name'>

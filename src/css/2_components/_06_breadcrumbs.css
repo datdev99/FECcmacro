@@ -1,0 +1,18 @@
+.breadcrumbs {
+  margin-top: 20px;
+}
+.breadcrumbs ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+.breadcrumbs ul li {
+  position: relative;
+}
+.breadcrumbs ul li:not(:last-child)::after {
+  position: absolute;
+  content: ">";
+  right: -15px;
+  top: 0;
+}
