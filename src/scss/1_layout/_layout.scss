@@ -41,6 +41,10 @@ main {
   padding-bottom: 15px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 //-------------------------------------------------------
 .l-container {
   max-width: 1410px;
@@ -151,5 +155,33 @@ section {
   &::-webkit-scrollbar-thumb:hover {
       background: #e5e5e5;
       cursor: pointer;
+  }
+}
+
+#top-btn {
+  z-index: 99;
+  right: 2.25rem;
+  width: 3.813rem;
+  bottom: 2.25rem;
+  height: 3.813rem;
+  display: flex;
+  position: fixed;
+  overflow: hidden;
+  visibility: hidden;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+  background-color: #5488c7;
+  border-radius: 0.188rem;
+  line-height: 1.6;
+  font-size: 1.875rem;
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  svg {
+    color: #fff;
   }
 }

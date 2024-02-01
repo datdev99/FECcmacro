@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '@/components/Footer'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import Link from 'next/link'
 
 const page = () => {

@@ -1,6 +1,6 @@
 "use client"
 
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 // import React, { useEffect, useState } from 'react'
 import Broker from './broker'
 import Footer from '@/components/Footer'

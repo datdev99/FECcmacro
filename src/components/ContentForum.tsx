@@ -6,18 +6,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import Related_broker from "./related-broker";
 import Post from "./Post";
-import Header from "@/components/Header/Header";
 import { API_URL, URL_SERVER } from "@/lib/api-request";
 import axios from "axios";
-import Related_articles from "./Related-articles";
 import Image from "next/image";
-import img from '../../public/assets/images/avata.webp'
+import {avata} from '@/lib/image'
 import { Tooltip } from 'react-tippy';
 import 'react-tippy/dist/tippy.css';
 import { faUserPlus, faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
-import { ConvertDate } from "@/lib/func";
-import Comment from "./Comment";
+import { ConvertDate, ListBroker, createMucLuc, replaceSpaceTo_ } from "@/lib/func";
 import CommentComponent from "./Comment";
+import $ from "jquery";
 
 interface Props {
   data: IF_Data[];
@@ -46,7 +44,6 @@ const ContentForum = (props: Props) => {
   const [commentsData, setCommentsData] = useState([]);
   const [newComment, setNewComment] = useState(null);
   const [postNew, setPostNew] = useState([])
-  console.log(props, "props");
   
   useEffect(() => {
   if (props.postId) {
@@ -128,11 +125,12 @@ const ContentForum = (props: Props) => {
 
           const categoryResponse = await axios.get(`${API_URL}/Category/Get?action=get`);
           setCategory(categoryResponse.data);
+          
 
           const postRelatedResponse = await axios.get(`${API_URL}/Post/Get?action=Get_Related&slug=${props.pathArr[props.pathArr.length - 2]}&categoryId=${props.data[0].postId}`);
           setPostRelated(postRelatedResponse.data);
 
-          const result = await categoryResponse.data.filter((item:any) => props.pathArr.includes(item.slug))
+          const result = await categoryResponse.data.data.filter((item:any) => props.pathArr.includes(item.slug))
               .map((item:any) => ({ title: item.title, slug: item.slug }));
           setCrumb(result)
       } catch (error) {
@@ -142,35 +140,6 @@ const ContentForum = (props: Props) => {
 
     fetchData();
   }, [props.pathArr])
-
-  // useEffect(() => {
-  //   let result = category
-  //     .filter((item) => props.pathArr.includes(item.slug))
-  //     .map((item) => ({ title: item.title, slug: item.slug }));
-  //   setCrumb(result);
-  // }, [props.pathArr, category]);
-  
-  // useEffect(() => {
-  //   // Địa chỉ API endpoint bạn muốn gửi yêu cầu GET
-  //   let apiUrl = "";
-  //   if (props.data.length > 0) {
-  //     apiUrl = `${API_URL}/Post/Get?action=Get_Related&slug=${
-  //       props.pathArr[props.pathArr.length - 2]
-  //     }&categoryId=${props.data[0].postId}`;
-  //     axios
-  //       .get(apiUrl)
-  //       .then((response) => {
-  //         // Xử lý dữ liệu nhận được từ API
-  //         setPostRelated(response.data);
-  //       })
-  //       .catch((error) => {
-  //         // Xử lý lỗi (nếu có)
-  //         console.error("Error fetching data: ", error);
-  //       });
-  //   }
-  // }, [props.data, props.pathArr]); // Tham số thứ hai là một mảng rỗng để đảm bảo useEffect chỉ chạy một lần sau khi component được render
-
- 
 
   const modifyImagePaths = (content: any) => {
     const parser = new DOMParser();
@@ -198,6 +167,8 @@ const ContentForum = (props: Props) => {
     trigger: 'mouseenter',
     interactive: true,
 };
+
+ 
   return (
     <>
       <div className="breadcrumbs">
@@ -221,7 +192,9 @@ const ContentForum = (props: Props) => {
                   <div className='item' key={index}>
                       <div className='info'>
                           <div className='avata'>
-                              <Image src={img} alt='' />
+                              <Image src={item.avatar != null ? 
+                                    `${URL_SERVER}${item.avatar}` : 
+                                    avata} width={30} height={30} quality={100} unoptimized alt='' />
                           </div>
                           <div>
                             <div className='name'>
@@ -250,44 +223,55 @@ const ContentForum = (props: Props) => {
             <p>Đã đăng bài vào ngày {props.data.length > 0 && ConvertDate(props.data[0].dateUpdated)}</p>
           </div>
 
-          {props.data.map((item: any, index) => (
-            <>
-              <h3 className="review-title">{item.title}</h3>
-              <div>{item.userName}</div>
-              <div
-                key={index}
-                dangerouslySetInnerHTML={{
-                  __html: modifyImagePaths(item.content),
-                }}
-              />
-            </>
-          ))}
-          <CommentComponent
-            comments={commentsData}
-            onReply={handleReply}
-            onAddComment={handleAddComment}
-            postId={props.postId}
-            index={0}
-          />
-          {/* <Related_articles brokerList={postRelated} /> */}
-        </div>
-        <div className="list-san">
-          <p className="heading">
-            <FontAwesomeIcon icon={faBook} />
-            Review - Đánh giá
-          </p>
-          <div className="list-related-broker">
-            <Related_broker />
-          </div>
-          <span className="heading">
-            <FontAwesomeIcon icon={faBook} />
-            Bài viết mới nhất
-          </span>
-          <div className="all-news">
-            <Post data={postNew} slug={""} />
+          <div className="main-content">
+            
+            {props.data.map((item: any, index) => (
+              <>
+                <h3  className="review-title">{item.title}</h3>
+                <div>{item.userName}</div>
+                <div
+                  key={index}
+                  dangerouslySetInnerHTML={{
+                    __html: modifyImagePaths(item.content),
+                  }}
+                />
+              </>
+            ))}
+            
           </div>
         </div>
+        <div className="sidebar">
+          <div className="list-san">
+            <p className="heading"><FontAwesomeIcon icon={faBook} /> Mục lục</p>
+            <ul id="menu">
+                
+            </ul>
+            <p className="heading">
+              <FontAwesomeIcon icon={faBook} />
+              Review - Đánh giá
+            </p>
+            <div className="list-related-broker">
+              <Related_broker brokerList={ListBroker().slice(0,3)} />
+            </div>
+            <span className="heading">
+              <FontAwesomeIcon icon={faBook} />
+              Bài viết mới nhất
+            </span>
+            <div className="all-news">
+              <Post data={postNew} slug={""} />
+            </div>
+          </div>
+        </div>
+        
       </div>
+      <CommentComponent
+        comments={commentsData}
+        onReply={handleReply}
+        onAddComment={handleAddComment}
+        postId={props.postId}
+        index={0}
+      />
+      {createMucLuc()}
     </>
   );
 };

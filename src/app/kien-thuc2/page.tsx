@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from '@/components/Footer'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import New from '@/components/New'
 import React, { useEffect, useState } from 'react'
 import img from '../../../public/assets/images/san/prospero.png'

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import axios from 'axios'
 import {API_URL} from '@/lib/api-request'

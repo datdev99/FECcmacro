@@ -103,7 +103,7 @@ const Broker = (props: Props) => {
                     {/* <button className="btn btn--grey-light" onClick={handleDanhGia}>
                       Đánh giá
                     </button> */}
-                    <Link className="btn btn--grey-light" href={`/danh-gia-san/${broker.slug}`}>
+                    <Link className="btn btn--grey-light" href={`/${broker.slug}`}>
                       Xem đánh giá
                     </Link>
                   </td>

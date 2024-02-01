@@ -15,7 +15,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 9.75,
         ranking: 1,
-        slug: 'Prospero',
+        slug: 'danh-gia-san/Prospero',
       }, 
       {
         id: 2,
@@ -26,7 +26,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 9.45,
         ranking: 2,
-        slug: 'TMGM',
+        slug: 'danh-gia-san/TMGM',
       },
       {
         id: 3,
@@ -37,7 +37,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 9.25,
         ranking: 3,
-        slug: 'IG',
+        slug: 'danh-gia-san/IG',
       }, 
       {
         id: 4,
@@ -48,7 +48,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 8.95,
         ranking: 4,
-        slug: 'Oanda',
+        slug: 'danh-gia-san/Oanda',
       },
       {
         id: 5,
@@ -59,7 +59,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 8.85,
         ranking: 5,
-        slug: 'XM',
+        slug: 'danh-gia-san/XM',
       }, 
       {
         id: 6,
@@ -70,7 +70,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 8.65,
         ranking: 6,
-        slug: 'XTB',
+        slug: 'danh-gia-san/XTB',
       },
       {
         id: 7,
@@ -81,7 +81,7 @@ const page = () => {
         alt: 'Alt 1',
         score: 8.55,
         ranking: 7,
-        slug: 'ATFX',
+        slug: 'danh-gia-san/ATFX',
       }, 
       {
         id: 8,
@@ -92,14 +92,14 @@ const page = () => {
         alt: 'Alt 1',
         score: 8.45,
         ranking: 8,
-        slug: 'IC-Market',
+        slug: 'danh-gia-san/IC-Market',
       },
     ]
   return (
     <>
         <Layout>
-        <main className='bg-1'>
-          <div className='l-container--3'>
+          <main className='bg-1'>
+            <div className='l-container--3'>
               <Broker data={brokerProps} />
             </div>
           </main>

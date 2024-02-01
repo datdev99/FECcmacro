@@ -9,8 +9,9 @@ import {API_URL} from '@/lib/api-request'
 import axios from "axios";
 import Layout from '@/components/layout'
 import New from '@/components/New'
+import { GetPostIdInString } from "@/lib/func";
 
-const Page = ({slug}) => {
+const Page = ({slug}:any) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState([])
   const [newPost, setNewPost] = useState([])
@@ -18,8 +19,8 @@ const Page = ({slug}) => {
   const [processedContent, setProcessedContent] = useState([]);
 
 
-  const processContent = (data) => {
-    const modifiedContent = data.map(item => {
+  const processContent = (data:any) => {
+    const modifiedContent = data.map((item:any) => {
       const modifiedItem = { ...item };
       modifiedItem.content = item.content.replace(/src="\/Image\//g, 'src="https://api.ccmacro.com/Image/');
       return modifiedItem;
@@ -49,7 +50,7 @@ const Page = ({slug}) => {
     //     });
     const fetchData = async () => {
       try {
-          const detailPost = await axios.get(`${API_URL}/Post/Get?action=GetDetailPostBySlug&slug=${slug}`);
+          const detailPost = await axios.get(`${API_URL}/Post/Get?action=GetDetailPostBySlug&slug=danh-gia-san/${slug}`);
           setIsDataLoaded(true);
           const processedData = processContent(detailPost.data);
           setProcessedContent(processedData);
@@ -102,8 +103,9 @@ const Page = ({slug}) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context:any) {
   const { slug } = context.query;
+  // const postId = GetPostIdInString(slug);
 
   return {
     props: {

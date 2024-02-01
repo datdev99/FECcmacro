@@ -53,7 +53,7 @@
     }
 
     .list-san {
-        width: calc(((100% * 1) / 5) + 100px);
+        // width: calc(((100% * 1) / 5) + 100px);
         padding: 0 1.6rem;
         position: sticky;
         // max-height: calc(100vh - 105px);
@@ -74,7 +74,7 @@
             display: block;
 
             svg {
-                font-size: 2.5rem;
+                width: 2.2rem;
                 color: #DAAA51 !important;
                 margin-right: 10px;
                 
@@ -164,6 +164,24 @@
             }
 
 
+        }
+    }
+
+    .main-content {
+        font-size: 1.8rem;
+        line-height: 3.2rem;
+
+        h1, h2, h3 {
+            line-height: 4.2rem;
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        ul {
+            margin-top: 1rem;
+        }
+
+        p {
+            margin-top: 0.5rem;
         }
     }
 }

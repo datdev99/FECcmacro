@@ -80,3 +80,13 @@
         }
     }
 }
+
+.post-feed-switcher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    span {
+        font-weight: 700;
+    }
+}

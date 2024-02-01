@@ -6,7 +6,8 @@ import axios from 'axios';
 import ContentForum from '@/components/ContentForum';
 import Layout from '@/components/layout';
 import Banner_forum from '@/components/Banner_forum';
-import Related_articles from '@/components/Related-articles';
+import Related_articles from '@/components/Related-articles-forum';
+import Head from 'next/head';
 
 const Page = ({ postId }:any) => {
     const [content, setContent] = useState([]);
@@ -38,8 +39,6 @@ const Page = ({ postId }:any) => {
                 const userPostResponse = await axios.get(`${API_URL}/Discuss/Get?action=GetUserPosts&para1=${authorResponse.data[0].userId}`);
                 setUserPost(userPostResponse.data);
 
-                console.log(userPost.filter((item:any) => item.PostId != postId), "eee");
-                
             } catch (error) {
                 console.error('Error fetching data: ', error);
             }
@@ -51,6 +50,9 @@ const Page = ({ postId }:any) => {
   
   return (
     <>
+      <Head>
+          <title>Crystal - Thảo luận</title>
+      </Head>
       <Layout>
         <main id='page-forum-detail'>
           <Banner_forum />

@@ -114,6 +114,14 @@
 
 .new-comment {
   margin-top: 20px;
+
+  textarea {
+    border-radius: 8px;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+  }
 }
 
 textarea {

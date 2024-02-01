@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import {API_URL, API_KEY_TINYMCE} from '@/lib/api-request'
 import { getToken, getUserID, getRefreshToken } from '@/utils/auth';
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import { Editor } from '@tinymce/tinymce-react';
 import Footer from "@/components/Footer";
 import $ from "jquery";

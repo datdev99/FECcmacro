@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from '@/components/Footer'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import React, { useEffect, useState } from 'react'
 import img from '../../../public/assets/images/san/prospero.png'
 import Image from 'next/image'
@@ -10,6 +10,8 @@ import axios from 'axios'
 import {API_URL} from '@/lib/api-request'
 import Post from '@/components/Post'
 import Layout from '@/components/layout';
+import Head from 'next/head';
+import SidebarNew from '@/components/SidebarNew'
 
 interface Category {
   id: number;
@@ -50,6 +52,9 @@ const Page = () => {
 
   return (
     <>
+    <Head>
+        <title>Kiến Thức - Crystal</title>
+    </Head>
     <Layout>
         <main className='l-container--1' id='page-post'>
         <div className='breadcrumbs'>
@@ -69,16 +74,7 @@ const Page = () => {
             <div className='post-list'>
             {isDataLoaded && <Post data={post} slug={''} />}
             </div>
-            <div className='sidebar'>
-            <div className='advertisement'>
-                <div className='item'>
-                <Image src={img} alt='prospero' />
-                </div>
-                <div className='item'>
-                <Image src={img} alt='prospero' />
-                </div>
-            </div>
-            </div>
+            <SidebarNew />
         </div>
         </main>
       </Layout>

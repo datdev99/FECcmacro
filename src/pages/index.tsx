@@ -10,7 +10,7 @@ import Slide from '@/components/Slide'
 import icon from '../../public/assets/images/icon/icon-chat-luong.png'
 import Image from 'next/image'
 import { FEEDS, getFeed } from "../lib/rss-news";
-import {API_URL} from '../lib/api-request'
+import {API_URL, DOMAIN} from '../lib/api-request'
 import Slide1 from '@/components/Slide1'
 import Direct from '@/components/direct'
 import Copytrade from '@/components/copytrade'
@@ -18,7 +18,7 @@ import Ecosystem from '@/components/Ecosystem'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import the styles
 import Layout from '@/components/layout'
-
+import Head from 'next/head';
 
 
 
@@ -32,6 +32,10 @@ const Page = ({ postKienThuc, postPhanTich, items }:any) => {
 
   return (
     <>
+      <Head>
+        <title>Trang Chủ - Crystal</title>
+        <link rel="canonical" href={DOMAIN} />
+      </Head>
       <Layout>
         <main >
           <Mainvisual />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Modal, Button, Form } from 'react-bootstrap';
+// import { Modal, Button, Form } from 'react-bootstrap';
 import axios from "axios";
 
 function convertTime(timestamp) {
@@ -149,7 +148,7 @@ const Tabs = ({rssNew, phantich}) => {
           ))}
         </div>
       </div>
-      <Modal show={showModal} onHide={handleCloseModal} id="model_new">
+      {/* <Modal show={showModal} onHide={handleCloseModal} id="model_new">
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
         </Modal.Header>
@@ -163,7 +162,7 @@ const Tabs = ({rssNew, phantich}) => {
             Đóng
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   )
 }

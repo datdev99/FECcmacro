@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from '@/components/Footer'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import Post from '@/components/Post'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'

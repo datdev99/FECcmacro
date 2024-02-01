@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import axios from 'axios'
 import {API_URL, URL_SERVER} from '@/lib/api-request'
@@ -12,11 +12,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 import SidebarForum from '@/components/SidebarForum'
 import {ConvertDate} from '@/lib/func'
-import logo from '../../../public/assets/images/logo 1.png'
-import avata from '../../../public/assets/images/avata.webp'
+import {logo, avata} from '@/lib/image'
 import Banner_forum from '@/components/Banner_forum'
+import Layout from '@/components/layout'
 
-const Page = () => {
+const Index = () => {
     const [forum, setForum] = useState([])
     const [content, setContent] = useState(false)
     const [isCheck, setIsCheck] = useState(true)
@@ -64,7 +64,7 @@ const Page = () => {
 
     return (
     <>
-        <Header />
+        <Layout >
         <main className='p-forum'>
             <Banner_forum />
             <div className='sub-menu'>
@@ -109,7 +109,6 @@ const Page = () => {
                                     <div className='title'>
                                         <h3>
                                             <Link href={`/forum/${item.slug}&postId=${item.postId}`}>{item.title}</Link>
-                                            {/* <Link href={{ pathname: `/forum/${item.slug}`, query: { item } }} passHref></Link> */}
                                         </h3>
                                         {/* <div className='tags'>
                                             {
@@ -166,9 +165,9 @@ const Page = () => {
                 ""
             }
         </main>
-        <Footer />
+        </Layout>
     </>
   )
 }
 
-export default Page
+export default Index

@@ -3,48 +3,18 @@ import { API_URL, URL_SERVER } from '@/lib/api-request';
 import { PostComment, handleMoment } from '@/lib/func';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import avata from '@/assets/images/user.png'
+import {User_img as avata} from '@/lib/image';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
-import Related_articles from './Related-articles';
+import Related_articles from './Related-articles-forum';
 
 const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) => {
   const [newComment, setNewComment] = useState('');
   const [replyingTo, setReplyingTo] = useState(null);
 
-  const handleCommentSubmit = async (parentCommentId) => {
-    if (parentCommentId !== null) {
-      console.log("keke",newComment, parentCommentId);
-      const postNewComment = await PostComment(
-        {
-          "content": newComment,
-          "slug": "string",
-          "published": true,
-          "authorId": "ecb3e2e2-f138-4392-8c91-33f47720ca43",
-          "postId": postId,
-          "parentCommentId": parentCommentId
-        }
-      )
-      console.log(postNewComment,"postNewComment");
-      onReply(newComment, parentCommentId);
-    } else {
-      const postNewComment = await PostComment(
-        {
-          "content": newComment,
-          "slug": "string",
-          "published": true,
-          "authorId": "ecb3e2e2-f138-4392-8c91-33f47720ca43",
-          "postId": postId,
-          "parentCommentId": 0
-        }
-      )
-      console.log(postNewComment,"postNewComment", comments);
-      onAddComment(newComment);
-    }
-    setNewComment('');
-    setReplyingTo(null);
-  };
+  
+  
 
   return (
     <div className="comment-section">
@@ -85,7 +55,7 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                       />
-                      <button onClick={() => handleCommentSubmit(comment.commentId)}>
+                      <button className='btn' onClick={() => handleCommentSubmit(comment.commentId)}>
                         Gửi phản hồi
                       </button>
                     </div>
@@ -125,7 +95,7 @@ const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) =>
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
               />
-              <button onClick={() => handleCommentSubmit(null)}>Gửi bình luận</button>
+              <button className='btn' onClick={() => handleCommentSubmit(null)}>Gửi bình luận</button>
             </div>
             
           </>

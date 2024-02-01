@@ -1,22 +1,29 @@
 "use client"
 
 import React from 'react'
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import { useRouter } from 'next/navigation';
 import Layout from '@/components/layout';
-import imgUser from '@/assets/images/user.png'
+import {User_img} from '@/lib/image';
 import Image from 'next/image';
+import { getUserID } from '@/utils/auth';
+import axios from 'axios'
+import { API_URL } from '@/lib/api-request';
 
 const Page = () => {
-    const route = useRouter();
-    const handleLogOut = () => {
-        if (typeof window !== "undefined") {
-            // Chỉ truy cập localStorage khi chạy trong môi trường trình duyệt
-            localStorage.removeItem("Token")
-            route.push('/login')
-            // Thực hiện các thao tác với token ở đây
-          }
-    }
+  const route = useRouter();
+  const handleLogOut = () => {
+      if (typeof window !== "undefined") {
+          // Chỉ truy cập localStorage khi chạy trong môi trường trình duyệt
+          localStorage.removeItem("Token")
+          route.push('/login')
+          // Thực hiện các thao tác với token ở đây
+        }
+  }
+
+  const changeAvata = () => {
+    
+  }
 
   return (
     <>
@@ -27,8 +34,8 @@ const Page = () => {
                 <div className="sidebar">
                   <div className="user">
                     <div className="avata">
-                      <Image src={imgUser} alt="" />
-                    </div>
+                      <Image src={User_img} alt="" />
+                    </div>Nv$68qe64
                     <div className="username">
                       Đạt Nguyễn
                     </div>
@@ -38,6 +45,7 @@ const Page = () => {
                       <li>Bài viết</li>
                       <li>Đang theo dõi</li>
                       <li>Đổi mật khẩu</li>
+                      <li onClick={changeAvata}>Đổi ảnh đại diện</li>
                       <li onClick={handleLogOut}>Đăng xuất</li>
                     </ul>
                   </div>
@@ -45,7 +53,7 @@ const Page = () => {
                 <div className="content">
                   <div className='post-new'>
                     <div className="avata">
-                      <Image src={imgUser} alt="" />
+                      <Image src={User_img} alt="" />
                     </div>
                     <input type="text" placeholder='Bạn đang nghĩ gì?' />
                   </div>
@@ -55,7 +63,7 @@ const Page = () => {
                       <div className='info'>
                         <div className='post-user'>
                           <div className="avata">
-                            <Image src={imgUser} alt="" />
+                            <Image src={User_img} alt="" />
                           </div>
                           <div>
                             <p className='username'>Đạt Nguyễn</p>
@@ -73,7 +81,7 @@ const Page = () => {
                       <div className='info'>
                         <div className='post-user'>
                           <div className="avata">
-                            <Image src={imgUser} alt="" />
+                            <Image src={User_img} alt="" />
                           </div>
                           <div>
                             <p className='username'>Đạt Nguyễn</p>
@@ -91,7 +99,7 @@ const Page = () => {
                       <div className='info'>
                         <div className='post-user'>
                           <div className="avata">
-                            <Image src={imgUser} alt="" />
+                            <Image src={User_img} alt="" />
                           </div>
                           <div>
                             <p className='username'>Đạt Nguyễn</p>
@@ -109,7 +117,7 @@ const Page = () => {
                       <div className='info'>
                         <div className='post-user'>
                           <div className="avata">
-                            <Image src={imgUser} alt="" />
+                            <Image src={User_img} alt="" />
                           </div>
                           <div>
                             <p className='username'>Đạt Nguyễn</p>
@@ -132,4 +140,14 @@ const Page = () => {
   )
 }
 
+// export async function getServerSideProps() {
+//   const userId = getUserID();
+//   const TinTucResponse = axios.get(`${API_URL}/Post/Get?action=Get&slug=tin-tuc`);
+
+//   return {
+//     props: {
+//       postId: postId,
+//     },
+//   };
+// }
 export default Page

@@ -8,7 +8,9 @@ import {API_URL} from '@/lib/api-request'
 import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
-import logo from '../../../public/assets/images/logo 1.png';
+import {logo} from '@/lib/image';
+import Head from 'next/head';
+
 
 interface MenuItem {
   text: string;
@@ -68,6 +70,14 @@ const Page = () => {
 
   return (
     <>
+      <Head>
+        <meta name="description" content="Mô tả trang web của bạn" />
+        <meta property="og:title" content="Tiêu đề trang web" />
+        <meta property="og:description" content="Mô tả trang web" />
+        <meta property="og:image" content="URL-hinh-anh" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+      </Head>
       <header className='c-header'>
         <div className="l-container">
             <div className='c-header__inner'>

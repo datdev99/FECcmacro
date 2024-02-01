@@ -25,21 +25,9 @@ const SidebarNew = () => {
   return (
     <div className="sidebar hide-item">
         <div className="advertisement">
-            {/* <div className="item investing">
-                <iframe
-                    className="custom-iframe"
-                    src="https://ssltsw.investing.com?lang=52&forex=1,2,3,5,7,9,10&commodities=8830,8836,8831,8849,8833,8862,8832&indices=23660,166,172,27,179,170,174&stocks=345,346,347,348,349,350,352&tabs=3,1,2,4"
-                    width="100%"
-                    height="467"
-                    title="Technical Summary Widget"
-                ></iframe>
-            </div> */}
             <div className="item">
                 <Image src={img1} alt="prospero" />
             </div>
-            {/* <div className="item">
-                <Image src={img1} alt="prospero" />
-            </div> */}
             <div className='item'>  
                 <h4>Bài viết nổi bật</h4>
                 <div className='all-news'>
