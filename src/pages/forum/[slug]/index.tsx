@@ -12,7 +12,7 @@ import Head from 'next/head';
 const Page = ({ postId }:any) => {
     const [content, setContent] = useState([]);
     const [listForum, setlistForum] = useState([]);
-    const [infoAuthor, setInfoAuthor] = useState([]);
+    const [infoAuthor, setInfoAuthor] = useState<any>([]);
     const [userPost, setUserPost] = useState([])
 
     let url = ""

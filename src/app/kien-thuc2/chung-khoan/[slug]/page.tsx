@@ -28,7 +28,7 @@ const Page = () => {
 
   return (
     <div>
-      <Content data={content} pathArr={pathArray} />
+      <Content data={content} pathArr={pathArray.toString()} />
     </div>
   );
 };

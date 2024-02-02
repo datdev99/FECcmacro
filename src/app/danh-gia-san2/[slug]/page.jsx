@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Header from "@/components/Header/Header";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useParams } from "next/navigation";
-import Post from "@/components/Post";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import Related_broker from "@/components/related-broker";

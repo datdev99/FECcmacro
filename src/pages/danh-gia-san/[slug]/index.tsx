@@ -82,7 +82,7 @@ const Page = ({slug}:any) => {
         </div>
         <div className="review-page">
           <div className="review-content">
-            {isDataLoaded && processedContent && processedContent.map((item, index) => (
+            {isDataLoaded && processedContent && processedContent.map((item:any, index) => (
               <div key={index} dangerouslySetInnerHTML={{ __html: item.content }} />
             ))}
           </div>

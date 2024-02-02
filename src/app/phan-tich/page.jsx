@@ -1,6 +1,6 @@
 "use client"
 
-import Header from '@/components/Header/Header'
+import Header from '@/components/Header'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
 import img from '../../../public/assets/images/san/prospero.png'
