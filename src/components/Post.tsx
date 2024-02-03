@@ -43,7 +43,7 @@ const Post = (props: Props) => {// Lấy giá trị của slug từ URL
                 <p>Chưa có bài viết nào</p>
             :
             props.data.map((item:any, index) => (
-                <div className="box-new" key={index}>
+                <div className={`box-new ${props.slug == "tin-tuc" ? "c-tintuc" : ""}`} key={index}>
                     <article className="new">
                         <Link href={`/${item.slug}&postId=${item.postId}`} title={item.time} className="image">
                             <span>

@@ -1,14 +1,14 @@
 "use client"
 
 import React from 'react'
-import Header from '@/components/Header'
 import { useRouter } from 'next/navigation';
-import Layout from '@/components/layout';
 import {User_img} from '@/lib/image';
 import Image from 'next/image';
 import { getUserID } from '@/utils/auth';
 import axios from 'axios'
-import { API_URL } from '@/lib/api-request';
+import { API_URL, DOMAIN } from '@/lib/api-request';
+import Layout from '@/components/layout'
+import Head from 'next/head';
 
 const Page = () => {
   const route = useRouter();
@@ -27,8 +27,12 @@ const Page = () => {
 
   return (
     <>
-        <Header />
-          <main id='page-account'>
+        <Head>
+          <title>Crystal</title>
+          <link rel="canonical" href={DOMAIN} />
+        </Head>
+        <Layout>
+        <main id='page-account'>
             <div className='l-container--4'>
               <section className='c-account mt-3'>
                 <div className="sidebar">
@@ -136,6 +140,7 @@ const Page = () => {
               </section>
             </div>
           </main>
+        </Layout>
     </>
   )
 }

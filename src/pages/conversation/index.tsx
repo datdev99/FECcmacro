@@ -4,7 +4,7 @@ import Contest from '@/components/Contest';
 import Layout from '@/components/layout';
 
 
-const page = ({ data }:any) => {
+const Page = ({ data }:any) => {
   return (
     <>
       <Layout>
@@ -33,4 +33,4 @@ export async function getServerSideProps() {
   };
 }
 
-export default page
+export default Page

@@ -1,7 +1,7 @@
 import ListDiscussPostOfYou from '@/components/ListDiscussPostOfYou'
 import React from 'react'
 
-const page = () => {
+const Page = () => {
   return (
     <div>
       <ListDiscussPostOfYou />
@@ -9,4 +9,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

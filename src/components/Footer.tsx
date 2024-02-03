@@ -32,13 +32,13 @@ const Footer = () => {
                         <Link href="/kien-thuc">Kiến Thức</Link>
                       </li>
                       <li>
-                        <Link href="/kien-thuc">Tin Tức</Link>
+                        <Link href="/tin-tuc">Tin Tức</Link>
                       </li>
                       <li>
-                        <Link href="/kien-thuc">Đánh Giá Sàn</Link>
+                        <Link href="/danh-gia-san">Đánh Giá Sàn</Link>
                       </li>
                       <li>
-                        <Link href="/kien-thuc">Cuộc Thi</Link>
+                        <Link href="/conversation">Cuộc Thi</Link>
                       </li>
                       <li>
                         <Link href="/forum">Cộng Đồng</Link>

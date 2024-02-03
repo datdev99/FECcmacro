@@ -548,6 +548,15 @@ a {
   display: flex;
   gap: 10px;
 }
+.footer-end .socials ul li:nth-child(2) a {
+  width: 22px;
+  height: 22px;
+}
+.footer-end .socials ul li a {
+  width: 25px;
+  height: 25px;
+  display: block;
+}
 
 @media (max-width: 991px) {
   .footer-menu {
@@ -742,6 +751,8 @@ section {
 }
 #top-btn svg {
   color: #fff;
+  font-size: 1.6rem;
+  width: 1.6rem;
 }
 
 .tox .tox-statusbar {
@@ -2039,6 +2050,15 @@ section {
     margin-top: 10px;
   }
 }
+#page-tintuc .c-tintuc span {
+  display: none;
+}
+#page-tintuc .c-tintuc article {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: reverse !important;
+      -ms-flex-direction: column-reverse !important;
+          flex-direction: column-reverse !important;
+}
 #page-tintuc .title {
   margin: 2rem 0;
 }
@@ -2077,6 +2097,11 @@ section {
   #page-tintuc .tintuc-list {
     width: 100%;
   }
+}
+#page-tintuc .heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 2.2;
 }
 #page-tintuc .sidebar {
   width: calc(20% + 100px);

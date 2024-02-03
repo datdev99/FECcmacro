@@ -3,7 +3,7 @@
 import Broker from './broker'
 import Layout from '@/components/layout'
 
-const page = () => {
+const Page = () => {
   
   const brokerProps = [
       {
@@ -108,4 +108,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

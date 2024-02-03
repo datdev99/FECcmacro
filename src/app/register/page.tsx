@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Register from './register'
 
-const page = () => {
+const Page = () => {
   return (
     <>
         <Header />
@@ -14,4 +14,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

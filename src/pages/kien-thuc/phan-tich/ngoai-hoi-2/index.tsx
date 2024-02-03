@@ -10,6 +10,7 @@ import axios from 'axios'
 import {API_URL} from '@/lib/api-request'
 import Post from '@/components/Post'
 import Layout from '@/components/layout';
+import SidebarNew from '@/components/SidebarNew'
 
 interface Category {
   id: number;
@@ -72,20 +73,11 @@ const Page = () => {
               <h2 className='title'>Ngoại hối</h2>
           </div>
           <div className='content'>
-              <div className='post-list'>
-                {isDataLoaded && <Post data={post} slug={''} />}
-              </div>
-              <div className='sidebar'>
-                <div className='advertisement'>
-                    <div className='item'>
-                    <Image src={img} alt='prospero' />
-                    </div>
-                    <div className='item'>
-                    <Image src={img} alt='prospero' />
-                    </div>
-                </div>
-              </div>
-          </div>
+            <div className='post-list'>
+            {isDataLoaded && <Post data={post} slug={''} />}
+            </div>
+            <SidebarNew />
+        </div>
         </main>
       </Layout>
   </>

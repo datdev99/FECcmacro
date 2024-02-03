@@ -12,6 +12,7 @@ import Related_articles from './Related-articles-forum';
 import Layout from '@/components/layout';
 import Head from 'next/head';
 import Related_articles_post from './Related-articles-post';
+import { ListBroker } from '@/lib/func';
 
 interface Props {
     data: IF_Data[]
@@ -150,7 +151,7 @@ const Content = (props: Props) => {
             <div className="list-san">
               <p className="heading"><FontAwesomeIcon icon={faBook} />Review - Đánh giá</p>
               <div className="list-related-broker">
-                <Related_broker />
+                <Related_broker brokerList={ListBroker().slice(0,3)} />
               </div>
               <span className="heading"><FontAwesomeIcon icon={faBook} />Bài viết mới nhất</span>
               <div className='all-news'>

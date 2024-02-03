@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Link from 'next/link'
 
-const page = () => {
+const Page = () => {
   return (
     <>
       <Header />
@@ -37,4 +37,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

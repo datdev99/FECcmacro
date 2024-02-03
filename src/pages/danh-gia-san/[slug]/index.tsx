@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import Related_broker from "@/components/related-broker";
 import Link from "next/link";
-import {API_URL} from '@/lib/api-request'
+import {API_URL, DOMAIN} from '@/lib/api-request'
 import axios from "axios";
 import Layout from '@/components/layout'
 import New from '@/components/New'
-import { GetPostIdInString } from "@/lib/func";
+import { GetPostIdInString, ListBroker } from "@/lib/func";
+import Head from "next/head";
 
 const Page = ({slug}:any) => {
   const [title, setTitle] = useState("");
@@ -67,6 +68,10 @@ const Page = ({slug}:any) => {
  
   return (
     <div>
+      <Head>
+        <title>Crystal - Đánh giá sàn</title>
+        <link rel="canonical" href={DOMAIN} />
+      </Head>
       <Layout >
       <main className="l-container--1" id="page-review">
         <div className="breadcrumbs">
@@ -89,7 +94,7 @@ const Page = ({slug}:any) => {
           <div className="list-san">
             <p className="heading"><FontAwesomeIcon icon={faBook} />Review - Đánh giá</p>
             <div className="list-related-broker">
-              <Related_broker />
+              <Related_broker brokerList={ListBroker().slice(0,3)} />
             </div>
             <span className="heading"><FontAwesomeIcon icon={faBook} />Bài viết mới nhất</span>
             <div className='all-news'>

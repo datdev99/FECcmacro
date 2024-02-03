@@ -95,7 +95,7 @@ const Related_broker = ({brokerList}:any) => {
     //   ]
   return (
     <div className='list-brokers'>
-        {brokerList.map((broker:any, index:any) => (
+        {brokerList && brokerList.map((broker:any, index:any) => (
             <>
                 <div className="related-broker" key={index}>
                     <div className="box">

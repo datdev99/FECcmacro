@@ -65,7 +65,7 @@ const Page = () => {
                 <div className='sidebar'>
                   <span className="heading">Bài thảo luận mới nhất</span>
                   <div className='all-news'>
-                    <Post data={discuss} slug={''} />
+                    <Post data={discuss} slug={'tin-tuc'} />
                   </div>
                 </div>
             </div>
