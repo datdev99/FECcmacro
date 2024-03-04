@@ -145,14 +145,14 @@ const Page = () => {
   )
 }
 
-export async function getServerSideProps(context:any) {
-  const { userId } = context.query;
-  const TinTucResponse = axios.get(`${API_URL}/Post/Get?action=Get&slug=tin-tuc`);
+// export async function getServerSideProps(context:any) {
+//   const { userId } = context.query;
+//   const TinTucResponse = axios.get(`${API_URL}/Post/Get?action=Get&slug=tin-tuc`);
 
-  return {
-    props: {
-      postId: postId,
-    },
-  };
-}
+//   return {
+//     props: {
+//       postId: postId,
+//     },
+//   };
+// }
 export default Page
