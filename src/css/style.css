@@ -3534,9 +3534,6 @@ input::-webkit-inner-spin-button {
 }
 
 .p-forum .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   max-width: 100%;
   margin: 0 auto;
   -webkit-line-clamp: 4;
@@ -4575,6 +4572,49 @@ textarea {
 }
 .btn:hover {
   opacity: 0.7;
+}
+
+.btn-edit svg, .btn-delete svg {
+  width: 30px;
+  height: 30px;
+}
+
+.list-discuss table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.list-discuss table th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ebedf2;
+}
+.list-discuss table thead th, .list-discuss table thead td {
+  font-weight: 700;
+  border-bottom-width: 1px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.list-discuss table thead tr th:nth-child(1) {
+  width: 80px;
+}
+.list-discuss table thead tr th:nth-child(3) {
+  width: 150px;
+}
+.list-discuss table tbody tr td:nth-child(1) {
+  text-align: center;
+}
+.list-discuss table tbody tr td:nth-child(3) {
+  text-align: center;
+}
+.list-discuss table tbody tr td:nth-child(3) a {
+  margin: 0 10px;
+  display: inline-block;
+}
+.list-discuss table tbody tr td a {
+  color: #212529;
+}
+.list-discuss table th, .list-discuss table td {
+  border: 1px solid #ebedf2;
+  padding: 0.75rem;
 }
 
 /*≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡

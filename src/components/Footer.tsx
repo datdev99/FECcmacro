@@ -92,7 +92,7 @@ const Footer = () => {
             <div className="footer-end col-md-12">
               <div className="copyright-text">
                 <p>
-                  © 2023 <Link href="/">Ccrystal</Link>
+                  © 2024 <Link href="/">Ccrystal</Link>
                 </p>
               </div>
               <div className="socials">

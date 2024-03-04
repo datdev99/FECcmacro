@@ -8,12 +8,42 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReply } from '@fortawesome/free-solid-svg-icons';
 import Related_articles from './Related-articles-forum';
+import { getUserID } from '@/utils/auth';
 
 const CommentComponent = ({ comments, onReply, onAddComment, postId, index }) => {
   const [newComment, setNewComment] = useState('');
   const [replyingTo, setReplyingTo] = useState(null);
 
-  
+  const handleCommentSubmit = async (parentCommentId) => {
+    if (parentCommentId !== null) {
+      console.log("keke",newComment, parentCommentId);
+      const postNewComment = await PostComment(
+        {
+          "content": newComment,
+          "slug": "string",
+          "published": true,
+          "authorId": getUserID(),
+          "postId": postId,
+          "parentCommentId": parentCommentId
+        }
+      )
+      onReply(newComment, parentCommentId);
+    } else {
+      const postNewComment = await PostComment(
+        {
+          "content": newComment,
+          "slug": "string",
+          "published": true,
+          "authorId": getUserID(),
+          "postId": postId,
+          "parentCommentId": 0
+        }
+      )
+      onAddComment(newComment);
+    }
+    setNewComment('');
+    setReplyingTo(null);
+  };
   
 
   return (

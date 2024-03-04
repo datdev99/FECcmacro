@@ -1,0 +1,61 @@
+.list-discuss {
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #ebedf2;
+        }
+
+        thead {
+            th, td {
+                font-weight: 700;
+                border-bottom-width: 1px;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            tr {
+                th {
+                    &:nth-child(1) {
+                        width: 80px;
+                    }
+
+                    &:nth-child(3) {
+                        width: 150px;
+                    }
+                }
+
+                
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    &:nth-child(1) {
+                        text-align: center;
+                    }
+
+                    &:nth-child(3) {
+                        text-align: center;
+
+                        a {
+                            margin: 0 10px;
+                            display: inline-block;
+                        }
+                    }
+
+                    a {
+                        color: #212529;
+                    }
+                }
+            }
+        }
+
+        th, td {
+            border: 1px solid #ebedf2;
+            padding: 0.75rem;
+        }
+    }
+}

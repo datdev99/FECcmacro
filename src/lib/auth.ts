@@ -20,3 +20,4 @@ export const setToken = (token: string): void => {
 export const removeToken = (): void => {
   localStorage.removeItem('token');
 };
+

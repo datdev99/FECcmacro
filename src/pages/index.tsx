@@ -19,7 +19,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import the styles
 import Layout from '@/components/layout'
 import Head from 'next/head';
-
+import { ListBroker } from '@/lib/func';
 
 
 const Page = ({ postKienThuc, postPhanTich, items }:any) => {
@@ -29,7 +29,7 @@ const Page = ({ postKienThuc, postPhanTich, items }:any) => {
       easing: 'ease-in-out', // Easing options
     });
   }, []); // Run this effect once on mount
-
+  
   return (
     <>
       <Head>
@@ -55,7 +55,7 @@ const Page = ({ postKienThuc, postPhanTich, items }:any) => {
                 </div>
                 <div className='san-uy-tin'>
                   <p className='heading'> <Image src={icon} alt='' width={30} height={30} quality={80} unoptimized /> Top sàn uy tín</p>
-                  <Related_broker />
+                  <Related_broker brokerList={ListBroker()} />
                 </div>
               </div>
             </section>
